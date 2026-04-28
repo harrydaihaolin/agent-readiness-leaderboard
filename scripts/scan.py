@@ -1,26 +1,23 @@
 #!/usr/bin/env python3
 """
-Agent Readiness Scanner
-=======================
-Scores AI agent infrastructure repos on how well they support AI agents
-working within their own codebase.
+Agent Readiness Scanner v2
+==========================
+Shallow-clones each repo and invokes `agent-readiness scan --json` to score
+AI agent infrastructure repos using the official 4-pillar model:
 
-Scoring dimensions (100 pts total):
-  ai_context_files  25 pts  — CLAUDE.md, AGENTS.md, .cursorrules, etc.
-  documentation     20 pts  — README, CONTRIBUTING, CHANGELOG, SECURITY
-  testing           15 pts  — test dirs + runner configs
-  ci_cd             15 pts  — GitHub Actions workflow count
-  tooling           10 pts  — linting, formatting, type-checking
-  code_structure    10 pts  — languages, topics, license
-  conventions        5 pts  — issue/PR templates
-
-Uses the Git Trees API (1 call per repo) instead of individual Content API
-calls, keeping total API usage well within GitHub's rate limits.
+  cognitive_load  — clarity and navigability of the codebase
+  feedback        — testing, CI, and observability signals
+  flow            — reliability, automation, and contributor experience
+  safety          — security posture and responsible-AI signals
 """
 
 import json
 import os
+import shutil
+import subprocess
 import sys
+import tempfile
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 
 import requests
@@ -31,10 +28,11 @@ import requests
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 BASE = "https://api.github.com"
+MAX_WORKERS = 8
 
 HEADERS: dict[str, str] = {
     "Accept": "application/vnd.github.v3+json",
-    "User-Agent": "agent-readiness-leaderboard/1.0",
+    "User-Agent": "agent-readiness-leaderboard/2.0",
 }
 if GITHUB_TOKEN:
     HEADERS["Authorization"] = f"Bearer {GITHUB_TOKEN}"
@@ -148,301 +146,183 @@ TARGET_REPOS = [
 ]
 
 # ---------------------------------------------------------------------------
-# HTTP helpers
+# GitHub metadata
 # ---------------------------------------------------------------------------
 
-def get(path: str) -> dict | list | None:
-    url = path if path.startswith("http") else f"{BASE}{path}"
+def get_repo_meta(full_name: str) -> dict | None:
+    url = f"{BASE}/repos/{full_name}"
     try:
         r = requests.get(url, headers=HEADERS, timeout=30)
     except requests.RequestException as exc:
-        print(f"    network error: {exc}", file=sys.stderr)
+        print(f"    network error for {full_name}: {exc}", file=sys.stderr)
         return None
     if r.status_code == 200:
         return r.json()
     if r.status_code in (403, 429):
         reset = r.headers.get("X-RateLimit-Reset", "?")
-        print(f"    rate-limited (reset={reset}): {url}", file=sys.stderr)
+        print(f"    rate-limited (reset={reset}): {full_name}", file=sys.stderr)
     elif r.status_code != 404:
-        print(f"    HTTP {r.status_code}: {url}", file=sys.stderr)
+        print(f"    HTTP {r.status_code}: {full_name}", file=sys.stderr)
     return None
-
-
-def get_tree(owner: str, repo: str) -> set[str]:
-    """Return all file paths in the repo via the recursive tree API."""
-    data = get(f"/repos/{owner}/{repo}/git/trees/HEAD?recursive=1")
-    if not data:
-        return set()
-    paths = {item["path"] for item in data.get("tree", []) if item.get("type") == "blob"}
-    if data.get("truncated"):
-        # Large repos: also pull the shallow root listing as fallback
-        root = get(f"/repos/{owner}/{repo}/contents/")
-        if isinstance(root, list):
-            for item in root:
-                paths.add(item["path"])
-    return paths
-
-# ---------------------------------------------------------------------------
-# Scoring functions
-# ---------------------------------------------------------------------------
-
-def score_ai_context_files(tree: set[str]) -> dict:
-    weighted = {
-        "CLAUDE.md": 10,
-        "AGENTS.md": 10,
-        ".cursorrules": 8,
-        "AI.md": 6,
-        ".ai-context.md": 6,
-        ".github/copilot-instructions.md": 5,
-        "COPILOT.md": 4,
-        "docs/AGENTS.md": 4,
-        "CODEOWNERS": 2,
-        ".github/CODEOWNERS": 2,
-    }
-    found = {f: pts for f, pts in weighted.items() if f in tree}
-    score = min(sum(found.values()), 25)
-    return {
-        "score": score,
-        "max": 25,
-        "found": list(found.keys()),
-        "detail": f"Found: {', '.join(found.keys())}" if found else "No AI context files detected",
-    }
-
-
-def score_documentation(tree: set[str], repo_data: dict) -> dict:
-    score = 0
-    found: list[str] = []
-    if repo_data.get("description"):
-        score += 2; found.append("description")
-    if any(p in tree for p in ("README.md", "README.rst", "README")):
-        score += 5; found.append("README")
-    if any(p in tree for p in ("CONTRIBUTING.md", "CONTRIBUTING.rst", "CONTRIBUTING")):
-        score += 5; found.append("CONTRIBUTING")
-    if "CODE_OF_CONDUCT.md" in tree:
-        score += 2; found.append("CODE_OF_CONDUCT")
-    if any(p in tree for p in ("CHANGELOG.md", "CHANGELOG", "CHANGELOG.rst", "HISTORY.md", "RELEASES.md")):
-        score += 3; found.append("CHANGELOG")
-    if "SECURITY.md" in tree:
-        score += 3; found.append("SECURITY")
-    return {
-        "score": min(score, 20),
-        "max": 20,
-        "found": found,
-        "detail": ", ".join(found) if found else "Minimal documentation",
-    }
-
-
-def score_testing(tree: set[str]) -> dict:
-    test_dirs = ["__tests__", "tests", "test", "spec", "e2e", "cypress", "playwright", "integration_tests", "unit_tests"]
-    test_configs = [
-        "jest.config.js", "jest.config.ts", "jest.config.mjs",
-        "pytest.ini", "setup.cfg", "conftest.py",
-        ".mocharc.yml", ".mocharc.js",
-        "vitest.config.ts", "vitest.config.js",
-        "karma.conf.js",
-        "cypress.config.js", "cypress.config.ts",
-        "playwright.config.ts", "playwright.config.js",
-        "phpunit.xml", "go.sum",
-    ]
-    found_dirs = [d for d in test_dirs if d in tree or any(p.startswith(d + "/") for p in tree)]
-    found_cfgs = [c for c in test_configs if c in tree]
-    score = min(len(found_dirs) * 4, 10) + min(len(found_cfgs) * 2, 5)
-    found = found_dirs + found_cfgs
-    return {
-        "score": min(score, 15),
-        "max": 15,
-        "found": found,
-        "detail": f"Dirs: {', '.join(found_dirs[:3])}; configs: {', '.join(found_cfgs[:3])}" if found else "No test infrastructure detected",
-    }
-
-
-def score_ci_cd(tree: set[str]) -> dict:
-    workflows = [p for p in tree if p.startswith(".github/workflows/") and p.endswith((".yml", ".yaml"))]
-    score = 0
-    found: list[str] = []
-    if workflows:
-        score += 8; found.append(f"{len(workflows)} workflow(s)")
-        if len(workflows) >= 4:
-            score += 4
-        if len(workflows) >= 8:
-            score += 3
-    if ".travis.yml" in tree:
-        score += 2; found.append("Travis CI")
-    if any(p in tree for p in ("Makefile", "Taskfile.yml", "Taskfile.yaml", "justfile")):
-        score += 1; found.append("Makefile/Taskfile")
-    return {
-        "score": min(score, 15),
-        "max": 15,
-        "found": found,
-        "workflow_count": len(workflows),
-        "detail": ", ".join(found) if found else "No CI/CD configuration detected",
-    }
-
-
-def score_tooling(tree: set[str]) -> dict:
-    tools: dict[str, int] = {
-        ".eslintrc.js": 2, ".eslintrc.json": 2, ".eslintrc.yml": 2, ".eslintrc": 2,
-        "eslint.config.js": 2, "eslint.config.mjs": 2,
-        ".prettierrc": 2, ".prettierrc.json": 2, ".prettierrc.js": 2,
-        ".editorconfig": 1,
-        "pyproject.toml": 2, ".ruff.toml": 2, "ruff.toml": 2,
-        ".flake8": 1, ".pylintrc": 1,
-        "mypy.ini": 2, ".mypy.ini": 2,
-        "tsconfig.json": 2,
-        ".pre-commit-config.yaml": 2,
-        "biome.json": 2,
-        "lefthook.yml": 1,
-        "renovate.json": 1, ".renovaterc": 1,
-        "Dockerfile": 1,
-    }
-    found = {f: pts for f, pts in tools.items() if f in tree}
-    score = min(sum(found.values()), 10)
-    return {
-        "score": score,
-        "max": 10,
-        "found": list(found.keys()),
-        "detail": ", ".join(list(found.keys())[:5]) if found else "No tooling config detected",
-    }
-
-
-def score_code_structure(tree: set[str], repo_data: dict, languages: dict) -> dict:
-    score = 0
-    found: list[str] = []
-    if languages:
-        n = len(languages)
-        score += min(n, 4); found.append(f"{n} language(s)")
-    topics = repo_data.get("topics", [])
-    if len(topics) >= 5:
-        score += 3; found.append(f"{len(topics)} topics")
-    elif len(topics) >= 2:
-        score += 2; found.append(f"{len(topics)} topics")
-    elif topics:
-        score += 1
-    if repo_data.get("license"):
-        score += 3; found.append(repo_data["license"]["spdx_id"])
-    return {
-        "score": min(score, 10),
-        "max": 10,
-        "found": found,
-        "detail": ", ".join(found) if found else "Minimal structure signals",
-    }
-
-
-def score_conventions(tree: set[str]) -> dict:
-    score = 0
-    found: list[str] = []
-    issue_tmpls = [p for p in tree if p.startswith(".github/ISSUE_TEMPLATE/") or p == ".github/ISSUE_TEMPLATE.md"]
-    if issue_tmpls:
-        score += 2; found.append(f"{len(issue_tmpls)} issue template(s)")
-    pr_tmpls = [
-        p for p in tree if p in (
-            ".github/PULL_REQUEST_TEMPLATE.md",
-            ".github/pull_request_template.md",
-        ) or p.startswith(".github/PULL_REQUEST_TEMPLATE/")
-    ]
-    if pr_tmpls:
-        score += 2; found.append("PR template")
-    if "GOVERNANCE.md" in tree:
-        score += 1; found.append("GOVERNANCE.md")
-    return {
-        "score": min(score, 5),
-        "max": 5,
-        "found": found,
-        "detail": ", ".join(found) if found else "No community conventions detected",
-    }
 
 # ---------------------------------------------------------------------------
 # Grade
 # ---------------------------------------------------------------------------
 
-def grade(pct: float) -> str:
-    if pct >= 90: return "S"
-    if pct >= 80: return "A"
-    if pct >= 70: return "B"
-    if pct >= 55: return "C"
-    if pct >= 40: return "D"
+def grade(score: float) -> str:
+    if score >= 80: return "S"
+    if score >= 65: return "A"
+    if score >= 50: return "B"
+    if score >= 35: return "C"
+    if score >= 20: return "D"
     return "F"
 
 # ---------------------------------------------------------------------------
-# Main scanner
+# Scanner
 # ---------------------------------------------------------------------------
 
 def scan_repo(full_name: str) -> dict | None:
-    owner, repo = full_name.split("/", 1)
+    owner, repo_name = full_name.split("/", 1)
     print(f"  → {full_name}", flush=True)
 
-    repo_data = get(f"/repos/{owner}/{repo}")
-    if not repo_data or isinstance(repo_data, list):
-        print(f"    ✗ could not fetch repo metadata", file=sys.stderr)
+    # 1. Fetch GitHub metadata
+    meta = get_repo_meta(full_name)
+    if not meta:
+        print(f"    ✗ {full_name}: could not fetch metadata", file=sys.stderr)
         return None
 
-    tree = get_tree(owner, repo)
-    languages: dict = get(f"/repos/{owner}/{repo}/languages") or {}
+    # 2. Shallow clone into a temp directory
+    tmpdir = tempfile.mkdtemp(prefix="ar_scan_")
+    try:
+        clone_url = f"https://github.com/{full_name}.git"
+        clone = subprocess.run(
+            ["git", "clone", "--depth", "1", "--single-branch", "--no-tags",
+             clone_url, tmpdir],
+            capture_output=True,
+            timeout=120,
+        )
+        if clone.returncode != 0:
+            err = clone.stderr.decode(errors="replace")[:300]
+            print(f"    ✗ {full_name}: clone failed: {err}", file=sys.stderr)
+            return None
 
-    categories = {
-        "ai_context_files": score_ai_context_files(tree),
-        "documentation":    score_documentation(tree, repo_data),
-        "testing":          score_testing(tree),
-        "ci_cd":            score_ci_cd(tree),
-        "tooling":          score_tooling(tree),
-        "code_structure":   score_code_structure(tree, repo_data, languages),
-        "conventions":      score_conventions(tree),
-    }
+        # 3. Run agent-readiness scan
+        ar = subprocess.run(
+            ["agent-readiness", "scan", tmpdir, "--json"],
+            capture_output=True,
+            timeout=120,
+        )
+        stdout = ar.stdout.decode(errors="replace").strip()
 
-    total     = sum(c["score"] for c in categories.values())
-    max_total = sum(c["max"]   for c in categories.values())
-    pct       = round(total / max_total * 100, 1)
+        # agent-readiness exits 1 when findings are present — that's still valid output
+        if not stdout:
+            err = ar.stderr.decode(errors="replace")[:300]
+            print(f"    ✗ {full_name}: no output from agent-readiness: {err}", file=sys.stderr)
+            return None
+
+        # 4. Parse JSON output
+        try:
+            ar_data = json.loads(stdout)
+        except json.JSONDecodeError as exc:
+            print(f"    ✗ {full_name}: JSON parse error: {exc}", file=sys.stderr)
+            return None
+
+        # 5. Extract pillar scores and top findings
+        overall_score = round(float(ar_data.get("overall_score", 0.0)), 1)
+        pillars: dict[str, float] = {}
+        top_findings: list[dict] = []
+
+        for pillar_obj in ar_data.get("pillars", []):
+            pname = pillar_obj.get("pillar", "")
+            pillars[pname] = round(float(pillar_obj.get("score", 0.0)), 1)
+
+            for check in pillar_obj.get("checks", []):
+                for finding in check.get("findings", []):
+                    sev = finding.get("severity", "")
+                    hint = finding.get("fix_hint", "")
+                    if sev in ("warn", "error") and hint:
+                        top_findings.append({
+                            "pillar":   pname,
+                            "check_id": finding.get("check_id", ""),
+                            "message":  finding.get("message", ""),
+                            "severity": sev,
+                            "fix_hint": hint,
+                        })
+
+        # errors first, then warn; cap at 8
+        top_findings.sort(key=lambda f: (0 if f["severity"] == "error" else 1, f["pillar"]))
+        top_findings = top_findings[:8]
+
+    finally:
+        shutil.rmtree(tmpdir, ignore_errors=True)
 
     return {
-        "repo":        full_name,
-        "name":        repo_data["name"],
-        "owner":       owner,
-        "description": repo_data.get("description") or "",
-        "stars":       repo_data.get("stargazers_count", 0),
-        "forks":       repo_data.get("forks_count", 0),
-        "language":    repo_data.get("language") or "",
-        "url":         repo_data["html_url"],
-        "avatar":      repo_data["owner"]["avatar_url"],
-        "topics":      (repo_data.get("topics") or [])[:6],
-        "total_score": total,
-        "max_score":   max_total,
-        "percentage":  pct,
-        "grade":       grade(pct),
-        "categories":  categories,
-        "scanned_at":  datetime.now(timezone.utc).isoformat(),
+        "repo":          full_name,
+        "name":          meta["name"],
+        "owner":         owner,
+        "description":   meta.get("description") or "",
+        "stars":         meta.get("stargazers_count", 0),
+        "forks":         meta.get("forks_count", 0),
+        "language":      meta.get("language") or "",
+        "url":           meta["html_url"],
+        "avatar":        meta["owner"]["avatar_url"],
+        "topics":        (meta.get("topics") or [])[:6],
+        "overall_score": overall_score,
+        "grade":         grade(overall_score),
+        "pillars":       pillars,
+        "top_findings":  top_findings,
+        "scanned_at":    datetime.now(timezone.utc).isoformat(),
     }
 
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
 
 def main() -> None:
-    print("Agent Readiness Scanner")
+    print("Agent Readiness Scanner v2.0")
     print("=" * 50)
 
-    results = []
-    for name in TARGET_REPOS:
-        result = scan_repo(name)
-        if result:
-            results.append(result)
+    results: list[dict] = []
+    failed:  list[str]  = []
 
-    results.sort(key=lambda x: x["percentage"], reverse=True)
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
+        futures = {pool.submit(scan_repo, name): name for name in TARGET_REPOS}
+        for fut in as_completed(futures):
+            name = futures[fut]
+            try:
+                result = fut.result()
+                if result:
+                    results.append(result)
+                else:
+                    failed.append(name)
+            except Exception as exc:
+                print(f"    ✗ {name}: unexpected error: {exc}", file=sys.stderr)
+                failed.append(name)
+
+    results.sort(key=lambda x: x["overall_score"], reverse=True)
     for i, r in enumerate(results, 1):
         r["rank"] = i
 
     output = {
-        "last_updated":  datetime.now(timezone.utc).isoformat(),
-        "scan_version":  "1.0.0",
-        "total_repos":   len(results),
-        "repos":         results,
+        "last_updated": datetime.now(timezone.utc).isoformat(),
+        "scan_version": "2.0.0",
+        "scanner":      "agent-readiness",
+        "total_repos":  len(results),
+        "repos":        results,
     }
 
     os.makedirs("data", exist_ok=True)
     with open("data/scores.json", "w") as f:
         json.dump(output, f, indent=2)
 
-    print(f"\n✓ Scanned {len(results)} repos → data/scores.json\n")
+    print(f"\n✓ Scanned {len(results)} repos → data/scores.json")
+    if failed:
+        print(f"  ✗ Failed ({len(failed)}): {', '.join(failed)}")
+    print()
     for r in results:
-        filled = int(r["percentage"] / 5)
+        filled = int(r["overall_score"] / 5)
         bar = "█" * filled + "░" * (20 - filled)
-        print(f"  #{r['rank']:2d} [{r['grade']}] {r['repo']:<40} {bar} {r['percentage']:5.1f}%")
+        print(f"  #{r['rank']:3d} [{r['grade']}] {r['repo']:<45} {bar} {r['overall_score']:5.1f}")
 
 
 if __name__ == "__main__":

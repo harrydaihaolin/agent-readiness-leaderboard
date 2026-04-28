@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agent Readiness Leaderboard</title>
-  <meta name="description" content="Which AI agent frameworks are themselves agent-ready? Daily scores across 7 dimensions." />
+  <meta name="description" content="Which AI agent frameworks are themselves agent-ready? Daily scores powered by the agent-readiness CLI tool." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -213,6 +213,24 @@
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
+    /* ── Top Findings ─────────────────────────────────────────────── */
+    .findings-section { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px; }
+    .findings-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+    .finding-item {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 6px 10px; align-items: baseline;
+      margin-bottom: 7px; font-size: 11px;
+    }
+    .finding-badge {
+      padding: 2px 7px; border-radius: 20px; font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .05em; white-space: nowrap;
+    }
+    .badge-error { background: rgba(248,81,73,.15); color: var(--red); border: 1px solid rgba(248,81,73,.3); }
+    .badge-warn  { background: rgba(210,153,34,.15); color: var(--yellow); border: 1px solid rgba(210,153,34,.3); }
+    .finding-body { min-width: 0; }
+    .finding-msg  { color: var(--muted); }
+    .finding-hint { color: var(--faint); margin-top: 1px; }
+
     /* ── Pagination ───────────────────────────────────────────────── */
     .pagination {
       display: flex; align-items: center; justify-content: center;
@@ -279,7 +297,7 @@
     Live · Updated Daily
   </div>
   <h1>Agent Readiness Leaderboard</h1>
-  <p>Which AI agent frameworks are themselves agent-ready? Scored daily across 7 dimensions.</p>
+  <p>Which AI agent frameworks are themselves agent-ready? Scored daily by <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">agent-readiness</a> across 4 pillars.</p>
 </header>
 
 <div class="stats-bar">
@@ -309,7 +327,9 @@
 
 <footer>
   <p>
-    Powered by <a href="https://github.com/harrydaihaolin/agent-readiness-leaderboard" target="_blank" rel="noopener">agent-readiness-leaderboard</a>
+    Powered by <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener">agent-readiness</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/harrydaihaolin/agent-readiness-leaderboard" target="_blank" rel="noopener">leaderboard source</a>
     <span class="sep">·</span>
     Scores updated daily at 06:00 UTC via GitHub Actions
     <span class="sep">·</span>
@@ -317,33 +337,27 @@
   </p>
   <div id="methodPanel" style="display:none; margin-top:16px;">
     <div class="methodology">
-      <p>Each repo is scored out of <strong>100 points</strong> across 7 categories:</p>
+      <p>Each repo is cloned and scored 0–100 by the <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener" style="color:var(--accent)">agent-readiness</a> CLI tool across 4 pillars:</p>
       <ul>
-        <li><strong>AI Context Files (25 pts)</strong> — CLAUDE.md, AGENTS.md, .cursorrules, copilot instructions</li>
-        <li><strong>Documentation (20 pts)</strong> — README, CONTRIBUTING, CHANGELOG, SECURITY, CODE_OF_CONDUCT</li>
-        <li><strong>Testing (15 pts)</strong> — test directories and test runner configs (pytest, jest, vitest…)</li>
-        <li><strong>CI/CD (15 pts)</strong> — GitHub Actions workflow count and depth</li>
-        <li><strong>Tooling (10 pts)</strong> — linting, formatting, and type-checking configs</li>
-        <li><strong>Code Structure (10 pts)</strong> — language count, topics, and license</li>
-        <li><strong>Conventions (5 pts)</strong> — issue/PR templates and community standards</li>
+        <li><strong>🧠 Cognitive Load</strong> — README clarity, run instructions, onboarding friction</li>
+        <li><strong>🔄 Feedback Loops</strong> — testing coverage, CI checks, evaluation harnesses</li>
+        <li><strong>⚡ Flow &amp; Reliability</strong> — automation, dependency health, contributor experience</li>
+        <li><strong>🛡️ Safety</strong> — security advisories, dependency scanning, responsible-AI signals</li>
       </ul>
       <p style="margin-top:10px;">
-        File detection uses the GitHub Git Trees API (1 call per repo) to avoid rate limits.
-        Rank always reflects the agent-readiness score order.
+        Repos are shallow-cloned (<code>git clone --depth 1</code>) in parallel during each CI run.
+        Rank always reflects the overall agent-readiness score.
       </p>
     </div>
   </div>
 </footer>
 
 <script>
-const CRITERIA = {
-  ai_context_files: { label: 'AI Context Files', icon: '🤖' },
-  documentation:    { label: 'Documentation',    icon: '📖' },
-  testing:          { label: 'Testing',          icon: '🧪' },
-  ci_cd:            { label: 'CI / CD',          icon: '⚙️' },
-  tooling:          { label: 'Tooling',          icon: '🔧' },
-  code_structure:   { label: 'Code Structure',   icon: '🏗️' },
-  conventions:      { label: 'Conventions',      icon: '📋' },
+const PILLARS = {
+  cognitive_load: { label: 'Cognitive Load',     icon: '🧠' },
+  feedback:       { label: 'Feedback Loops',     icon: '🔄' },
+  flow:           { label: 'Flow & Reliability', icon: '⚡' },
+  safety:         { label: 'Safety',             icon: '🛡️' },
 };
 
 // ── State ──────────────────────────────────────────────────────────────────
@@ -357,7 +371,7 @@ let sortDir   = -1;   // -1 = descending (high→low), 1 = ascending (low→high
 function getSorted() {
   return [...allRepos].sort((a, b) => {
     let cmp = 0;
-    if      (sortKey === 'score') cmp = a.percentage - b.percentage;
+    if      (sortKey === 'score') cmp = a.overall_score - b.overall_score;
     else if (sortKey === 'stars') cmp = a.stars - b.stars;
     else if (sortKey === 'name')  cmp = a.repo.localeCompare(b.repo);
     return sortDir * -cmp;
@@ -521,21 +535,35 @@ function renderPagination() {
 // ── Card HTML ──────────────────────────────────────────────────────────────
 function buildCard(repo, idx) {
   const delay  = Math.min(idx * 0.04, 0.3).toFixed(2);
-  const pct    = repo.percentage;
+  const pct    = repo.overall_score;
   const col    = scoreColor(pct);
   const topics = (repo.topics || []).slice(0, 3).map(t => `<span>#${t}</span>`).join('');
-  const cats   = Object.entries(CRITERIA).map(([key, meta]) => {
-    const cat = (repo.categories || {})[key];
-    if (!cat) return '';
-    const bp = ((cat.score / cat.max) * 100).toFixed(1);
+
+  const pillarBars = Object.entries(PILLARS).map(([key, meta]) => {
+    const score = (repo.pillars || {})[key];
+    if (score == null) return '';
+    const bp = score.toFixed(1);
     return `
       <div class="cat-row">
         <div class="cat-label">${meta.icon} ${meta.label}</div>
         <div class="bar-track"><div class="bar-fill" data-pct="${bp}"></div></div>
-        <div class="cat-score">${cat.score}/${cat.max}</div>
-        <div class="cat-detail">${cat.detail || ''}</div>
+        <div class="cat-score">${bp}/100</div>
       </div>`;
   }).join('');
+
+  const findings = (repo.top_findings || []);
+  const findingsHtml = findings.length === 0 ? '' : `
+    <div class="findings-section">
+      <div class="findings-title">Top Findings</div>
+      ${findings.map(f => `
+        <div class="finding-item">
+          <span class="finding-badge badge-${f.severity}">${f.severity}</span>
+          <div class="finding-body">
+            <div class="finding-msg">${f.message}</div>
+            ${f.fix_hint ? `<div class="finding-hint">💡 ${f.fix_hint}</div>` : ''}
+          </div>
+        </div>`).join('')}
+    </div>`;
 
   return `
     <div class="repo-card" style="animation-delay:${delay}s">
@@ -559,14 +587,15 @@ function buildCard(repo, idx) {
           <div class="grade grade-${repo.grade}">${repo.grade}</div>
           <div class="ring-wrap">
             ${ring(pct)}
-            <div class="ring-label" style="color:${col}">${pct}%</div>
+            <div class="ring-label" style="color:${col}">${pct}</div>
           </div>
           <span class="chevron">▾</span>
         </div>
       </div>
       <div class="breakdown">
         ${repo.description ? `<div class="desc">${repo.description}</div>` : ''}
-        ${cats}
+        ${pillarBars}
+        ${findingsHtml}
       </div>
     </div>`;
 }
