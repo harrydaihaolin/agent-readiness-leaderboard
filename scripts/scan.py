@@ -40,16 +40,111 @@ if GITHUB_TOKEN:
     HEADERS["Authorization"] = f"Bearer {GITHUB_TOKEN}"
 
 TARGET_REPOS = [
-    "langchain-ai/langchain",
-    "microsoft/semantic-kernel",
-    "microsoft/autogen",
-    "sgl-project/sglang",
-    "vllm-project/vllm",
-    "kubernetes/kubernetes",
-    "ray-project/ray",
-    "apache/airflow",
-    "temporalio/temporal",
-    "langfuse/langfuse",
+    # ── Agent Frameworks & Orchestration ──────────────────────────────────────
+    "langchain-ai/langchain",           # 135k ★  agent engineering platform
+    "langchain-ai/langgraph",           # 30k  ★  graph-based agent orchestration
+    "microsoft/autogen",                # 57k  ★  multi-agent AI framework
+    "crewAIInc/crewAI",                 # 50k  ★  role-playing autonomous agents
+    "run-llama/llama_index",            # 49k  ★  data framework for LLM apps
+    "FoundationAgents/MetaGPT",         # 67k  ★  multi-agent software company
+    "camel-ai/camel",                   # 16k  ★  communicative agents
+    "deepset-ai/haystack",              # 25k  ★  LLM orchestration framework
+    "pydantic/pydantic-ai",             # 16k  ★  type-safe AI agents
+    "stanfordnlp/dspy",                 # 34k  ★  programmatic LLM pipelines
+    "letta-ai/letta",                   # 22k  ★  stateful agents with memory
+    "microsoft/TaskWeaver",             # 6k   ★  code-first agent framework
+    "QwenLM/Qwen-Agent",                # 16k  ★  Qwen-based agent framework
+    "TransformerOptimus/SuperAGI",      # 17k  ★  autonomous AI agent framework
+    "openai/swarm",                     # 21k  ★  lightweight multi-agent
+    "griptape-ai/griptape",             # 2k   ★  modular agent framework
+    "Significant-Gravitas/AutoGPT",     # 183k ★  autonomous GPT agent
+    "agno-agi/agno",                    # 39k  ★  agent framework (formerly phidata)
+    "neuml/txtai",                      # 12k  ★  AI framework for semantic search
+    "huggingface/smolagents",           # 26k  ★  minimal agent framework by HF
+    "microsoft/promptflow",             # 11k  ★  LLM workflow framework
+    "assafelovic/gpt-researcher",       # 26k  ★  autonomous research agent
+    "openai/openai-agents-python",      # 25k  ★  OpenAI agents SDK
+    "kyegomez/swarms",                  # 6k   ★  multi-agent swarm framework
+    "SWE-agent/SWE-agent",              # 19k  ★  software engineering agent
+    "OpenHands/OpenHands",              # 72k  ★  open-source coding agent
+    "yoheinakajima/babyagi",            # 22k  ★  task-driven autonomous agent
+    "OpenBMB/ChatDev",                  # 32k  ★  multi-agent software dev
+    "guidance-ai/guidance",             # 21k  ★  constrained LLM generation
+    # ── LLM Inference & Serving ───────────────────────────────────────────────
+    "vllm-project/vllm",                # 78k  ★  high-throughput LLM inference
+    "sgl-project/sglang",               # 13k  ★  structured generation serving
+    "ggml-org/llama.cpp",               # 107k ★  C/C++ LLM inference
+    "ollama/ollama",                    # 170k ★  local LLM runtime
+    "huggingface/text-generation-inference", # 10k ★ TGI serving
+    "huggingface/transformers",         # 160k ★  core ML transforms
+    "skypilot-org/skypilot",            # 9k   ★  cloud LLM deployment
+    "mudler/LocalAI",                   # 45k  ★  local AI inference server
+    "nomic-ai/gpt4all",                 # 77k  ★  local LLM desktop runner
+    "unslothai/unsloth",                # 63k  ★  fast LLM fine-tuning
+    "hiyouga/LlamaFactory",             # 70k  ★  unified LLM fine-tuning
+    "oobabooga/text-generation-webui",  # 46k  ★  LLM web UI
+    "deepspeedai/DeepSpeed",            # 42k  ★  deep learning optimization
+    "mistralai/mistral-inference",      # 10k  ★  Mistral inference engine
+    # ── LLM App Platforms ─────────────────────────────────────────────────────
+    "langgenius/dify",                  # 139k ★  LLM app development platform
+    "open-webui/open-webui",            # 134k ★  local LLM web interface
+    # ── LLM SDKs & APIs ───────────────────────────────────────────────────────
+    "openai/openai-python",             # 30k  ★  official OpenAI Python SDK
+    "anthropics/anthropic-sdk-python",  # 3k   ★  official Anthropic Python SDK
+    "BerriAI/litellm",                  # 45k  ★  universal LLM API
+    "microsoft/semantic-kernel",        # 27k  ★  LLM integration SDK
+    "ComposioHQ/composio",              # 27k  ★  AI tools integration
+    "modelcontextprotocol/python-sdk",  # 22k  ★  MCP Python SDK
+    "modelcontextprotocol/typescript-sdk", # 12k ★ MCP TypeScript SDK
+    "567-labs/instructor",              # 12k  ★  structured LLM outputs
+    "vibrantlabsai/ragas",              # 13k  ★  RAG evaluation framework
+    # ── Memory & Vector Stores ────────────────────────────────────────────────
+    "mem0ai/mem0",                      # 54k  ★  universal memory layer
+    "chroma-core/chroma",               # 27k  ★  vector database
+    "qdrant/qdrant",                    # 30k  ★  vector search engine
+    "weaviate/weaviate",                # 16k  ★  vector + graph DB
+    "milvus-io/milvus",                 # 44k  ★  vector database
+    "lancedb/lancedb",                  # 10k  ★  multi-modal vector DB
+    "activeloopai/deeplake",            # 9k   ★  deep learning data lake
+    "milvus-io/pymilvus",               # 1k   ★  Milvus Python SDK
+    "microsoft/graphrag",               # 32k  ★  graph-based RAG
+    # ── Workflow & Orchestration ──────────────────────────────────────────────
+    "apache/airflow",                   # 45k  ★  DAG workflow orchestration
+    "ray-project/ray",                  # 42k  ★  distributed compute
+    "temporalio/temporal",              # 19k  ★  durable workflow engine
+    "celery/celery",                    # 28k  ★  distributed task queue
+    "PrefectHQ/prefect",                # 22k  ★  modern workflow orchestration
+    "dagster-io/dagster",               # 15k  ★  data orchestration
+    "argoproj/argo-workflows",          # 16k  ★  K8s workflow engine
+    "kubeflow/kubeflow",                # 15k  ★  ML workflows on K8s
+    "kubernetes/kubernetes",            # 112k ★  container orchestration
+    "n8n-io/n8n",                       # 185k ★  workflow automation
+    # ── Observability & Eval ──────────────────────────────────────────────────
+    "langfuse/langfuse",                # 26k  ★  LLM observability platform
+    "Arize-ai/phoenix",                 # 9k   ★  AI observability & eval
+    "traceloop/openllmetry",            # 7k   ★  LLM observability SDK
+    "Helicone/helicone",                # 5k   ★  LLM observability proxy
+    "AgentOps-AI/agentops",             # 5k   ★  agent monitoring SDK
+    "EleutherAI/lm-evaluation-harness", # 12k  ★  LLM evaluation framework
+    "guardrails-ai/guardrails",         # 6k   ★  LLM output validation
+    "mlflow/mlflow",                    # 25k  ★  ML experiment tracking
+    "wandb/wandb",                      # 11k  ★  ML observability platform
+    # ── Agent Execution & Environments ───────────────────────────────────────
+    "e2b-dev/E2B",                      # 11k  ★  secure execution environments
+    "simular-ai/Agent-S",               # 10k  ★  computer-use agent framework
+    "TencentQQGYLab/AppAgent",          # 6k   ★  smartphone app agent
+    "GreyDGL/PentestGPT",               # 12k  ★  pentest agent framework
+    "InternLM/MindSearch",              # 6k   ★  web search agent
+    "SerpentAI/SerpentAI",              # 6k   ★  game agent framework
+    "HKUDS/AutoAgent",                  # 9k   ★  LLM agent framework
+    "browser-use/browser-use",          # 90k  ★  browser automation for agents
+    # ── ML/AI Infrastructure ──────────────────────────────────────────────────
+    "ml-explore/mlx",                   # 25k  ★  Apple Silicon ML framework
+    "NVIDIA-NeMo/NeMo",                 # 17k  ★  NVIDIA conversational AI
+    "huggingface/peft",                 # 21k  ★  parameter-efficient fine-tuning
+    "huggingface/accelerate",           # 9k   ★  distributed training
+    "OpenPipe/OpenPipe",                # 2k   ★  LLM fine-tuning platform
+    "VoltAgent/voltagent",              # 8k   ★  TypeScript agent framework
 ]
 
 # ---------------------------------------------------------------------------
