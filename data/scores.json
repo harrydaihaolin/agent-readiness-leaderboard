@@ -1,277 +1,903 @@
 {
-  "last_updated": "2026-04-28T06:00:00+00:00",
+  "last_updated": "2026-04-28T22:44:27.731390+00:00",
   "scan_version": "1.0.0",
   "total_repos": 10,
   "repos": [
     {
-      "rank": 1,
-      "repo": "langchain-ai/langchain",
-      "name": "langchain",
-      "owner": "langchain-ai",
-      "description": "Build context-aware reasoning applications",
-      "stars": 97000,
-      "forks": 15800,
+      "repo": "vllm-project/vllm",
+      "name": "vllm",
+      "owner": "vllm-project",
+      "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+      "stars": 78480,
+      "forks": 16208,
       "language": "Python",
-      "url": "https://github.com/langchain-ai/langchain",
-      "avatar": "https://avatars.githubusercontent.com/langchain-ai",
-      "topics": ["llm", "agents", "python", "langchain", "rag", "ai"],
+      "url": "https://github.com/vllm-project/vllm",
+      "avatar": "https://avatars.githubusercontent.com/u/136984999?v=4",
+      "topics": [
+        "amd",
+        "blackwell",
+        "cuda",
+        "deepseek",
+        "deepseek-v3",
+        "gpt"
+      ],
+      "total_score": 73,
+      "max_score": 100,
+      "percentage": 73.0,
+      "grade": "B",
+      "categories": {
+        "ai_context_files": {
+          "score": 22,
+          "max": 25,
+          "found": [
+            "CLAUDE.md",
+            "AGENTS.md",
+            ".github/CODEOWNERS"
+          ],
+          "detail": "Found: CLAUDE.md, AGENTS.md, .github/CODEOWNERS"
+        },
+        "documentation": {
+          "score": 17,
+          "max": 20,
+          "found": [
+            "description",
+            "README",
+            "CONTRIBUTING",
+            "CODE_OF_CONDUCT",
+            "SECURITY"
+          ],
+          "detail": "description, README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY"
+        },
+        "testing": {
+          "score": 4,
+          "max": 15,
+          "found": [
+            "tests"
+          ],
+          "detail": "Dirs: tests; configs: "
+        },
+        "ci_cd": {
+          "score": 12,
+          "max": 15,
+          "found": [
+            "6 workflow(s)"
+          ],
+          "workflow_count": 6,
+          "detail": "6 workflow(s)"
+        },
+        "tooling": {
+          "score": 4,
+          "max": 10,
+          "found": [
+            "pyproject.toml",
+            ".pre-commit-config.yaml"
+          ],
+          "detail": "pyproject.toml, .pre-commit-config.yaml"
+        },
+        "code_structure": {
+          "score": 10,
+          "max": 10,
+          "found": [
+            "9 language(s)",
+            "20 topics",
+            "Apache-2.0"
+          ],
+          "detail": "9 language(s), 20 topics, Apache-2.0"
+        },
+        "conventions": {
+          "score": 4,
+          "max": 5,
+          "found": [
+            "10 issue template(s)",
+            "PR template"
+          ],
+          "detail": "10 issue template(s), PR template"
+        }
+      },
+      "scanned_at": "2026-04-28T22:44:19.965274+00:00",
+      "rank": 1
+    },
+    {
+      "repo": "apache/airflow",
+      "name": "airflow",
+      "owner": "apache",
+      "description": "Apache Airflow - A platform to programmatically author, schedule, and monitor workflows",
+      "stars": 45223,
+      "forks": 16948,
+      "language": "Python",
+      "url": "https://github.com/apache/airflow",
+      "avatar": "https://avatars.githubusercontent.com/u/47359?v=4",
+      "topics": [
+        "airflow",
+        "apache",
+        "apache-airflow",
+        "automation",
+        "dag",
+        "data-engineering"
+      ],
       "total_score": 72,
       "max_score": 100,
       "percentage": 72.0,
       "grade": "B",
       "categories": {
-        "ai_context_files": { "score": 5, "max": 25, "found": ["CODEOWNERS"], "detail": "Found: CODEOWNERS" },
-        "documentation":    { "score": 17, "max": 20, "found": ["description", "README", "CONTRIBUTING", "CODE_OF_CONDUCT", "SECURITY"], "detail": "description, README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY" },
-        "testing":          { "score": 13, "max": 15, "found": ["tests", "unit_tests", "conftest.py"], "detail": "Dirs: tests, unit_tests; configs: conftest.py" },
-        "ci_cd":            { "score": 15, "max": 15, "found": ["12 workflow(s)"], "workflow_count": 12, "detail": "12 workflow(s)" },
-        "tooling":          { "score": 9, "max": 10, "found": ["pyproject.toml", ".ruff.toml", "mypy.ini", ".pre-commit-config.yaml"], "detail": "pyproject.toml, .ruff.toml, mypy.ini, .pre-commit-config.yaml" },
-        "code_structure":   { "score": 9, "max": 10, "found": ["5 language(s)", "6 topics", "MIT"], "detail": "5 language(s), 6 topics, MIT" },
-        "conventions":      { "score": 4, "max": 5, "found": ["3 issue template(s)", "PR template"], "detail": "3 issue template(s), PR template" }
+        "ai_context_files": {
+          "score": 22,
+          "max": 25,
+          "found": [
+            "CLAUDE.md",
+            "AGENTS.md",
+            ".github/CODEOWNERS"
+          ],
+          "detail": "Found: CLAUDE.md, AGENTS.md, .github/CODEOWNERS"
+        },
+        "documentation": {
+          "score": 14,
+          "max": 20,
+          "found": [
+            "description",
+            "README",
+            "CONTRIBUTING",
+            "CODE_OF_CONDUCT"
+          ],
+          "detail": "description, README, CONTRIBUTING, CODE_OF_CONDUCT"
+        },
+        "testing": {
+          "score": 0,
+          "max": 15,
+          "found": [],
+          "detail": "No test infrastructure detected"
+        },
+        "ci_cd": {
+          "score": 15,
+          "max": 15,
+          "found": [
+            "43 workflow(s)"
+          ],
+          "workflow_count": 43,
+          "detail": "43 workflow(s)"
+        },
+        "tooling": {
+          "score": 6,
+          "max": 10,
+          "found": [
+            ".editorconfig",
+            "pyproject.toml",
+            ".pre-commit-config.yaml",
+            "Dockerfile"
+          ],
+          "detail": ".editorconfig, pyproject.toml, .pre-commit-config.yaml, Dockerfile"
+        },
+        "code_structure": {
+          "score": 10,
+          "max": 10,
+          "found": [
+            "15 language(s)",
+            "20 topics",
+            "Apache-2.0"
+          ],
+          "detail": "15 language(s), 20 topics, Apache-2.0"
+        },
+        "conventions": {
+          "score": 5,
+          "max": 5,
+          "found": [
+            "5 issue template(s)",
+            "PR template",
+            "GOVERNANCE.md"
+          ],
+          "detail": "5 issue template(s), PR template, GOVERNANCE.md"
+        }
       },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
+      "scanned_at": "2026-04-28T22:44:25.273460+00:00",
+      "rank": 2
     },
     {
-      "rank": 2,
-      "repo": "apache/airflow",
-      "name": "airflow",
-      "owner": "apache",
-      "description": "Apache Airflow - A platform to programmatically author, schedule, and monitor workflows",
-      "stars": 38000,
-      "forks": 14500,
-      "language": "Python",
-      "url": "https://github.com/apache/airflow",
-      "avatar": "https://avatars.githubusercontent.com/apache",
-      "topics": ["python", "workflow", "dag", "scheduler", "airflow", "apache"],
-      "total_score": 69,
+      "repo": "langfuse/langfuse",
+      "name": "langfuse",
+      "owner": "langfuse",
+      "description": "\ud83e\udea2 Open source LLM engineering platform: LLM Observability, metrics, evals, prompt management, playground, datasets. Integrates with OpenTelemetry, Langchain, OpenAI SDK, LiteLLM, and more. \ud83c\udf4aYC W23 ",
+      "stars": 26264,
+      "forks": 2658,
+      "language": "TypeScript",
+      "url": "https://github.com/langfuse/langfuse",
+      "avatar": "https://avatars.githubusercontent.com/u/134601687?v=4",
+      "topics": [
+        "analytics",
+        "autogen",
+        "evaluation",
+        "langchain",
+        "large-language-models",
+        "llama-index"
+      ],
+      "total_score": 66,
       "max_score": 100,
-      "percentage": 69.0,
-      "grade": "B",
-      "categories": {
-        "ai_context_files": { "score": 2, "max": 25, "found": ["CODEOWNERS"], "detail": "Found: CODEOWNERS" },
-        "documentation":    { "score": 17, "max": 20, "found": ["description", "README", "CONTRIBUTING", "CODE_OF_CONDUCT", "CHANGELOG"], "detail": "description, README, CONTRIBUTING, CODE_OF_CONDUCT, CHANGELOG" },
-        "testing":          { "score": 13, "max": 15, "found": ["tests", "integration_tests", "conftest.py", "pytest.ini"], "detail": "Dirs: tests, integration_tests; configs: conftest.py, pytest.ini" },
-        "ci_cd":            { "score": 15, "max": 15, "found": ["18 workflow(s)"], "workflow_count": 18, "detail": "18 workflow(s)" },
-        "tooling":          { "score": 10, "max": 10, "found": ["pyproject.toml", ".pre-commit-config.yaml", ".editorconfig", "mypy.ini"], "detail": "pyproject.toml, .pre-commit-config.yaml, .editorconfig, mypy.ini" },
-        "code_structure":   { "score": 8, "max": 10, "found": ["4 language(s)", "6 topics", "Apache-2.0"], "detail": "4 language(s), 6 topics, Apache-2.0" },
-        "conventions":      { "score": 4, "max": 5, "found": ["4 issue template(s)", "PR template"], "detail": "4 issue template(s), PR template" }
-      },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
-    },
-    {
-      "rank": 3,
-      "repo": "kubernetes/kubernetes",
-      "name": "kubernetes",
-      "owner": "kubernetes",
-      "description": "Production-Grade Container Scheduling and Management",
-      "stars": 112000,
-      "forks": 40000,
-      "language": "Go",
-      "url": "https://github.com/kubernetes/kubernetes",
-      "avatar": "https://avatars.githubusercontent.com/kubernetes",
-      "topics": ["kubernetes", "containers", "go", "cloud-native", "cncf"],
-      "total_score": 67,
-      "max_score": 100,
-      "percentage": 67.0,
-      "grade": "B",
-      "categories": {
-        "ai_context_files": { "score": 4, "max": 25, "found": ["CODEOWNERS", ".github/CODEOWNERS"], "detail": "Found: CODEOWNERS, .github/CODEOWNERS" },
-        "documentation":    { "score": 15, "max": 20, "found": ["description", "README", "CONTRIBUTING", "CODE_OF_CONDUCT", "SECURITY"], "detail": "description, README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY" },
-        "testing":          { "score": 13, "max": 15, "found": ["test", "e2e", "integration_tests"], "detail": "Dirs: test, e2e, integration_tests" },
-        "ci_cd":            { "score": 12, "max": 15, "found": ["8 workflow(s)"], "workflow_count": 8, "detail": "8 workflow(s)" },
-        "tooling":          { "score": 7, "max": 10, "found": [".golangci.yml", "Makefile", ".editorconfig"], "detail": ".golangci.yml, Makefile, .editorconfig" },
-        "code_structure":   { "score": 10, "max": 10, "found": ["5 language(s)", "5 topics", "Apache-2.0"], "detail": "5 language(s), 5 topics, Apache-2.0" },
-        "conventions":      { "score": 6, "max": 5, "found": ["5 issue template(s)", "PR template"], "detail": "5 issue template(s), PR template" }
-      },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
-    },
-    {
-      "rank": 4,
-      "repo": "ray-project/ray",
-      "name": "ray",
-      "owner": "ray-project",
-      "description": "Ray is an AI compute engine. Ray consists of a core distributed runtime and a set of AI Libraries for accelerating ML workloads.",
-      "stars": 35000,
-      "forks": 6100,
-      "language": "Python",
-      "url": "https://github.com/ray-project/ray",
-      "avatar": "https://avatars.githubusercontent.com/ray-project",
-      "topics": ["python", "distributed", "machine-learning", "ray", "actors", "ai"],
-      "total_score": 62,
-      "max_score": 100,
-      "percentage": 62.0,
-      "grade": "B",
-      "categories": {
-        "ai_context_files": { "score": 2, "max": 25, "found": ["CODEOWNERS"], "detail": "Found: CODEOWNERS" },
-        "documentation":    { "score": 16, "max": 20, "found": ["description", "README", "CONTRIBUTING", "CODE_OF_CONDUCT", "SECURITY"], "detail": "description, README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY" },
-        "testing":          { "score": 12, "max": 15, "found": ["tests", "e2e", "conftest.py"], "detail": "Dirs: tests, e2e; configs: conftest.py" },
-        "ci_cd":            { "score": 12, "max": 15, "found": ["9 workflow(s)"], "workflow_count": 9, "detail": "9 workflow(s)" },
-        "tooling":          { "score": 8, "max": 10, "found": ["pyproject.toml", ".pre-commit-config.yaml", "mypy.ini", ".editorconfig"], "detail": "pyproject.toml, .pre-commit-config.yaml, mypy.ini, .editorconfig" },
-        "code_structure":   { "score": 8, "max": 10, "found": ["4 language(s)", "6 topics", "Apache-2.0"], "detail": "4 language(s), 6 topics, Apache-2.0" },
-        "conventions":      { "score": 4, "max": 5, "found": ["3 issue template(s)", "PR template"], "detail": "3 issue template(s), PR template" }
-      },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
-    },
-    {
-      "rank": 5,
-      "repo": "microsoft/semantic-kernel",
-      "name": "semantic-kernel",
-      "owner": "microsoft",
-      "description": "Integrate cutting-edge LLM technology quickly and easily into your apps",
-      "stars": 23000,
-      "forks": 3500,
-      "language": "C#",
-      "url": "https://github.com/microsoft/semantic-kernel",
-      "avatar": "https://avatars.githubusercontent.com/microsoft",
-      "topics": ["ai", "openai", "semantic-kernel", "llm", "agents", "dotnet"],
-      "total_score": 61,
-      "max_score": 100,
-      "percentage": 61.0,
-      "grade": "B",
-      "categories": {
-        "ai_context_files": { "score": 2, "max": 25, "found": ["CODEOWNERS"], "detail": "Found: CODEOWNERS" },
-        "documentation":    { "score": 15, "max": 20, "found": ["description", "README", "CONTRIBUTING", "SECURITY"], "detail": "description, README, CONTRIBUTING, SECURITY" },
-        "testing":          { "score": 12, "max": 15, "found": ["tests", "unit_tests", "integration_tests"], "detail": "Dirs: tests, unit_tests, integration_tests" },
-        "ci_cd":            { "score": 13, "max": 15, "found": ["10 workflow(s)"], "workflow_count": 10, "detail": "10 workflow(s)" },
-        "tooling":          { "score": 8, "max": 10, "found": [".editorconfig", "pyproject.toml", "tsconfig.json"], "detail": ".editorconfig, pyproject.toml, tsconfig.json" },
-        "code_structure":   { "score": 8, "max": 10, "found": ["4 language(s)", "6 topics", "MIT"], "detail": "4 language(s), 6 topics, MIT" },
-        "conventions":      { "score": 3, "max": 5, "found": ["2 issue template(s)"], "detail": "2 issue template(s)" }
-      },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
-    },
-    {
-      "rank": 6,
-      "repo": "vllm-project/vllm",
-      "name": "vllm",
-      "owner": "vllm-project",
-      "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
-      "stars": 44000,
-      "forks": 6700,
-      "language": "Python",
-      "url": "https://github.com/vllm-project/vllm",
-      "avatar": "https://avatars.githubusercontent.com/vllm-project",
-      "topics": ["llm", "inference", "python", "cuda", "transformers", "serving"],
-      "total_score": 58,
-      "max_score": 100,
-      "percentage": 58.0,
+      "percentage": 66.0,
       "grade": "C",
       "categories": {
-        "ai_context_files": { "score": 0, "max": 25, "found": [], "detail": "No AI context files detected" },
-        "documentation":    { "score": 14, "max": 20, "found": ["description", "README", "CONTRIBUTING", "CODE_OF_CONDUCT"], "detail": "description, README, CONTRIBUTING, CODE_OF_CONDUCT" },
-        "testing":          { "score": 11, "max": 15, "found": ["tests", "conftest.py"], "detail": "Dirs: tests; configs: conftest.py" },
-        "ci_cd":            { "score": 13, "max": 15, "found": ["10 workflow(s)"], "workflow_count": 10, "detail": "10 workflow(s)" },
-        "tooling":          { "score": 8, "max": 10, "found": ["pyproject.toml", ".pre-commit-config.yaml", "mypy.ini"], "detail": "pyproject.toml, .pre-commit-config.yaml, mypy.ini" },
-        "code_structure":   { "score": 8, "max": 10, "found": ["3 language(s)", "6 topics", "Apache-2.0"], "detail": "3 language(s), 6 topics, Apache-2.0" },
-        "conventions":      { "score": 4, "max": 5, "found": ["3 issue template(s)", "PR template"], "detail": "3 issue template(s), PR template" }
+        "ai_context_files": {
+          "score": 22,
+          "max": 25,
+          "found": [
+            "CLAUDE.md",
+            "AGENTS.md",
+            ".github/CODEOWNERS"
+          ],
+          "detail": "Found: CLAUDE.md, AGENTS.md, .github/CODEOWNERS"
+        },
+        "documentation": {
+          "score": 15,
+          "max": 20,
+          "found": [
+            "description",
+            "README",
+            "CONTRIBUTING",
+            "SECURITY"
+          ],
+          "detail": "description, README, CONTRIBUTING, SECURITY"
+        },
+        "testing": {
+          "score": 0,
+          "max": 15,
+          "found": [],
+          "detail": "No test infrastructure detected"
+        },
+        "ci_cd": {
+          "score": 15,
+          "max": 15,
+          "found": [
+            "17 workflow(s)"
+          ],
+          "workflow_count": 17,
+          "detail": "17 workflow(s)"
+        },
+        "tooling": {
+          "score": 0,
+          "max": 10,
+          "found": [],
+          "detail": "No tooling config detected"
+        },
+        "code_structure": {
+          "score": 10,
+          "max": 10,
+          "found": [
+            "6 language(s)",
+            "19 topics",
+            "NOASSERTION"
+          ],
+          "detail": "6 language(s), 19 topics, NOASSERTION"
+        },
+        "conventions": {
+          "score": 4,
+          "max": 5,
+          "found": [
+            "2 issue template(s)",
+            "PR template"
+          ],
+          "detail": "2 issue template(s), PR template"
+        }
       },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
+      "scanned_at": "2026-04-28T22:44:27.730984+00:00",
+      "rank": 3
     },
     {
-      "rank": 7,
-      "repo": "microsoft/autogen",
-      "name": "autogen",
-      "owner": "microsoft",
-      "description": "A programming framework for agentic AI. Discord: https://aka.ms/autogen-discord. Office Hour: https://aka.ms/autogen-officehour.",
-      "stars": 41000,
-      "forks": 6000,
-      "language": "Python",
-      "url": "https://github.com/microsoft/autogen",
-      "avatar": "https://avatars.githubusercontent.com/microsoft",
-      "topics": ["ai", "agents", "multi-agent", "llm", "python", "autogen"],
-      "total_score": 55,
-      "max_score": 100,
-      "percentage": 55.0,
-      "grade": "C",
-      "categories": {
-        "ai_context_files": { "score": 2, "max": 25, "found": ["CODEOWNERS"], "detail": "Found: CODEOWNERS" },
-        "documentation":    { "score": 14, "max": 20, "found": ["description", "README", "CONTRIBUTING", "SECURITY"], "detail": "description, README, CONTRIBUTING, SECURITY" },
-        "testing":          { "score": 10, "max": 15, "found": ["tests", "conftest.py"], "detail": "Dirs: tests; configs: conftest.py" },
-        "ci_cd":            { "score": 11, "max": 15, "found": ["8 workflow(s)"], "workflow_count": 8, "detail": "8 workflow(s)" },
-        "tooling":          { "score": 7, "max": 10, "found": ["pyproject.toml", "mypy.ini"], "detail": "pyproject.toml, mypy.ini" },
-        "code_structure":   { "score": 7, "max": 10, "found": ["3 language(s)", "6 topics", "MIT"], "detail": "3 language(s), 6 topics, MIT" },
-        "conventions":      { "score": 4, "max": 5, "found": ["3 issue template(s)", "PR template"], "detail": "3 issue template(s), PR template" }
-      },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
-    },
-    {
-      "rank": 8,
       "repo": "temporalio/temporal",
       "name": "temporal",
       "owner": "temporalio",
       "description": "Temporal service",
-      "stars": 12500,
-      "forks": 1100,
+      "stars": 19904,
+      "forks": 1523,
       "language": "Go",
       "url": "https://github.com/temporalio/temporal",
-      "avatar": "https://avatars.githubusercontent.com/temporalio",
-      "topics": ["workflow", "go", "microservices", "distributed", "temporal"],
-      "total_score": 52,
+      "avatar": "https://avatars.githubusercontent.com/u/56493103?v=4",
+      "topics": [
+        "cronjob-scheduler",
+        "distributed-cron",
+        "distributed-systems",
+        "durable-execution",
+        "golang",
+        "microservice-framework"
+      ],
+      "total_score": 64,
       "max_score": 100,
-      "percentage": 52.0,
+      "percentage": 64.0,
       "grade": "C",
       "categories": {
-        "ai_context_files": { "score": 0, "max": 25, "found": [], "detail": "No AI context files detected" },
-        "documentation":    { "score": 12, "max": 20, "found": ["description", "README", "CONTRIBUTING"], "detail": "description, README, CONTRIBUTING" },
-        "testing":          { "score": 12, "max": 15, "found": ["tests", "test"], "detail": "Dirs: tests, test" },
-        "ci_cd":            { "score": 10, "max": 15, "found": ["7 workflow(s)"], "workflow_count": 7, "detail": "7 workflow(s)" },
-        "tooling":          { "score": 7, "max": 10, "found": [".editorconfig", "Makefile"], "detail": ".editorconfig, Makefile" },
-        "code_structure":   { "score": 7, "max": 10, "found": ["3 language(s)", "5 topics", "MIT"], "detail": "3 language(s), 5 topics, MIT" },
-        "conventions":      { "score": 4, "max": 5, "found": ["2 issue template(s)", "PR template"], "detail": "2 issue template(s), PR template" }
+        "ai_context_files": {
+          "score": 17,
+          "max": 25,
+          "found": [
+            "AGENTS.md",
+            ".github/copilot-instructions.md",
+            ".github/CODEOWNERS"
+          ],
+          "detail": "Found: AGENTS.md, .github/copilot-instructions.md, .github/CODEOWNERS"
+        },
+        "documentation": {
+          "score": 12,
+          "max": 20,
+          "found": [
+            "description",
+            "README",
+            "CONTRIBUTING"
+          ],
+          "detail": "description, README, CONTRIBUTING"
+        },
+        "testing": {
+          "score": 6,
+          "max": 15,
+          "found": [
+            "tests",
+            "go.sum"
+          ],
+          "detail": "Dirs: tests; configs: go.sum"
+        },
+        "ci_cd": {
+          "score": 15,
+          "max": 15,
+          "found": [
+            "19 workflow(s)",
+            "Makefile/Taskfile"
+          ],
+          "workflow_count": 19,
+          "detail": "19 workflow(s), Makefile/Taskfile"
+        },
+        "tooling": {
+          "score": 0,
+          "max": 10,
+          "found": [],
+          "detail": "No tooling config detected"
+        },
+        "code_structure": {
+          "score": 10,
+          "max": 10,
+          "found": [
+            "8 language(s)",
+            "16 topics",
+            "MIT"
+          ],
+          "detail": "8 language(s), 16 topics, MIT"
+        },
+        "conventions": {
+          "score": 4,
+          "max": 5,
+          "found": [
+            "2 issue template(s)",
+            "PR template"
+          ],
+          "detail": "2 issue template(s), PR template"
+        }
       },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
+      "scanned_at": "2026-04-28T22:44:26.479161+00:00",
+      "rank": 4
     },
     {
-      "rank": 9,
-      "repo": "langfuse/langfuse",
-      "name": "langfuse",
-      "owner": "langfuse",
-      "description": "Open Source LLM Engineering Platform: LLM Observability, Metrics, Evals, Prompt Management, Playground, Datasets. Integrates with LlamaIndex, Langchain, OpenAI SDK, LiteLLM, and more.",
-      "stars": 9800,
-      "forks": 870,
-      "language": "TypeScript",
-      "url": "https://github.com/langfuse/langfuse",
-      "avatar": "https://avatars.githubusercontent.com/langfuse",
-      "topics": ["llm", "observability", "tracing", "typescript", "ai", "evaluation"],
-      "total_score": 48,
+      "repo": "langchain-ai/langchain",
+      "name": "langchain",
+      "owner": "langchain-ai",
+      "description": "The agent engineering platform",
+      "stars": 135260,
+      "forks": 22362,
+      "language": "Python",
+      "url": "https://github.com/langchain-ai/langchain",
+      "avatar": "https://avatars.githubusercontent.com/u/126733545?v=4",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "anthropic",
+        "chatgpt",
+        "deepagents"
+      ],
+      "total_score": 61,
       "max_score": 100,
-      "percentage": 48.0,
+      "percentage": 61.0,
+      "grade": "C",
+      "categories": {
+        "ai_context_files": {
+          "score": 22,
+          "max": 25,
+          "found": [
+            "CLAUDE.md",
+            "AGENTS.md",
+            ".github/CODEOWNERS"
+          ],
+          "detail": "Found: CLAUDE.md, AGENTS.md, .github/CODEOWNERS"
+        },
+        "documentation": {
+          "score": 7,
+          "max": 20,
+          "found": [
+            "description",
+            "README"
+          ],
+          "detail": "description, README"
+        },
+        "testing": {
+          "score": 0,
+          "max": 15,
+          "found": [],
+          "detail": "No test infrastructure detected"
+        },
+        "ci_cd": {
+          "score": 15,
+          "max": 15,
+          "found": [
+            "22 workflow(s)"
+          ],
+          "workflow_count": 22,
+          "detail": "22 workflow(s)"
+        },
+        "tooling": {
+          "score": 3,
+          "max": 10,
+          "found": [
+            ".editorconfig",
+            ".pre-commit-config.yaml"
+          ],
+          "detail": ".editorconfig, .pre-commit-config.yaml"
+        },
+        "code_structure": {
+          "score": 10,
+          "max": 10,
+          "found": [
+            "7 language(s)",
+            "19 topics",
+            "MIT"
+          ],
+          "detail": "7 language(s), 19 topics, MIT"
+        },
+        "conventions": {
+          "score": 4,
+          "max": 5,
+          "found": [
+            "5 issue template(s)",
+            "PR template"
+          ],
+          "detail": "5 issue template(s), PR template"
+        }
+      },
+      "scanned_at": "2026-04-28T22:44:14.850912+00:00",
+      "rank": 5
+    },
+    {
+      "repo": "microsoft/autogen",
+      "name": "autogen",
+      "owner": "microsoft",
+      "description": "A programming framework for agentic AI",
+      "stars": 57541,
+      "forks": 8669,
+      "language": "Python",
+      "url": "https://github.com/microsoft/autogen",
+      "avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
+      "topics": [
+        "agentic",
+        "agentic-agi",
+        "agents",
+        "ai",
+        "autogen",
+        "autogen-ecosystem"
+      ],
+      "total_score": 51,
+      "max_score": 100,
+      "percentage": 51.0,
       "grade": "D",
       "categories": {
-        "ai_context_files": { "score": 3, "max": 25, "found": [".cursorrules"], "detail": "Found: .cursorrules" },
-        "documentation":    { "score": 12, "max": 20, "found": ["description", "README", "CONTRIBUTING"], "detail": "description, README, CONTRIBUTING" },
-        "testing":          { "score": 8, "max": 15, "found": ["tests", "__tests__"], "detail": "Dirs: tests, __tests__" },
-        "ci_cd":            { "score": 10, "max": 15, "found": ["7 workflow(s)"], "workflow_count": 7, "detail": "7 workflow(s)" },
-        "tooling":          { "score": 8, "max": 10, "found": ["tsconfig.json", ".eslintrc.json", ".prettierrc"], "detail": "tsconfig.json, .eslintrc.json, .prettierrc" },
-        "code_structure":   { "score": 5, "max": 10, "found": ["3 language(s)", "6 topics", "MIT"], "detail": "3 language(s), 6 topics, MIT" },
-        "conventions":      { "score": 2, "max": 5, "found": ["1 issue template(s)"], "detail": "1 issue template(s)" }
+        "ai_context_files": {
+          "score": 5,
+          "max": 25,
+          "found": [
+            ".github/copilot-instructions.md"
+          ],
+          "detail": "Found: .github/copilot-instructions.md"
+        },
+        "documentation": {
+          "score": 17,
+          "max": 20,
+          "found": [
+            "description",
+            "README",
+            "CONTRIBUTING",
+            "CODE_OF_CONDUCT",
+            "SECURITY"
+          ],
+          "detail": "description, README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY"
+        },
+        "testing": {
+          "score": 0,
+          "max": 15,
+          "found": [],
+          "detail": "No test infrastructure detected"
+        },
+        "ci_cd": {
+          "score": 15,
+          "max": 15,
+          "found": [
+            "12 workflow(s)"
+          ],
+          "workflow_count": 12,
+          "detail": "12 workflow(s)"
+        },
+        "tooling": {
+          "score": 0,
+          "max": 10,
+          "found": [],
+          "detail": "No tooling config detected"
+        },
+        "code_structure": {
+          "score": 10,
+          "max": 10,
+          "found": [
+            "10 language(s)",
+            "10 topics",
+            "CC-BY-4.0"
+          ],
+          "detail": "10 language(s), 10 topics, CC-BY-4.0"
+        },
+        "conventions": {
+          "score": 4,
+          "max": 5,
+          "found": [
+            "4 issue template(s)",
+            "PR template"
+          ],
+          "detail": "4 issue template(s), PR template"
+        }
       },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
+      "scanned_at": "2026-04-28T22:44:17.365622+00:00",
+      "rank": 6
     },
     {
-      "rank": 10,
+      "repo": "ray-project/ray",
+      "name": "ray",
+      "owner": "ray-project",
+      "description": "Ray is an AI compute engine. Ray consists of a core distributed runtime and a set of AI Libraries for accelerating ML workloads.",
+      "stars": 42359,
+      "forks": 7509,
+      "language": "Python",
+      "url": "https://github.com/ray-project/ray",
+      "avatar": "https://avatars.githubusercontent.com/u/22125274?v=4",
+      "topics": [
+        "data-science",
+        "deep-learning",
+        "deployment",
+        "distributed",
+        "hyperparameter-optimization",
+        "hyperparameter-search"
+      ],
+      "total_score": 50,
+      "max_score": 100,
+      "percentage": 50.0,
+      "grade": "D",
+      "categories": {
+        "ai_context_files": {
+          "score": 2,
+          "max": 25,
+          "found": [
+            ".github/CODEOWNERS"
+          ],
+          "detail": "Found: .github/CODEOWNERS"
+        },
+        "documentation": {
+          "score": 15,
+          "max": 20,
+          "found": [
+            "description",
+            "README",
+            "CONTRIBUTING",
+            "SECURITY"
+          ],
+          "detail": "description, README, CONTRIBUTING, SECURITY"
+        },
+        "testing": {
+          "score": 2,
+          "max": 15,
+          "found": [
+            "pytest.ini"
+          ],
+          "detail": "Dirs: ; configs: pytest.ini"
+        },
+        "ci_cd": {
+          "score": 12,
+          "max": 15,
+          "found": [
+            "4 workflow(s)"
+          ],
+          "workflow_count": 4,
+          "detail": "4 workflow(s)"
+        },
+        "tooling": {
+          "score": 5,
+          "max": 10,
+          "found": [
+            ".editorconfig",
+            "pyproject.toml",
+            ".pre-commit-config.yaml"
+          ],
+          "detail": ".editorconfig, pyproject.toml, .pre-commit-config.yaml"
+        },
+        "code_structure": {
+          "score": 10,
+          "max": 10,
+          "found": [
+            "16 language(s)",
+            "20 topics",
+            "Apache-2.0"
+          ],
+          "detail": "16 language(s), 20 topics, Apache-2.0"
+        },
+        "conventions": {
+          "score": 4,
+          "max": 5,
+          "found": [
+            "4 issue template(s)",
+            "PR template"
+          ],
+          "detail": "4 issue template(s), PR template"
+        }
+      },
+      "scanned_at": "2026-04-28T22:44:23.685774+00:00",
+      "rank": 7
+    },
+    {
+      "repo": "microsoft/semantic-kernel",
+      "name": "semantic-kernel",
+      "owner": "microsoft",
+      "description": "Integrate cutting-edge LLM technology quickly and easily into your apps",
+      "stars": 27803,
+      "forks": 4575,
+      "language": "C#",
+      "url": "https://github.com/microsoft/semantic-kernel",
+      "avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
+      "topics": [
+        "ai",
+        "artificial-intelligence",
+        "llm",
+        "openai",
+        "sdk"
+      ],
+      "total_score": 49,
+      "max_score": 100,
+      "percentage": 49.0,
+      "grade": "D",
+      "categories": {
+        "ai_context_files": {
+          "score": 2,
+          "max": 25,
+          "found": [
+            ".github/CODEOWNERS"
+          ],
+          "detail": "Found: .github/CODEOWNERS"
+        },
+        "documentation": {
+          "score": 17,
+          "max": 20,
+          "found": [
+            "description",
+            "README",
+            "CONTRIBUTING",
+            "CODE_OF_CONDUCT",
+            "SECURITY"
+          ],
+          "detail": "description, README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY"
+        },
+        "testing": {
+          "score": 0,
+          "max": 15,
+          "found": [],
+          "detail": "No test infrastructure detected"
+        },
+        "ci_cd": {
+          "score": 15,
+          "max": 15,
+          "found": [
+            "21 workflow(s)"
+          ],
+          "workflow_count": 21,
+          "detail": "21 workflow(s)"
+        },
+        "tooling": {
+          "score": 1,
+          "max": 10,
+          "found": [
+            ".editorconfig"
+          ],
+          "detail": ".editorconfig"
+        },
+        "code_structure": {
+          "score": 10,
+          "max": 10,
+          "found": [
+            "15 language(s)",
+            "5 topics",
+            "MIT"
+          ],
+          "detail": "15 language(s), 5 topics, MIT"
+        },
+        "conventions": {
+          "score": 4,
+          "max": 5,
+          "found": [
+            "3 issue template(s)",
+            "PR template"
+          ],
+          "detail": "3 issue template(s), PR template"
+        }
+      },
+      "scanned_at": "2026-04-28T22:44:16.188216+00:00",
+      "rank": 8
+    },
+    {
       "repo": "sgl-project/sglang",
       "name": "sglang",
       "owner": "sgl-project",
-      "description": "SGLang is a fast serving framework for large language models and vision language models.",
-      "stars": 13500,
-      "forks": 1500,
+      "description": "SGLang is a high-performance serving framework for large language models and multimodal models.",
+      "stars": 26640,
+      "forks": 5606,
       "language": "Python",
       "url": "https://github.com/sgl-project/sglang",
-      "avatar": "https://avatars.githubusercontent.com/sgl-project",
-      "topics": ["llm", "inference", "python", "serving", "cuda"],
+      "avatar": "https://avatars.githubusercontent.com/u/147780389?v=4",
+      "topics": [
+        "attention",
+        "blackwell",
+        "cuda",
+        "deepseek",
+        "diffusion",
+        "glm"
+      ],
       "total_score": 44,
       "max_score": 100,
       "percentage": 44.0,
       "grade": "D",
       "categories": {
-        "ai_context_files": { "score": 0, "max": 25, "found": [], "detail": "No AI context files detected" },
-        "documentation":    { "score": 12, "max": 20, "found": ["description", "README", "CONTRIBUTING"], "detail": "description, README, CONTRIBUTING" },
-        "testing":          { "score": 8, "max": 15, "found": ["tests", "test"], "detail": "Dirs: tests, test" },
-        "ci_cd":            { "score": 10, "max": 15, "found": ["7 workflow(s)"], "workflow_count": 7, "detail": "7 workflow(s)" },
-        "tooling":          { "score": 5, "max": 10, "found": ["pyproject.toml", ".pre-commit-config.yaml"], "detail": "pyproject.toml, .pre-commit-config.yaml" },
-        "code_structure":   { "score": 6, "max": 10, "found": ["3 language(s)", "5 topics", "Apache-2.0"], "detail": "3 language(s), 5 topics, Apache-2.0" },
-        "conventions":      { "score": 3, "max": 5, "found": ["2 issue template(s)"], "detail": "2 issue template(s)" }
+        "ai_context_files": {
+          "score": 2,
+          "max": 25,
+          "found": [
+            ".github/CODEOWNERS"
+          ],
+          "detail": "Found: .github/CODEOWNERS"
+        },
+        "documentation": {
+          "score": 7,
+          "max": 20,
+          "found": [
+            "description",
+            "README"
+          ],
+          "detail": "description, README"
+        },
+        "testing": {
+          "score": 4,
+          "max": 15,
+          "found": [
+            "test"
+          ],
+          "detail": "Dirs: test; configs: "
+        },
+        "ci_cd": {
+          "score": 15,
+          "max": 15,
+          "found": [
+            "72 workflow(s)"
+          ],
+          "workflow_count": 72,
+          "detail": "72 workflow(s)"
+        },
+        "tooling": {
+          "score": 2,
+          "max": 10,
+          "found": [
+            ".pre-commit-config.yaml"
+          ],
+          "detail": ".pre-commit-config.yaml"
+        },
+        "code_structure": {
+          "score": 10,
+          "max": 10,
+          "found": [
+            "18 language(s)",
+            "18 topics",
+            "Apache-2.0"
+          ],
+          "detail": "18 language(s), 18 topics, Apache-2.0"
+        },
+        "conventions": {
+          "score": 4,
+          "max": 5,
+          "found": [
+            "2 issue template(s)",
+            "PR template"
+          ],
+          "detail": "2 issue template(s), PR template"
+        }
       },
-      "scanned_at": "2026-04-28T06:00:00+00:00"
+      "scanned_at": "2026-04-28T22:44:18.698515+00:00",
+      "rank": 9
+    },
+    {
+      "repo": "kubernetes/kubernetes",
+      "name": "kubernetes",
+      "owner": "kubernetes",
+      "description": "Production-Grade Container Scheduling and Management",
+      "stars": 121984,
+      "forks": 42940,
+      "language": "Go",
+      "url": "https://github.com/kubernetes/kubernetes",
+      "avatar": "https://avatars.githubusercontent.com/u/13629408?v=4",
+      "topics": [
+        "cncf",
+        "containers",
+        "go",
+        "kubernetes"
+      ],
+      "total_score": 35,
+      "max_score": 100,
+      "percentage": 35.0,
+      "grade": "F",
+      "categories": {
+        "ai_context_files": {
+          "score": 0,
+          "max": 25,
+          "found": [],
+          "detail": "No AI context files detected"
+        },
+        "documentation": {
+          "score": 15,
+          "max": 20,
+          "found": [
+            "description",
+            "README",
+            "CONTRIBUTING",
+            "CHANGELOG"
+          ],
+          "detail": "description, README, CONTRIBUTING, CHANGELOG"
+        },
+        "testing": {
+          "score": 6,
+          "max": 15,
+          "found": [
+            "test",
+            "go.sum"
+          ],
+          "detail": "Dirs: test; configs: go.sum"
+        },
+        "ci_cd": {
+          "score": 1,
+          "max": 15,
+          "found": [
+            "Makefile/Taskfile"
+          ],
+          "workflow_count": 0,
+          "detail": "Makefile/Taskfile"
+        },
+        "tooling": {
+          "score": 0,
+          "max": 10,
+          "found": [],
+          "detail": "No tooling config detected"
+        },
+        "code_structure": {
+          "score": 9,
+          "max": 10,
+          "found": [
+            "10 language(s)",
+            "4 topics",
+            "Apache-2.0"
+          ],
+          "detail": "10 language(s), 4 topics, Apache-2.0"
+        },
+        "conventions": {
+          "score": 4,
+          "max": 5,
+          "found": [
+            "5 issue template(s)",
+            "PR template"
+          ],
+          "detail": "5 issue template(s), PR template"
+        }
+      },
+      "scanned_at": "2026-04-28T22:44:22.043686+00:00",
+      "rank": 10
     }
   ]
 }
