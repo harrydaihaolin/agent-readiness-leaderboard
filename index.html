@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Readiness Leaderboard</title>
+  <meta name="description" content="Which AI agent frameworks are themselves agent-ready? Daily scores across 7 dimensions." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0d1117;
+      --surface:      #161b22;
+      --surface2:     #21262d;
+      --border:       #30363d;
+      --text:         #e6edf3;
+      --muted:        #8b949e;
+      --faint:        #484f58;
+      --accent:       #a855f7;
+      --accent2:      #06b6d4;
+      --green:        #3fb950;
+      --yellow:       #d29922;
+      --orange:       #f0883e;
+      --red:          #f85149;
+      --blue:         #58a6ff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* ── Hero ───────────────────────────────────────────────────────────── */
+    .hero {
+      padding: 56px 24px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 55% at 50% 0%,
+        rgba(168,85,247,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 4px 14px;
+      background: rgba(168,85,247,.1);
+      border: 1px solid rgba(168,85,247,.3);
+      border-radius: 100px;
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .live-dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.4; transform:scale(1.4); }
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      background: linear-gradient(130deg, #e6edf3 0%, #a855f7 55%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── Stats bar ──────────────────────────────────────────────────────── */
+    .stats-bar {
+      display: flex;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      padding: 0 24px;
+    }
+    .stats-inner {
+      flex: 1;
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .stat {
+      flex: 1;
+      padding: 14px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-value { font-size: 18px; font-weight: 700; }
+    .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    /* ── Leaderboard container ──────────────────────────────────────────── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+
+    /* ── Repo card ──────────────────────────────────────────────────────── */
+    .repo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      opacity: 0;
+      animation: rise .4s ease forwards;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .repo-card:hover {
+      border-color: rgba(168,85,247,.45);
+      box-shadow: 0 0 0 1px rgba(168,85,247,.12), 0 4px 20px rgba(0,0,0,.5);
+    }
+    @keyframes rise {
+      from { opacity:0; transform:translateY(10px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* rank */
+    .rank {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--faint);
+      min-width: 26px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .rank-medal { font-size: 22px; }
+
+    /* avatar */
+    .avatar {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface2);
+      flex-shrink: 0;
+    }
+    .avatar img { width:100%; height:100%; object-fit:cover; }
+
+    /* info */
+    .repo-info { flex: 1; min-width: 0; }
+    .repo-name {
+      font-size: 14px; font-weight: 600;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .repo-name a { color: var(--text); text-decoration: none; }
+    .repo-name a:hover { color: var(--accent); }
+    .repo-meta {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      font-size: 11px; color: var(--muted); margin-top: 3px;
+    }
+
+    /* score section */
+    .score-section { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+    /* grade badge */
+    .grade {
+      width: 30px; height: 30px;
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800;
+    }
+    .grade-S { background:rgba(168,85,247,.15); color:#a855f7; border:1px solid rgba(168,85,247,.35); }
+    .grade-A { background:rgba(63,185,80,.15);  color:#3fb950; border:1px solid rgba(63,185,80,.35); }
+    .grade-B { background:rgba(88,166,255,.15); color:#58a6ff; border:1px solid rgba(88,166,255,.35); }
+    .grade-C { background:rgba(210,153,34,.15); color:#d29922; border:1px solid rgba(210,153,34,.35); }
+    .grade-D { background:rgba(240,136,62,.15); color:#f0883e; border:1px solid rgba(240,136,62,.35); }
+    .grade-F { background:rgba(248,81,73,.15);  color:#f85149; border:1px solid rgba(248,81,73,.35); }
+
+    /* ring */
+    .ring-wrap {
+      position: relative; width: 52px; height: 52px; flex-shrink: 0;
+    }
+    .ring-wrap svg { transform: rotate(-90deg); }
+    .ring-label {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+    }
+
+    /* chevron */
+    .chevron {
+      color: var(--faint); font-size: 11px;
+      transition: transform .2s;
+      flex-shrink: 0;
+    }
+    .repo-card.open .chevron { transform: rotate(180deg); }
+
+    /* ── Breakdown panel ────────────────────────────────────────────────── */
+    .breakdown {
+      display: none;
+      padding: 0 18px 18px;
+      border-top: 1px solid var(--border);
+    }
+    .repo-card.open .breakdown { display: block; }
+
+    .desc {
+      font-size: 13px; color: var(--muted);
+      padding: 12px 0 14px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+
+    .cat-row {
+      display: grid;
+      grid-template-columns: 148px 1fr 52px;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .cat-label {
+      font-size: 12px; color: var(--muted);
+      display: flex; align-items: center; gap: 5px;
+    }
+    .bar-track {
+      background: var(--surface2);
+      border-radius: 4px; height: 6px; overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%; border-radius: 4px; width: 0;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+      transition: width .55s ease;
+    }
+    .cat-score { font-size: 12px; color: var(--muted); text-align: right; }
+    .cat-detail {
+      grid-column: 2 / 4;
+      font-size: 11px; color: var(--faint);
+      margin-top: -4px; margin-bottom: 2px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* ── Loading / error ────────────────────────────────────────────────── */
+    .state {
+      text-align: center; padding: 80px 24px; color: var(--muted);
+    }
+    .spinner {
+      width: 28px; height: 28px;
+      border: 2px solid var(--border); border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin: 0 auto 14px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Methodology ────────────────────────────────────────────────────── */
+    .methodology {
+      max-width: 600px; margin: 0 auto;
+      text-align: left; font-size: 13px;
+      color: var(--muted); line-height: 1.8;
+    }
+    .methodology ul { padding-left: 18px; margin-top: 8px; }
+    .methodology li { margin-bottom: 4px; }
+
+    /* ── Footer ─────────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 20px 24px;
+      font-size: 12px; color: var(--faint);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    footer .sep { margin: 0 6px; }
+
+    /* ── Responsive ─────────────────────────────────────────────────────── */
+    @media (max-width: 580px) {
+      .stats-inner { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 10px; }
+      .stat:last-child { border-bottom: none; }
+      .cat-row { grid-template-columns: 110px 1fr 44px; }
+      .grade { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">
+    <span class="live-dot"></span>
+    Live · Updated Daily
+  </div>
+  <h1>Agent Readiness Leaderboard</h1>
+  <p>Which AI agent frameworks are themselves agent-ready? Scored daily across 7 dimensions.</p>
+</header>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-value" id="sRepos">—</div>
+      <div class="stat-label">Repos Tracked</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="sUpdated">—</div>
+      <div class="stat-label">Last Scanned</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="sNext">—</div>
+      <div class="stat-label">Next Scan</div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="leaderboard">
+  <div class="state"><div class="spinner"></div>Loading leaderboard…</div>
+</div>
+
+<footer>
+  <p>
+    Scores updated daily at 06:00 UTC via GitHub Actions
+    <span class="sep">·</span>
+    <a href="https://github.com/YOUR_USERNAME/agent-readiness-leaderboard" target="_blank" rel="noopener">View on GitHub</a>
+    <span class="sep">·</span>
+    <a href="#" id="toggleMethod">Scoring methodology</a>
+  </p>
+  <div id="methodPanel" style="display:none; margin-top:16px;">
+    <div class="methodology">
+      <p>Each repo is scored out of <strong>100 points</strong> across 7 categories:</p>
+      <ul>
+        <li><strong>AI Context Files (25 pts)</strong> — CLAUDE.md, AGENTS.md, .cursorrules, copilot instructions</li>
+        <li><strong>Documentation (20 pts)</strong> — README, CONTRIBUTING, CHANGELOG, SECURITY, CODE_OF_CONDUCT</li>
+        <li><strong>Testing (15 pts)</strong> — test directories and test runner configs (pytest, jest, vitest…)</li>
+        <li><strong>CI/CD (15 pts)</strong> — GitHub Actions workflow count and depth</li>
+        <li><strong>Tooling (10 pts)</strong> — linting, formatting, and type-checking configs</li>
+        <li><strong>Code Structure (10 pts)</strong> — language count, topics, and license</li>
+        <li><strong>Conventions (5 pts)</strong> — issue/PR templates and community standards</li>
+      </ul>
+      <p style="margin-top:10px;">
+        File detection uses the GitHub Git Trees API (1 call per repo) to avoid rate limits.
+        Seed data is approximate; live scores are computed by the scanner.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const CRITERIA = {
+  ai_context_files: { label: 'AI Context Files', icon: '🤖' },
+  documentation:    { label: 'Documentation',    icon: '📖' },
+  testing:          { label: 'Testing',          icon: '🧪' },
+  ci_cd:            { label: 'CI / CD',          icon: '⚙️' },
+  tooling:          { label: 'Tooling',          icon: '🔧' },
+  code_structure:   { label: 'Code Structure',   icon: '🏗️' },
+  conventions:      { label: 'Conventions',      icon: '📋' },
+};
+
+// ── Utilities ──────────────────────────────────────────────────────────────
+
+function scoreColor(pct) {
+  if (pct >= 80) return 'var(--accent)';
+  if (pct >= 65) return 'var(--green)';
+  if (pct >= 50) return 'var(--blue)';
+  if (pct >= 35) return 'var(--yellow)';
+  if (pct >= 20) return 'var(--orange)';
+  return 'var(--red)';
+}
+
+function ring(pct, size = 52) {
+  const r = size * 0.42;
+  const cx = size / 2;
+  const circ = +(2 * Math.PI * r).toFixed(2);
+  const offset = +(circ * (1 - pct / 100)).toFixed(2);
+  const col = scoreColor(pct);
+  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    <circle cx="${cx}" cy="${cx}" r="${r}" fill="none" stroke="var(--surface2)" stroke-width="4"/>
+    <circle cx="${cx}" cy="${cx}" r="${r}" fill="none" stroke="${col}" stroke-width="4"
+      stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${offset}"
+      style="transition:stroke-dashoffset 1s ease"/>
+  </svg>`;
+}
+
+function starsFmt(n) {
+  return n >= 1000 ? (n / 1000).toFixed(0) + 'k' : n;
+}
+
+function timeAgo(iso) {
+  const d = Date.now() - new Date(iso).getTime();
+  const m = Math.floor(d / 60000), h = Math.floor(m / 60), dy = Math.floor(h / 24);
+  if (dy > 0) return dy + 'd ago';
+  if (h  > 0) return h  + 'h ago';
+  if (m  > 0) return m  + 'm ago';
+  return 'just now';
+}
+
+function nextScan() {
+  const now  = new Date();
+  const next = new Date(now);
+  next.setUTCHours(6, 0, 0, 0);
+  if (next <= now) next.setUTCDate(next.getUTCDate() + 1);
+  const diff = next - now;
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  return `${h}h ${m}m`;
+}
+
+function rankLabel(n) {
+  if (n === 1) return '<span class="rank rank-medal">🥇</span>';
+  if (n === 2) return '<span class="rank rank-medal">🥈</span>';
+  if (n === 3) return '<span class="rank rank-medal">🥉</span>';
+  return `<span class="rank">#${n}</span>`;
+}
+
+// ── Rendering ──────────────────────────────────────────────────────────────
+
+function buildCard(repo, idx) {
+  const delay = (idx * 0.05).toFixed(2);
+  const pct   = repo.percentage;
+  const col   = scoreColor(pct);
+
+  const catRows = Object.entries(CRITERIA).map(([key, meta]) => {
+    const cat = (repo.categories || {})[key];
+    if (!cat) return '';
+    const barPct = ((cat.score / cat.max) * 100).toFixed(1);
+    return `
+      <div class="cat-row">
+        <div class="cat-label">${meta.icon} ${meta.label}</div>
+        <div class="bar-track"><div class="bar-fill" data-pct="${barPct}"></div></div>
+        <div class="cat-score">${cat.score}/${cat.max}</div>
+        <div class="cat-detail">${cat.detail || ''}</div>
+      </div>`;
+  }).join('');
+
+  const topics = (repo.topics || []).slice(0, 3)
+    .map(t => `<span>#${t}</span>`).join('');
+
+  return `
+    <div class="repo-card" style="animation-delay:${delay}s" data-repo="${repo.repo}">
+      <div class="card-header" onclick="toggleCard(this.parentElement)">
+        ${rankLabel(repo.rank)}
+        <div class="avatar">
+          <img src="${repo.avatar}" alt="${repo.owner}" loading="lazy"
+               onerror="this.style.display='none'"/>
+        </div>
+        <div class="repo-info">
+          <div class="repo-name">
+            <a href="${repo.url}" target="_blank" rel="noopener"
+               onclick="event.stopPropagation()">${repo.owner}/${repo.name}</a>
+          </div>
+          <div class="repo-meta">
+            ${repo.language ? `<span>◉ ${repo.language}</span>` : ''}
+            <span>★ ${starsFmt(repo.stars)}</span>
+            ${topics}
+          </div>
+        </div>
+        <div class="score-section">
+          <div class="grade grade-${repo.grade}">${repo.grade}</div>
+          <div class="ring-wrap">
+            ${ring(pct)}
+            <div class="ring-label" style="color:${col}">${pct}%</div>
+          </div>
+          <span class="chevron">▾</span>
+        </div>
+      </div>
+      <div class="breakdown">
+        ${repo.description ? `<div class="desc">${repo.description}</div>` : ''}
+        ${catRows}
+      </div>
+    </div>`;
+}
+
+function toggleCard(card) {
+  const opening = !card.classList.contains('open');
+  card.classList.toggle('open', opening);
+  if (opening) {
+    card.querySelectorAll('.bar-fill').forEach(bar => {
+      const pct = bar.dataset.pct;
+      requestAnimationFrame(() => { bar.style.width = pct + '%'; });
+    });
+  } else {
+    card.querySelectorAll('.bar-fill').forEach(bar => { bar.style.width = '0'; });
+  }
+}
+
+// ── Data loading ───────────────────────────────────────────────────────────
+
+async function load() {
+  try {
+    const res = await fetch('./data/scores.json?_=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    render(data);
+  } catch (e) {
+    document.getElementById('leaderboard').innerHTML =
+      `<div class="state">⚠️ Could not load scores.<br>
+       <small style="color:var(--faint)">${e.message}</small></div>`;
+  }
+}
+
+function render(data) {
+  document.getElementById('sRepos').textContent   = data.total_repos;
+  document.getElementById('sUpdated').textContent = timeAgo(data.last_updated);
+  document.getElementById('sNext').textContent    = nextScan();
+
+  const html = (data.repos || []).map((r, i) => buildCard(r, i)).join('');
+  document.getElementById('leaderboard').innerHTML = html || '<div class="state">No data yet.</div>';
+}
+
+// ── Init ───────────────────────────────────────────────────────────────────
+
+load();
+setInterval(load, 5 * 60 * 1000);
+setInterval(() => {
+  const el = document.getElementById('sNext');
+  if (el) el.textContent = nextScan();
+}, 60 * 1000);
+
+document.getElementById('toggleMethod').addEventListener('click', e => {
+  e.preventDefault();
+  const p = document.getElementById('methodPanel');
+  p.style.display = p.style.display === 'none' ? 'block' : 'none';
+});
+</script>
+</body>
+</html>

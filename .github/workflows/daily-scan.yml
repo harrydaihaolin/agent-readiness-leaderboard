@@ -1,0 +1,44 @@
+name: Daily Agent Readiness Scan
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 06:00 UTC every day
+  workflow_dispatch:        # allow manual runs from the Actions tab
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/daily-scan.yml'
+
+permissions:
+  contents: write   # needed to commit data/scores.json back to main
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run agent readiness scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/scan.py
+
+      - name: Commit updated scores
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/scores.json
+          git diff --staged --quiet || \
+            git commit -m "chore: update agent readiness scores [skip ci]"
+          git push
