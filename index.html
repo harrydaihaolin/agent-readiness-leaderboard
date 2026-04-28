@@ -9,20 +9,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:           #0d1117;
-      --surface:      #161b22;
-      --surface2:     #21262d;
-      --border:       #30363d;
-      --text:         #e6edf3;
-      --muted:        #8b949e;
-      --faint:        #484f58;
-      --accent:       #a855f7;
-      --accent2:      #06b6d4;
-      --green:        #3fb950;
-      --yellow:       #d29922;
-      --orange:       #f0883e;
-      --red:          #f85149;
-      --blue:         #58a6ff;
+      --bg:      #0d1117;
+      --surface: #161b22;
+      --surface2:#21262d;
+      --border:  #30363d;
+      --text:    #e6edf3;
+      --muted:   #8b949e;
+      --faint:   #484f58;
+      --accent:  #a855f7;
+      --accent2: #06b6d4;
+      --green:   #3fb950;
+      --yellow:  #d29922;
+      --orange:  #f0883e;
+      --red:     #f85149;
+      --blue:    #58a6ff;
     }
 
     body {
@@ -33,7 +33,7 @@
       line-height: 1.5;
     }
 
-    /* ── Hero ───────────────────────────────────────────────────────────── */
+    /* ── Hero ─────────────────────────────────────────────────────── */
     .hero {
       padding: 56px 24px 36px;
       text-align: center;
@@ -42,31 +42,24 @@
     }
     .hero::before {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: radial-gradient(ellipse 80% 55% at 50% 0%,
         rgba(168,85,247,.18) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
+      display: inline-flex; align-items: center; gap: 7px;
       padding: 4px 14px;
       background: rgba(168,85,247,.1);
       border: 1px solid rgba(168,85,247,.3);
       border-radius: 100px;
-      font-size: 11px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-weight: 600;
+      font-size: 11px; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .1em; font-weight: 600;
       margin-bottom: 20px;
     }
     .live-dot {
       width: 6px; height: 6px;
-      background: var(--green);
-      border-radius: 50%;
+      background: var(--green); border-radius: 50%;
       animation: blink 2s ease-in-out infinite;
     }
     @keyframes blink {
@@ -75,62 +68,69 @@
     }
     .hero h1 {
       font-size: clamp(26px, 5vw, 48px);
-      font-weight: 800;
-      letter-spacing: -.02em;
+      font-weight: 800; letter-spacing: -.02em;
       background: linear-gradient(130deg, #e6edf3 0%, #a855f7 55%, #06b6d4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 12px;
     }
-    .hero p {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 500px;
-      margin: 0 auto;
-    }
+    .hero p { font-size: 15px; color: var(--muted); max-width: 500px; margin: 0 auto; }
 
-    /* ── Stats bar ──────────────────────────────────────────────────────── */
-    .stats-bar {
-      display: flex;
-      max-width: 700px;
-      margin: 0 auto 32px;
-      padding: 0 24px;
-    }
+    /* ── Stats bar ────────────────────────────────────────────────── */
+    .stats-bar { display: flex; max-width: 700px; margin: 0 auto 28px; padding: 0 24px; }
     .stats-inner {
-      flex: 1;
-      display: flex;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
+      flex: 1; display: flex;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
     }
     .stat {
-      flex: 1;
-      padding: 14px 20px;
-      text-align: center;
+      flex: 1; padding: 14px 20px; text-align: center;
       border-right: 1px solid var(--border);
     }
     .stat:last-child { border-right: none; }
     .stat-value { font-size: 18px; font-weight: 700; }
     .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
-    /* ── Leaderboard container ──────────────────────────────────────────── */
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 24px 64px;
-    }
+    /* ── Container ────────────────────────────────────────────────── */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px 64px; }
 
-    /* ── Repo card ──────────────────────────────────────────────────────── */
-    .repo-card {
-      background: var(--surface);
+    /* ── Toolbar ──────────────────────────────────────────────────── */
+    .toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px;
+      margin-bottom: 14px;
+    }
+    .sort-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .sort-label { font-size: 12px; color: var(--muted); margin-right: 2px; }
+    .sort-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 5px 13px; border-radius: 20px;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 10px;
-      overflow: hidden;
-      opacity: 0;
-      animation: rise .4s ease forwards;
+      background: var(--surface); color: var(--muted);
+      font-size: 12px; font-family: inherit; cursor: pointer;
+      transition: border-color .15s, color .15s, background .15s;
+    }
+    .sort-btn:hover { border-color: rgba(168,85,247,.4); color: var(--text); }
+    .sort-btn.active {
+      border-color: var(--accent); color: var(--accent);
+      background: rgba(168,85,247,.1);
+    }
+    .sort-arrow { font-size: 11px; line-height: 1; }
+    .page-size-wrap { display: flex; align-items: center; gap: 7px; }
+    .page-size-label { font-size: 12px; color: var(--muted); }
+    .page-size-sel {
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); border-radius: 7px;
+      padding: 4px 8px; font-size: 12px; font-family: inherit; cursor: pointer;
+    }
+    .page-size-sel:focus { outline: none; border-color: var(--accent); }
+    .result-count { font-size: 12px; color: var(--faint); }
+
+    /* ── Repo card ────────────────────────────────────────────────── */
+    .repo-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; margin-bottom: 10px; overflow: hidden;
+      opacity: 0; animation: rise .35s ease forwards;
       transition: border-color .2s, box-shadow .2s;
     }
     .repo-card:hover {
@@ -138,41 +138,23 @@
       box-shadow: 0 0 0 1px rgba(168,85,247,.12), 0 4px 20px rgba(0,0,0,.5);
     }
     @keyframes rise {
-      from { opacity:0; transform:translateY(10px); }
+      from { opacity:0; transform:translateY(8px); }
       to   { opacity:1; transform:translateY(0); }
     }
-
     .card-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 18px;
-      cursor: pointer;
-      user-select: none;
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px; cursor: pointer; user-select: none;
     }
-
-    /* rank */
     .rank {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--faint);
-      min-width: 26px;
-      text-align: center;
-      flex-shrink: 0;
+      font-size: 13px; font-weight: 700; color: var(--faint);
+      min-width: 26px; text-align: center; flex-shrink: 0;
     }
     .rank-medal { font-size: 22px; }
-
-    /* avatar */
     .avatar {
-      width: 34px; height: 34px;
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--surface2);
-      flex-shrink: 0;
+      width: 34px; height: 34px; border-radius: 8px;
+      overflow: hidden; background: var(--surface2); flex-shrink: 0;
     }
     .avatar img { width:100%; height:100%; object-fit:cover; }
-
-    /* info */
     .repo-info { flex: 1; min-width: 0; }
     .repo-name {
       font-size: 14px; font-weight: 600;
@@ -184,14 +166,9 @@
       display: flex; flex-wrap: wrap; gap: 8px;
       font-size: 11px; color: var(--muted); margin-top: 3px;
     }
-
-    /* score section */
     .score-section { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-
-    /* grade badge */
     .grade {
-      width: 30px; height: 30px;
-      border-radius: 7px;
+      width: 30px; height: 30px; border-radius: 7px;
       display: flex; align-items: center; justify-content: center;
       font-size: 13px; font-weight: 800;
     }
@@ -201,56 +178,29 @@
     .grade-C { background:rgba(210,153,34,.15); color:#d29922; border:1px solid rgba(210,153,34,.35); }
     .grade-D { background:rgba(240,136,62,.15); color:#f0883e; border:1px solid rgba(240,136,62,.35); }
     .grade-F { background:rgba(248,81,73,.15);  color:#f85149; border:1px solid rgba(248,81,73,.35); }
-
-    /* ring */
-    .ring-wrap {
-      position: relative; width: 52px; height: 52px; flex-shrink: 0;
-    }
+    .ring-wrap { position: relative; width: 52px; height: 52px; flex-shrink: 0; }
     .ring-wrap svg { transform: rotate(-90deg); }
     .ring-label {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
       font-size: 12px; font-weight: 700;
     }
-
-    /* chevron */
-    .chevron {
-      color: var(--faint); font-size: 11px;
-      transition: transform .2s;
-      flex-shrink: 0;
-    }
+    .chevron { color: var(--faint); font-size: 11px; transition: transform .2s; flex-shrink: 0; }
     .repo-card.open .chevron { transform: rotate(180deg); }
 
-    /* ── Breakdown panel ────────────────────────────────────────────────── */
-    .breakdown {
-      display: none;
-      padding: 0 18px 18px;
-      border-top: 1px solid var(--border);
-    }
+    /* ── Breakdown panel ──────────────────────────────────────────── */
+    .breakdown { display: none; padding: 0 18px 18px; border-top: 1px solid var(--border); }
     .repo-card.open .breakdown { display: block; }
-
     .desc {
       font-size: 13px; color: var(--muted);
-      padding: 12px 0 14px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 14px;
+      padding: 12px 0 14px; border-bottom: 1px solid var(--border); margin-bottom: 14px;
     }
-
     .cat-row {
-      display: grid;
-      grid-template-columns: 148px 1fr 52px;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
+      display: grid; grid-template-columns: 148px 1fr 52px;
+      align-items: center; gap: 10px; margin-bottom: 8px;
     }
-    .cat-label {
-      font-size: 12px; color: var(--muted);
-      display: flex; align-items: center; gap: 5px;
-    }
-    .bar-track {
-      background: var(--surface2);
-      border-radius: 4px; height: 6px; overflow: hidden;
-    }
+    .cat-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+    .bar-track { background: var(--surface2); border-radius: 4px; height: 6px; overflow: hidden; }
     .bar-fill {
       height: 100%; border-radius: 4px; width: 0;
       background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
@@ -258,52 +208,66 @@
     }
     .cat-score { font-size: 12px; color: var(--muted); text-align: right; }
     .cat-detail {
-      grid-column: 2 / 4;
-      font-size: 11px; color: var(--faint);
+      grid-column: 2 / 4; font-size: 11px; color: var(--faint);
       margin-top: -4px; margin-bottom: 2px;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
 
-    /* ── Loading / error ────────────────────────────────────────────────── */
-    .state {
-      text-align: center; padding: 80px 24px; color: var(--muted);
+    /* ── Pagination ───────────────────────────────────────────────── */
+    .pagination {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 5px; padding-top: 20px;
     }
+    .page-btn {
+      min-width: 34px; height: 34px; padding: 0 10px;
+      border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--muted);
+      font-size: 13px; font-family: inherit; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: border-color .15s, color .15s, background .15s;
+    }
+    .page-btn:hover:not(:disabled):not(.active) {
+      border-color: rgba(168,85,247,.4); color: var(--text);
+    }
+    .page-btn.active {
+      border-color: var(--accent); background: rgba(168,85,247,.15);
+      color: var(--accent); font-weight: 700; cursor: default;
+    }
+    .page-btn:disabled { opacity: .3; cursor: not-allowed; }
+    .page-ellipsis { color: var(--faint); font-size: 13px; padding: 0 4px; line-height: 34px; }
+
+    /* ── States ───────────────────────────────────────────────────── */
+    .state { text-align: center; padding: 80px 24px; color: var(--muted); }
     .spinner {
       width: 28px; height: 28px;
       border: 2px solid var(--border); border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin .7s linear infinite;
-      margin: 0 auto 14px;
+      border-radius: 50%; animation: spin .7s linear infinite; margin: 0 auto 14px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── Methodology ────────────────────────────────────────────────────── */
+    /* ── Footer ───────────────────────────────────────────────────── */
     .methodology {
-      max-width: 600px; margin: 0 auto;
-      text-align: left; font-size: 13px;
-      color: var(--muted); line-height: 1.8;
+      max-width: 600px; margin: 0 auto; text-align: left;
+      font-size: 13px; color: var(--muted); line-height: 1.8;
     }
     .methodology ul { padding-left: 18px; margin-top: 8px; }
     .methodology li { margin-bottom: 4px; }
-
-    /* ── Footer ─────────────────────────────────────────────────────────── */
     footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 20px 24px;
-      font-size: 12px; color: var(--faint);
+      border-top: 1px solid var(--border); text-align: center;
+      padding: 20px 24px; font-size: 12px; color: var(--faint);
     }
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--accent); }
     footer .sep { margin: 0 6px; }
 
-    /* ── Responsive ─────────────────────────────────────────────────────── */
+    /* ── Responsive ───────────────────────────────────────────────── */
     @media (max-width: 580px) {
       .stats-inner { flex-direction: column; }
       .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 10px; }
       .stat:last-child { border-bottom: none; }
       .cat-row { grid-template-columns: 110px 1fr 44px; }
       .grade { display: none; }
+      .toolbar { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -335,15 +299,19 @@
   </div>
 </div>
 
-<div class="container" id="leaderboard">
-  <div class="state"><div class="spinner"></div>Loading leaderboard…</div>
+<div class="container">
+  <div id="toolbar"></div>
+  <div id="leaderboard">
+    <div class="state"><div class="spinner"></div>Loading leaderboard…</div>
+  </div>
+  <div id="pagination"></div>
 </div>
 
 <footer>
   <p>
-    Scores updated daily at 06:00 UTC via GitHub Actions
+    Powered by <a href="https://github.com/harrydaihaolin/agent-readiness-leaderboard" target="_blank" rel="noopener">agent-readiness-leaderboard</a>
     <span class="sep">·</span>
-    <a href="https://github.com/YOUR_USERNAME/agent-readiness-leaderboard" target="_blank" rel="noopener">View on GitHub</a>
+    Scores updated daily at 06:00 UTC via GitHub Actions
     <span class="sep">·</span>
     <a href="#" id="toggleMethod">Scoring methodology</a>
   </p>
@@ -361,7 +329,7 @@
       </ul>
       <p style="margin-top:10px;">
         File detection uses the GitHub Git Trees API (1 call per repo) to avoid rate limits.
-        Seed data is approximate; live scores are computed by the scanner.
+        Rank always reflects the agent-readiness score order.
       </p>
     </div>
   </div>
@@ -378,8 +346,58 @@ const CRITERIA = {
   conventions:      { label: 'Conventions',      icon: '📋' },
 };
 
-// ── Utilities ──────────────────────────────────────────────────────────────
+// ── State ──────────────────────────────────────────────────────────────────
+let allRepos  = [];
+let page      = 1;
+let pageSize  = 20;
+let sortKey   = 'score';
+let sortDir   = -1;   // -1 = descending (high→low), 1 = ascending (low→high)
 
+// ── Sort & page helpers ────────────────────────────────────────────────────
+function getSorted() {
+  return [...allRepos].sort((a, b) => {
+    let cmp = 0;
+    if      (sortKey === 'score') cmp = a.percentage - b.percentage;
+    else if (sortKey === 'stars') cmp = a.stars - b.stars;
+    else if (sortKey === 'name')  cmp = a.repo.localeCompare(b.repo);
+    return sortDir * -cmp;
+  });
+}
+
+function totalPages() { return Math.max(1, Math.ceil(allRepos.length / pageSize)); }
+
+function getPageRepos() {
+  const sorted = getSorted();
+  const start  = (page - 1) * pageSize;
+  return sorted.slice(start, start + pageSize);
+}
+
+function setSort(key) {
+  if (sortKey === key) {
+    sortDir *= -1;
+  } else {
+    sortKey = key;
+    sortDir = key === 'name' ? 1 : -1;
+  }
+  page = 1;
+  renderPage();
+}
+
+function setPageSize(n) {
+  pageSize = n;
+  page = 1;
+  renderPage();
+}
+
+function goPage(p) {
+  const total = totalPages();
+  if (p < 1 || p > total) return;
+  page = p;
+  renderPage();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Utilities ──────────────────────────────────────────────────────────────
 function scoreColor(pct) {
   if (pct >= 80) return 'var(--accent)';
   if (pct >= 65) return 'var(--green)';
@@ -390,26 +408,29 @@ function scoreColor(pct) {
 }
 
 function ring(pct, size = 52) {
-  const r = size * 0.42;
-  const cx = size / 2;
+  const r    = size * 0.42;
+  const cx   = size / 2;
   const circ = +(2 * Math.PI * r).toFixed(2);
-  const offset = +(circ * (1 - pct / 100)).toFixed(2);
-  const col = scoreColor(pct);
+  const off  = +(circ * (1 - pct / 100)).toFixed(2);
+  const col  = scoreColor(pct);
   return `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
     <circle cx="${cx}" cy="${cx}" r="${r}" fill="none" stroke="var(--surface2)" stroke-width="4"/>
     <circle cx="${cx}" cy="${cx}" r="${r}" fill="none" stroke="${col}" stroke-width="4"
-      stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${offset}"
+      stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${off}"
       style="transition:stroke-dashoffset 1s ease"/>
   </svg>`;
 }
 
 function starsFmt(n) {
-  return n >= 1000 ? (n / 1000).toFixed(0) + 'k' : n;
+  if (n >= 1000) return (n / 1000).toFixed(0) + 'k';
+  return n;
 }
 
 function timeAgo(iso) {
-  const d = Date.now() - new Date(iso).getTime();
-  const m = Math.floor(d / 60000), h = Math.floor(m / 60), dy = Math.floor(h / 24);
+  const d  = Date.now() - new Date(iso).getTime();
+  const m  = Math.floor(d / 60000);
+  const h  = Math.floor(m / 60);
+  const dy = Math.floor(h / 24);
   if (dy > 0) return dy + 'd ago';
   if (h  > 0) return h  + 'h ago';
   if (m  > 0) return m  + 'm ago';
@@ -422,9 +443,7 @@ function nextScan() {
   next.setUTCHours(6, 0, 0, 0);
   if (next <= now) next.setUTCDate(next.getUTCDate() + 1);
   const diff = next - now;
-  const h = Math.floor(diff / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  return `${h}h ${m}m`;
+  return `${Math.floor(diff / 3600000)}h ${Math.floor((diff % 3600000) / 60000)}m`;
 }
 
 function rankLabel(n) {
@@ -434,36 +453,96 @@ function rankLabel(n) {
   return `<span class="rank">#${n}</span>`;
 }
 
-// ── Rendering ──────────────────────────────────────────────────────────────
+// ── Toolbar HTML ───────────────────────────────────────────────────────────
+function renderToolbar() {
+  const arrow  = sortDir === -1 ? '↓' : '↑';
+  const mkBtn  = (key, label) => {
+    const active = sortKey === key;
+    return `<button class="sort-btn${active ? ' active' : ''}" onclick="setSort('${key}')">
+      ${label}${active ? ` <span class="sort-arrow">${arrow}</span>` : ''}
+    </button>`;
+  };
+  const pageSizes = [10, 20, 25, 50].map(n =>
+    `<option value="${n}"${n === pageSize ? ' selected' : ''}>${n}</option>`).join('');
+  const start = (page - 1) * pageSize + 1;
+  const end   = Math.min(page * pageSize, allRepos.length);
 
+  return `
+    <div class="toolbar">
+      <div class="sort-group">
+        <span class="sort-label">Sort by</span>
+        ${mkBtn('score', 'Score')}
+        ${mkBtn('stars', 'Stars')}
+        ${mkBtn('name',  'Name')}
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <span class="result-count">${start}–${end} of ${allRepos.length}</span>
+        <div class="page-size-wrap">
+          <label class="page-size-label" for="pageSel">Per page</label>
+          <select class="page-size-sel" id="pageSel" onchange="setPageSize(+this.value)">
+            ${pageSizes}
+          </select>
+        </div>
+      </div>
+    </div>`;
+}
+
+// ── Pagination HTML ────────────────────────────────────────────────────────
+function pageRange(cur, total) {
+  if (total <= 9) return Array.from({ length: total }, (_, i) => i + 1);
+  const set = new Set([1, 2, cur - 1, cur, cur + 1, total - 1, total]
+    .filter(p => p >= 1 && p <= total));
+  const arr = [...set].sort((a, b) => a - b);
+  const out = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i > 0 && arr[i] - arr[i - 1] > 1) out.push('…');
+    out.push(arr[i]);
+  }
+  return out;
+}
+
+function renderPagination() {
+  const total = totalPages();
+  if (total <= 1) return '';
+  const range = pageRange(page, total);
+  const pages = range.map(p =>
+    p === '…'
+      ? `<span class="page-ellipsis">…</span>`
+      : `<button class="page-btn${p === page ? ' active' : ''}" onclick="goPage(${p})">${p}</button>`
+  ).join('');
+  return `
+    <div class="pagination">
+      <button class="page-btn" onclick="goPage(${page - 1})" ${page === 1 ? 'disabled' : ''}>← Prev</button>
+      ${pages}
+      <button class="page-btn" onclick="goPage(${page + 1})" ${page === total ? 'disabled' : ''}>Next →</button>
+    </div>`;
+}
+
+// ── Card HTML ──────────────────────────────────────────────────────────────
 function buildCard(repo, idx) {
-  const delay = (idx * 0.05).toFixed(2);
-  const pct   = repo.percentage;
-  const col   = scoreColor(pct);
-
-  const catRows = Object.entries(CRITERIA).map(([key, meta]) => {
+  const delay  = Math.min(idx * 0.04, 0.3).toFixed(2);
+  const pct    = repo.percentage;
+  const col    = scoreColor(pct);
+  const topics = (repo.topics || []).slice(0, 3).map(t => `<span>#${t}</span>`).join('');
+  const cats   = Object.entries(CRITERIA).map(([key, meta]) => {
     const cat = (repo.categories || {})[key];
     if (!cat) return '';
-    const barPct = ((cat.score / cat.max) * 100).toFixed(1);
+    const bp = ((cat.score / cat.max) * 100).toFixed(1);
     return `
       <div class="cat-row">
         <div class="cat-label">${meta.icon} ${meta.label}</div>
-        <div class="bar-track"><div class="bar-fill" data-pct="${barPct}"></div></div>
+        <div class="bar-track"><div class="bar-fill" data-pct="${bp}"></div></div>
         <div class="cat-score">${cat.score}/${cat.max}</div>
         <div class="cat-detail">${cat.detail || ''}</div>
       </div>`;
   }).join('');
 
-  const topics = (repo.topics || []).slice(0, 3)
-    .map(t => `<span>#${t}</span>`).join('');
-
   return `
-    <div class="repo-card" style="animation-delay:${delay}s" data-repo="${repo.repo}">
+    <div class="repo-card" style="animation-delay:${delay}s">
       <div class="card-header" onclick="toggleCard(this.parentElement)">
         ${rankLabel(repo.rank)}
         <div class="avatar">
-          <img src="${repo.avatar}" alt="${repo.owner}" loading="lazy"
-               onerror="this.style.display='none'"/>
+          <img src="${repo.avatar}" alt="${repo.owner}" loading="lazy" onerror="this.style.display='none'"/>
         </div>
         <div class="repo-info">
           <div class="repo-name">
@@ -487,7 +566,7 @@ function buildCard(repo, idx) {
       </div>
       <div class="breakdown">
         ${repo.description ? `<div class="desc">${repo.description}</div>` : ''}
-        ${catRows}
+        ${cats}
       </div>
     </div>`;
 }
@@ -495,24 +574,32 @@ function buildCard(repo, idx) {
 function toggleCard(card) {
   const opening = !card.classList.contains('open');
   card.classList.toggle('open', opening);
-  if (opening) {
-    card.querySelectorAll('.bar-fill').forEach(bar => {
-      const pct = bar.dataset.pct;
-      requestAnimationFrame(() => { bar.style.width = pct + '%'; });
-    });
-  } else {
-    card.querySelectorAll('.bar-fill').forEach(bar => { bar.style.width = '0'; });
-  }
+  card.querySelectorAll('.bar-fill').forEach(bar => {
+    bar.style.width = opening ? bar.dataset.pct + '%' : '0';
+  });
+}
+
+// ── Main render ────────────────────────────────────────────────────────────
+function renderPage() {
+  document.getElementById('toolbar').innerHTML    = renderToolbar();
+  document.getElementById('leaderboard').innerHTML = getPageRepos()
+    .map((r, i) => buildCard(r, i)).join('') || '<div class="state">No data yet.</div>';
+  document.getElementById('pagination').innerHTML = renderPagination();
 }
 
 // ── Data loading ───────────────────────────────────────────────────────────
-
 async function load() {
   try {
-    const res = await fetch('./data/scores.json?_=' + Date.now());
+    const res  = await fetch('./data/scores.json?_=' + Date.now());
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
-    render(data);
+
+    document.getElementById('sRepos').textContent   = data.total_repos;
+    document.getElementById('sUpdated').textContent = timeAgo(data.last_updated);
+    document.getElementById('sNext').textContent    = nextScan();
+
+    allRepos = data.repos || [];
+    renderPage();
   } catch (e) {
     document.getElementById('leaderboard').innerHTML =
       `<div class="state">⚠️ Could not load scores.<br>
@@ -520,17 +607,7 @@ async function load() {
   }
 }
 
-function render(data) {
-  document.getElementById('sRepos').textContent   = data.total_repos;
-  document.getElementById('sUpdated').textContent = timeAgo(data.last_updated);
-  document.getElementById('sNext').textContent    = nextScan();
-
-  const html = (data.repos || []).map((r, i) => buildCard(r, i)).join('');
-  document.getElementById('leaderboard').innerHTML = html || '<div class="state">No data yet.</div>';
-}
-
 // ── Init ───────────────────────────────────────────────────────────────────
-
 load();
 setInterval(load, 5 * 60 * 1000);
 setInterval(() => {
