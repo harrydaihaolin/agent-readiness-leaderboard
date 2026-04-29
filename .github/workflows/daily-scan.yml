@@ -16,6 +16,7 @@ permissions:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
         with:
@@ -29,16 +30,26 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run agent readiness scan
+      - name: Discover daily experiment pool (GitHub search)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/scan.py
+        run: python scripts/discover_repos.py
 
-      - name: Commit updated scores
+      - name: Scan curated leaderboard
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/scan.py -o data/scores.json
+
+      - name: Scan experiment pool (up to 100 repos)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/scan.py --experiment-only -o data/scores_experiment.json
+
+      - name: Commit scores + experiment metadata
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/scores.json
+          git add data/scores.json data/scores_experiment.json data/experiment_repos.json
           git diff --staged --quiet || \
-            git commit -m "chore: update agent readiness scores [skip ci]"
+            git commit -m "chore: update scores + daily experiment pool [skip ci]"
           git push

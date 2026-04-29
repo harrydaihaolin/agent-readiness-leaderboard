@@ -11,12 +11,14 @@ AI agent infrastructure repos using the official 4-pillar model:
   safety          — security posture and responsible-AI signals
 """
 
+import argparse
 import json
 import os
 import shutil
 import subprocess
 import sys
 import tempfile
+from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 
@@ -275,18 +277,108 @@ def scan_repo(full_name: str) -> dict | None:
     }
 
 # ---------------------------------------------------------------------------
+# Target list helpers
+# ---------------------------------------------------------------------------
+
+def _load_experiment_repo_names(path: str | os.PathLike[str]) -> list[str]:
+    p = Path(path)
+    if not p.is_file():
+        return []
+    try:
+        doc = json.loads(p.read_text())
+    except (OSError, json.JSONDecodeError):
+        return []
+    repos = doc.get("repos")
+    if not isinstance(repos, list):
+        return []
+    return [str(x) for x in repos if x]
+
+
+def resolve_scan_targets(
+    *,
+    curated_only: bool,
+    experiment_only: bool,
+    experiment_json: Path,
+) -> list[str]:
+    if experiment_only:
+        names = _load_experiment_repo_names(experiment_json)
+        if not names:
+            print(f"No repos in {experiment_json} — run scripts/discover_repos.py first", file=sys.stderr)
+        return names
+    names = list(TARGET_REPOS)
+    if curated_only:
+        return names
+    extra = _load_experiment_repo_names(experiment_json)
+    seen = {n.lower() for n in names}
+    for r in extra:
+        if r.lower() not in seen:
+            names.append(r)
+            seen.add(r.lower())
+    return names
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
-def main() -> None:
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Shallow-clone and agent-readiness scan each target repo.")
+    ap.add_argument(
+        "--output",
+        "-o",
+        type=Path,
+        default=Path("data/scores.json"),
+        help="Write scores JSON here (default: data/scores.json).",
+    )
+    ap.add_argument(
+        "--experiment-json",
+        type=Path,
+        default=Path("data/experiment_repos.json"),
+        help="Pool file from discover_repos.py (default: data/experiment_repos.json).",
+    )
+    ap.add_argument(
+        "--with-experiment",
+        action="store_true",
+        help="Scan curated TARGET_REPOS plus repos listed in --experiment-json.",
+    )
+    ap.add_argument(
+        "--experiment-only",
+        action="store_true",
+        help="Scan only repos from --experiment-json (daily experiment pool).",
+    )
+    args = ap.parse_args()
+
+    targets = resolve_scan_targets(
+        curated_only=not args.with_experiment and not args.experiment_only,
+        experiment_only=args.experiment_only,
+        experiment_json=args.experiment_json,
+    )
+    if not targets:
+        if args.experiment_only:
+            out_path = args.output
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            empty = {
+                "last_updated": datetime.now(timezone.utc).isoformat(),
+                "scan_version": "2.0.0",
+                "scanner": "agent-readiness",
+                "total_repos": 0,
+                "repos": [],
+                "scan_mode": "experiment_only",
+            }
+            out_path.write_text(json.dumps(empty, indent=2))
+            print(f"No experiment repos — wrote empty scores → {out_path}")
+            return 0
+        return 1
+
     print("Agent Readiness Scanner v2.0")
     print("=" * 50)
+    print(f"Repos to scan: {len(targets)}")
 
     results: list[dict] = []
     failed:  list[str]  = []
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
-        futures = {pool.submit(scan_repo, name): name for name in TARGET_REPOS}
+        futures = {pool.submit(scan_repo, name): name for name in targets}
         for fut in as_completed(futures):
             name = futures[fut]
             try:
@@ -309,13 +401,19 @@ def main() -> None:
         "scanner":      "agent-readiness",
         "total_repos":  len(results),
         "repos":        results,
+        "scan_mode": (
+            "experiment_only"
+            if args.experiment_only
+            else ("curated_plus_experiment" if args.with_experiment else "curated_only")
+        ),
     }
 
-    os.makedirs("data", exist_ok=True)
-    with open("data/scores.json", "w") as f:
+    out_path = args.output
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w") as f:
         json.dump(output, f, indent=2)
 
-    print(f"\n✓ Scanned {len(results)} repos → data/scores.json")
+    print(f"\n✓ Scanned {len(results)} repos → {out_path}")
     if failed:
         print(f"  ✗ Failed ({len(failed)}): {', '.join(failed)}")
     print()
@@ -323,7 +421,8 @@ def main() -> None:
         filled = int(r["overall_score"] / 5)
         bar = "█" * filled + "░" * (20 - filled)
         print(f"  #{r['rank']:3d} [{r['grade']}] {r['repo']:<45} {bar} {r['overall_score']:5.1f}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
