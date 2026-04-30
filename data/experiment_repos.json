@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-30T02:47:26.446096+00:00",
+  "updated_at": "2026-04-30T08:04:52.563903+00:00",
   "query": {
     "topics": [
       "llm",
@@ -36,8 +36,8 @@
     "meilisearch/meilisearch",
     "ComposioHQ/awesome-claude-skills",
     "TauricResearch/TradingAgents",
-    "sansan0/TrendRadar",
     "farion1231/cc-switch",
+    "sansan0/TrendRadar",
     "code-yeongyu/oh-my-openagent",
     "upstash/context7",
     "FlowiseAI/Flowise",
@@ -77,9 +77,9 @@
     "ruvnet/ruflo",
     "TabbyML/tabby",
     "PDFMathTranslate/PDFMathTranslate",
+    "ZhuLinsen/daily_stock_analysis",
     "alibaba/nacos",
     "continuedev/continue",
-    "ZhuLinsen/daily_stock_analysis",
     "Yeachan-Heo/oh-my-claudecode",
     "microsoft/playwright-mcp",
     "github/awesome-copilot",
@@ -125,7 +125,7 @@
     {
       "http_status": 200,
       "query": "topic:llm fork:false archived:false stars:500..80000",
-      "total_count": 1524,
+      "total_count": 1526,
       "incomplete_results": false,
       "accepted": 14
     },
@@ -139,7 +139,7 @@
     {
       "http_status": 200,
       "query": "topic:agents fork:false archived:false stars:500..80000",
-      "total_count": 371,
+      "total_count": 372,
       "incomplete_results": false,
       "accepted": 11
     },
