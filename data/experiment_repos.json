@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-29T18:53:21.605105+00:00",
+  "updated_at": "2026-04-30T02:47:26.446096+00:00",
   "query": {
     "topics": [
       "llm",
@@ -35,14 +35,14 @@
     "shareAI-lab/learn-claude-code",
     "meilisearch/meilisearch",
     "ComposioHQ/awesome-claude-skills",
+    "TauricResearch/TradingAgents",
     "sansan0/TrendRadar",
     "farion1231/cc-switch",
-    "TauricResearch/TradingAgents",
     "code-yeongyu/oh-my-openagent",
     "upstash/context7",
     "FlowiseAI/Flowise",
-    "MemPalace/mempalace",
     "JuliusBrussee/caveman",
+    "MemPalace/mempalace",
     "shanraisshan/claude-code-best-practice",
     "huginn/huginn",
     "GokuMohandas/Made-With-ML",
@@ -53,8 +53,8 @@
     "janhq/jan",
     "hesreallyhim/awesome-claude-code",
     "datawhalechina/hello-agents",
-    "LC044/WeChatMsg",
     "HKUDS/nanobot",
+    "LC044/WeChatMsg",
     "666ghj/BettaFish",
     "pingcap/tidb",
     "D4Vinci/Scrapling",
@@ -125,35 +125,35 @@
     {
       "http_status": 200,
       "query": "topic:llm fork:false archived:false stars:500..80000",
-      "total_count": 1525,
+      "total_count": 1524,
       "incomplete_results": false,
       "accepted": 14
     },
     {
       "http_status": 200,
       "query": "topic:llms fork:false archived:false stars:500..80000",
-      "total_count": 270,
+      "total_count": 269,
       "incomplete_results": false,
       "accepted": 21
     },
     {
       "http_status": 200,
       "query": "topic:agents fork:false archived:false stars:500..80000",
-      "total_count": 370,
+      "total_count": 371,
       "incomplete_results": false,
       "accepted": 11
     },
     {
       "http_status": 200,
       "query": "topic:agent fork:false archived:false stars:500..80000",
-      "total_count": 535,
+      "total_count": 536,
       "incomplete_results": false,
       "accepted": 15
     },
     {
       "http_status": 200,
       "query": "topic:ai-agents fork:false archived:false stars:500..80000",
-      "total_count": 426,
+      "total_count": 425,
       "incomplete_results": false,
       "accepted": 15
     },
@@ -174,7 +174,7 @@
     {
       "http_status": 200,
       "query": "topic:langchain fork:false archived:false stars:500..80000",
-      "total_count": 186,
+      "total_count": 185,
       "incomplete_results": false,
       "accepted": 15
     },
@@ -195,7 +195,7 @@
     {
       "http_status": 200,
       "query": "topic:vector-database fork:false archived:false stars:500..80000",
-      "total_count": 97,
+      "total_count": 96,
       "incomplete_results": false,
       "accepted": 12
     },
