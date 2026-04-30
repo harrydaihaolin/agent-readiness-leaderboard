@@ -91,53 +91,103 @@
     .stat-value { font-size: 18px; font-weight: 700; }
     .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
-    /* ── About panel ──────────────────────────────────────────────── */
+    /* ── About tip (collapsible) ─────────────────────────────────── */
     .about {
-      max-width: 860px; margin: 0 auto 28px;
+      max-width: 860px; margin: 0 auto 18px;
       padding: 0 24px;
     }
-    .about-intro {
-      font-size: 13px; color: var(--muted);
-      margin-bottom: 14px; line-height: 1.6;
+    .about-tip {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px;
     }
-    .about h2 {
+    .about-tip > summary {
+      cursor: pointer; list-style: none;
+      padding: 10px 14px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 12px; color: var(--muted);
+    }
+    .about-tip > summary::-webkit-details-marker { display: none; }
+    .about-tip > summary::before {
+      content: "▸";
+      font-size: 10px; line-height: 1;
+      color: var(--accent);
+      transition: transform 120ms ease;
+    }
+    .about-tip[open] > summary::before { transform: rotate(90deg); }
+    .about-tip > summary:hover { color: var(--text); }
+    .about-tip-summary-icon {
+      font-size: 13px;
+    }
+    .about-tip-summary-text strong { color: var(--text); font-weight: 600; }
+    .about-tip-summary-cta {
+      margin-left: auto;
+      font-size: 11px; color: var(--accent);
+      text-decoration: none;
+    }
+    .about-tip-summary-cta:hover { text-decoration: underline; }
+    .about-body {
+      padding: 4px 14px 14px;
+      border-top: 1px solid var(--border);
+    }
+    .about-intro {
+      font-size: 12px; color: var(--muted);
+      margin: 12px 0 12px; line-height: 1.55;
+    }
+    .about-body h2 {
       font-size: 11px; font-weight: 600; color: var(--muted);
       text-transform: uppercase; letter-spacing: .08em;
-      margin: 14px 0 10px;
+      margin: 14px 0 8px;
     }
     .pillar-grid {
       display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      gap: 8px;
     }
     @media (min-width: 720px) {
       .pillar-grid { grid-template-columns: repeat(4, 1fr); }
     }
     .pillar-tile {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 12px 14px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 12px;
     }
     .pillar-tile-head {
-      display: flex; align-items: center; gap: 7px;
+      display: flex; align-items: center; gap: 6px;
       font-size: 12px; font-weight: 600; color: var(--text);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
-    .pillar-tile-body { font-size: 11px; color: var(--muted); line-height: 1.45; }
+    .pillar-tile-body { font-size: 11px; color: var(--muted); line-height: 1.4; }
     .scope-grid {
       display: grid; grid-template-columns: 1fr;
-      gap: 10px;
+      gap: 8px;
     }
     @media (min-width: 580px) {
       .scope-grid { grid-template-columns: 1fr 1fr; }
     }
     .scope-tile {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 12px 14px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 12px;
     }
     .scope-tile-name {
       font-size: 12px; font-weight: 700; color: var(--accent);
-      letter-spacing: .04em; margin-bottom: 4px;
+      letter-spacing: .04em; margin-bottom: 3px;
     }
-    .scope-tile-body { font-size: 11px; color: var(--muted); line-height: 1.45; }
+    .scope-tile-body { font-size: 11px; color: var(--muted); line-height: 1.4; }
+    .about-cta {
+      margin-top: 14px; padding: 10px 12px;
+      border: 1px dashed var(--border); border-radius: 8px;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      font-size: 12px; color: var(--muted);
+    }
+    .about-cta-text { flex: 1; min-width: 200px; line-height: 1.45; }
+    .about-cta-text strong { color: var(--text); }
+    .about-cta-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 6px 12px;
+      background: var(--accent); color: #fff;
+      font-size: 12px; font-weight: 600;
+      border-radius: 6px; text-decoration: none;
+      white-space: nowrap;
+    }
+    .about-cta-link:hover { filter: brightness(1.1); }
 
     /* ── Container ────────────────────────────────────────────────── */
     .container { max-width: 860px; margin: 0 auto; padding: 0 24px 64px; }
@@ -396,45 +446,76 @@
 </div>
 
 <section class="about" aria-label="About this leaderboard">
-  <p class="about-intro">
-    Each repo is shallow-cloned and scored 0–100 by the
-    <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">agent-readiness</a>
-    CLI tool. The overall score is a weighted blend of four pillars — repos that
-    feel agent-friendly score well in all four; repos with rough edges in one
-    pillar see it pulled down accordingly.
-  </p>
+  <details class="about-tip">
+    <summary>
+      <span class="about-tip-summary-icon">💡</span>
+      <span class="about-tip-summary-text">
+        <strong>How is this scored?</strong>
+        — four pillars, two scopes (curated vs. experiment).
+      </span>
+      <a class="about-tip-summary-cta"
+         href="https://harrydaihaolin.github.io/agent-readiness-landing-page/"
+         target="_blank" rel="noopener"
+         onclick="event.stopPropagation();">
+        Get a full audit →
+      </a>
+    </summary>
+    <div class="about-body">
+      <p class="about-intro">
+        Each repo is shallow-cloned and scored 0–100 by the
+        <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">agent-readiness</a>
+        CLI tool. The overall score is a weighted blend of four pillars — repos
+        that feel agent-friendly score well in all four; repos with rough
+        edges in one pillar see it pulled down accordingly.
+      </p>
 
-  <h2>The four pillars</h2>
-  <div class="pillar-grid">
-    <div class="pillar-tile">
-      <div class="pillar-tile-head">🧠 Cognitive Load</div>
-      <div class="pillar-tile-body">README clarity, run instructions, and onboarding friction — can a coding agent get oriented without a guided tour?</div>
-    </div>
-    <div class="pillar-tile">
-      <div class="pillar-tile-head">🔄 Feedback Loops</div>
-      <div class="pillar-tile-body">Test commands, CI configuration, lockfiles, and evaluation harnesses — does the agent get a fast red/green signal on its changes?</div>
-    </div>
-    <div class="pillar-tile">
-      <div class="pillar-tile-head">⚡ Flow &amp; Reliability</div>
-      <div class="pillar-tile-body">Entry points, automation, devcontainers, templates, and contributor docs — once oriented, can the agent move without snags?</div>
-    </div>
-    <div class="pillar-tile">
-      <div class="pillar-tile-head">🛡️ Safety</div>
-      <div class="pillar-tile-body">Secrets hygiene, dependency-update automation, security policy, and gitignore coverage — does the agent know the boundaries it must not cross?</div>
-    </div>
-  </div>
+      <h2>The four pillars</h2>
+      <div class="pillar-grid">
+        <div class="pillar-tile">
+          <div class="pillar-tile-head">🧠 Cognitive Load</div>
+          <div class="pillar-tile-body">README clarity, run instructions, and onboarding friction — can a coding agent get oriented without a guided tour?</div>
+        </div>
+        <div class="pillar-tile">
+          <div class="pillar-tile-head">🔄 Feedback Loops</div>
+          <div class="pillar-tile-body">Test commands, CI configuration, lockfiles, and evaluation harnesses — does the agent get a fast red/green signal on its changes?</div>
+        </div>
+        <div class="pillar-tile">
+          <div class="pillar-tile-head">⚡ Flow &amp; Reliability</div>
+          <div class="pillar-tile-body">Entry points, automation, devcontainers, templates, and contributor docs — once oriented, can the agent move without snags?</div>
+        </div>
+        <div class="pillar-tile">
+          <div class="pillar-tile-head">🛡️ Safety</div>
+          <div class="pillar-tile-body">Secrets hygiene, dependency-update automation, security policy, and gitignore coverage — does the agent know the boundaries it must not cross?</div>
+        </div>
+      </div>
 
-  <h2>Scope: curated vs. experiment</h2>
-  <div class="scope-grid">
-    <div class="scope-tile">
-      <div class="scope-tile-name">Curated</div>
-      <div class="scope-tile-body">A hand-picked list of ~95 AI-agent infrastructure repos (frameworks, inference servers, vector stores, observability, orchestration). The canonical leaderboard.</div>
+      <h2>Scope: curated vs. experiment</h2>
+      <div class="scope-grid">
+        <div class="scope-tile">
+          <div class="scope-tile-name">Curated</div>
+          <div class="scope-tile-body">A hand-picked list of ~95 AI-agent infrastructure repos (frameworks, inference servers, vector stores, observability, orchestration). The canonical leaderboard.</div>
+        </div>
+        <div class="scope-tile">
+          <div class="scope-tile-name">Experiment</div>
+          <div class="scope-tile-body">Up to ~100 repos auto-discovered daily by GitHub topic / star search. Used to keep the rules engine honest against codebases the curated list never sees.</div>
+        </div>
+      </div>
+
+      <div class="about-cta">
+        <div class="about-cta-text">
+          <strong>Want detailed analytics or an AI code review for your own repo?</strong>
+          The <a href="https://harrydaihaolin.github.io/agent-readiness-landing-page/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">agent-readiness platform</a>
+          turns these same checks into per-repo dashboards, PR comments, and
+          fix recommendations.
+        </div>
+        <a class="about-cta-link"
+           href="https://harrydaihaolin.github.io/agent-readiness-landing-page/"
+           target="_blank" rel="noopener">
+          Visit the platform →
+        </a>
+      </div>
     </div>
-    <div class="scope-tile">
-      <div class="scope-tile-name">Experiment</div>
-      <div class="scope-tile-body">Up to ~100 repos auto-discovered daily by GitHub topic / star search. Used to keep the rules engine honest against codebases the curated list never sees.</div>
-    </div>
-  </div>
+  </details>
 </section>
 
 <div class="container">
@@ -448,6 +529,8 @@
 <footer>
   <p>
     Powered by <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener">agent-readiness</a>
+    <span class="sep">·</span>
+    <a href="https://harrydaihaolin.github.io/agent-readiness-landing-page/" target="_blank" rel="noopener">audit your repo →</a>
     <span class="sep">·</span>
     <a href="https://github.com/harrydaihaolin/agent-readiness-leaderboard" target="_blank" rel="noopener">leaderboard source</a>
     <span class="sep">·</span>
