@@ -229,30 +229,67 @@ def scan_repo(full_name: str) -> dict | None:
             print(f"    ✗ {full_name}: JSON parse error: {exc}", file=sys.stderr)
             return None
 
-        # 5. Extract pillar scores and top findings
+        # 5. Extract pillar scores and top findings.
+        #
+        # Findings are grouped by check_id so any check that fires more than
+        # once folds into a single summary row. Without this, verbose checks
+        # like repo_shape.large_files (one finding per oversized file) crowd
+        # out diverse signals such as headless.no_setup_prompts or
+        # git.churn_hotspots — empirically ~80% of all top-findings entries
+        # were large-file rows before this change.
         overall_score = round(float(ar_data.get("overall_score", 0.0)), 1)
         pillars: dict[str, float] = {}
-        top_findings: list[dict] = []
+        groups: dict[str, dict] = {}
 
         for pillar_obj in ar_data.get("pillars", []):
             pname = pillar_obj.get("pillar", "")
             pillars[pname] = round(float(pillar_obj.get("score", 0.0)), 1)
 
             for check in pillar_obj.get("checks", []):
+                cid = check.get("check_id", "")
                 for finding in check.get("findings", []):
                     sev = finding.get("severity", "")
                     hint = finding.get("fix_hint", "")
-                    if sev in ("warn", "error") and hint:
-                        top_findings.append({
-                            "pillar":   pname,
-                            "check_id": finding.get("check_id", ""),
-                            "message":  finding.get("message", ""),
-                            "severity": sev,
-                            "fix_hint": hint,
-                        })
+                    if sev not in ("warn", "error") or not hint:
+                        continue
+                    g = groups.setdefault(cid, {
+                        "pillar":   pname,
+                        "check_id": cid,
+                        "severity": sev,
+                        "fix_hint": hint,
+                        "raw":      [],
+                    })
+                    g["raw"].append(finding.get("message", ""))
+                    # Worst severity wins for the group.
+                    if sev == "error":
+                        g["severity"] = "error"
 
-        # errors first, then warn; cap at 8
-        top_findings.sort(key=lambda f: (0 if f["severity"] == "error" else 1, f["pillar"]))
+        # Materialise one summary finding per check_id.
+        top_findings: list[dict] = []
+        for g in groups.values():
+            n = len(g["raw"])
+            if n == 1:
+                msg = g["raw"][0]
+            else:
+                sample = "; ".join(g["raw"][:2])
+                msg = f"{n} findings — e.g. {sample}"
+            top_findings.append({
+                "pillar":   g["pillar"],
+                "check_id": g["check_id"],
+                "message":  msg,
+                "severity": g["severity"],
+                "fix_hint": g["fix_hint"],
+                "count":    n,
+            })
+
+        # Errors first, then warn; within a severity bucket, larger
+        # groups float up so the user sees the biggest concentrations
+        # first. Cap at 8 distinct check_ids.
+        top_findings.sort(key=lambda f: (
+            0 if f["severity"] == "error" else 1,
+            -f["count"],
+            f["pillar"],
+        ))
         top_findings = top_findings[:8]
 
     finally:

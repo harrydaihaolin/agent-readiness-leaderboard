@@ -91,6 +91,54 @@
     .stat-value { font-size: 18px; font-weight: 700; }
     .stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
+    /* ── About panel ──────────────────────────────────────────────── */
+    .about {
+      max-width: 860px; margin: 0 auto 28px;
+      padding: 0 24px;
+    }
+    .about-intro {
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 14px; line-height: 1.6;
+    }
+    .about h2 {
+      font-size: 11px; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .08em;
+      margin: 14px 0 10px;
+    }
+    .pillar-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (min-width: 720px) {
+      .pillar-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .pillar-tile {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 14px;
+    }
+    .pillar-tile-head {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12px; font-weight: 600; color: var(--text);
+      margin-bottom: 4px;
+    }
+    .pillar-tile-body { font-size: 11px; color: var(--muted); line-height: 1.45; }
+    .scope-grid {
+      display: grid; grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 580px) {
+      .scope-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .scope-tile {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 14px;
+    }
+    .scope-tile-name {
+      font-size: 12px; font-weight: 700; color: var(--accent);
+      letter-spacing: .04em; margin-bottom: 4px;
+    }
+    .scope-tile-body { font-size: 11px; color: var(--muted); line-height: 1.45; }
+
     /* ── Container ────────────────────────────────────────────────── */
     .container { max-width: 860px; margin: 0 auto; padding: 0 24px 64px; }
 
@@ -224,7 +272,12 @@
       display: grid; grid-template-columns: 148px 1fr 52px;
       align-items: center; gap: 10px; margin-bottom: 8px;
     }
-    .cat-label { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+    .cat-label {
+      font-size: 12px; color: var(--muted);
+      display: flex; align-items: center; gap: 5px;
+      cursor: help;
+    }
+    .cat-label:hover { color: var(--text); }
     .bar-track { background: var(--surface2); border-radius: 4px; height: 6px; overflow: hidden; }
     .bar-fill {
       height: 100%; border-radius: 4px; width: 0;
@@ -342,6 +395,48 @@
   </div>
 </div>
 
+<section class="about" aria-label="About this leaderboard">
+  <p class="about-intro">
+    Each repo is shallow-cloned and scored 0–100 by the
+    <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">agent-readiness</a>
+    CLI tool. The overall score is a weighted blend of four pillars — repos that
+    feel agent-friendly score well in all four; repos with rough edges in one
+    pillar see it pulled down accordingly.
+  </p>
+
+  <h2>The four pillars</h2>
+  <div class="pillar-grid">
+    <div class="pillar-tile">
+      <div class="pillar-tile-head">🧠 Cognitive Load</div>
+      <div class="pillar-tile-body">README clarity, run instructions, and onboarding friction — can a coding agent get oriented without a guided tour?</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-tile-head">🔄 Feedback Loops</div>
+      <div class="pillar-tile-body">Test commands, CI configuration, lockfiles, and evaluation harnesses — does the agent get a fast red/green signal on its changes?</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-tile-head">⚡ Flow &amp; Reliability</div>
+      <div class="pillar-tile-body">Entry points, automation, devcontainers, templates, and contributor docs — once oriented, can the agent move without snags?</div>
+    </div>
+    <div class="pillar-tile">
+      <div class="pillar-tile-head">🛡️ Safety</div>
+      <div class="pillar-tile-body">Secrets hygiene, dependency-update automation, security policy, and gitignore coverage — does the agent know the boundaries it must not cross?</div>
+    </div>
+  </div>
+
+  <h2>Scope: curated vs. experiment</h2>
+  <div class="scope-grid">
+    <div class="scope-tile">
+      <div class="scope-tile-name">Curated</div>
+      <div class="scope-tile-body">A hand-picked list of ~95 AI-agent infrastructure repos (frameworks, inference servers, vector stores, observability, orchestration). The canonical leaderboard.</div>
+    </div>
+    <div class="scope-tile">
+      <div class="scope-tile-name">Experiment</div>
+      <div class="scope-tile-body">Up to ~100 repos auto-discovered daily by GitHub topic / star search. Used to keep the rules engine honest against codebases the curated list never sees.</div>
+    </div>
+  </div>
+</section>
+
 <div class="container">
   <div id="toolbar"></div>
   <div id="leaderboard">
@@ -358,20 +453,23 @@
     <span class="sep">·</span>
     Scores updated daily at 06:00 UTC via GitHub Actions
     <span class="sep">·</span>
-    <a href="#" id="toggleMethod">Scoring methodology</a>
+    <a href="#" id="toggleMethod">Methodology details</a>
   </p>
   <div id="methodPanel" style="display:none; margin-top:16px;">
     <div class="methodology">
-      <p>Each repo is cloned and scored 0–100 by the <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener" style="color:var(--accent)">agent-readiness</a> CLI tool across 4 pillars:</p>
-      <ul>
-        <li><strong>🧠 Cognitive Load</strong> — README clarity, run instructions, onboarding friction</li>
-        <li><strong>🔄 Feedback Loops</strong> — testing coverage, CI checks, evaluation harnesses</li>
-        <li><strong>⚡ Flow &amp; Reliability</strong> — automation, dependency health, contributor experience</li>
-        <li><strong>🛡️ Safety</strong> — security advisories, dependency scanning, responsible-AI signals</li>
-      </ul>
+      <p>
+        Pillar definitions are at the top of the page. Mechanically: each
+        repo is shallow-cloned (<code>git clone --depth 1</code>) into a
+        temp directory, scanned by
+        <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener" style="color:var(--accent)">agent-readiness</a>,
+        and scored 0–100. Scans run in parallel during a daily GitHub Actions
+        cron at 06:00 UTC. Rank always reflects the overall score.
+      </p>
       <p style="margin-top:10px;">
-        Repos are shallow-cloned (<code>git clone --depth 1</code>) in parallel during each CI run.
-        Rank always reflects the overall agent-readiness score.
+        Each rule emits its own findings; the dashboard rolls them up by
+        <code>check_id</code> so a single noisy check (e.g. one finding per
+        oversized file) only takes one slot in the per-repo "Top Findings"
+        list.
       </p>
     </div>
   </div>
@@ -379,10 +477,26 @@
 
 <script>
 const PILLARS = {
-  cognitive_load: { label: 'Cognitive Load',     icon: '🧠' },
-  feedback:       { label: 'Feedback Loops',     icon: '🔄' },
-  flow:           { label: 'Flow & Reliability', icon: '⚡' },
-  safety:         { label: 'Safety',             icon: '🛡️' },
+  cognitive_load: {
+    label: 'Cognitive Load',
+    icon:  '🧠',
+    description: 'README clarity, run instructions, onboarding friction — can a coding agent get oriented without a guided tour?',
+  },
+  feedback: {
+    label: 'Feedback Loops',
+    icon:  '🔄',
+    description: 'Test commands, CI configuration, lockfiles, evaluation harnesses — does the agent get a fast red/green signal on its changes?',
+  },
+  flow: {
+    label: 'Flow & Reliability',
+    icon:  '⚡',
+    description: 'Entry points, automation, devcontainers, templates, contributor docs — once oriented, can the agent move without snags?',
+  },
+  safety: {
+    label: 'Safety',
+    icon:  '🛡️',
+    description: 'Secrets hygiene, dependency-update automation, security policy, gitignore coverage — does the agent know the boundaries it must not cross?',
+  },
 };
 
 // ── State ──────────────────────────────────────────────────────────────────
@@ -627,7 +741,7 @@ function buildCard(repo, idx) {
     const bp = score.toFixed(1);
     return `
       <div class="cat-row">
-        <div class="cat-label">${meta.icon} ${meta.label}</div>
+        <div class="cat-label" title="${meta.description}">${meta.icon} ${meta.label}</div>
         <div class="bar-track"><div class="bar-fill" data-pct="${bp}"></div></div>
         <div class="cat-score">${bp}/100</div>
       </div>`;
