@@ -179,11 +179,16 @@ def get_repo_meta(full_name: str) -> dict | None:
 # ---------------------------------------------------------------------------
 
 def grade(score: float) -> str:
-    if score >= 80: return "S"
-    if score >= 65: return "A"
-    if score >= 50: return "B"
-    if score >= 35: return "C"
-    if score >= 20: return "D"
+    if score >= 80:
+        return "S"
+    if score >= 65:
+        return "A"
+    if score >= 50:
+        return "B"
+    if score >= 35:
+        return "C"
+    if score >= 20:
+        return "D"
     return "F"
 
 # ---------------------------------------------------------------------------
