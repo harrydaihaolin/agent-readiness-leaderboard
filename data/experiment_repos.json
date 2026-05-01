@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-30T08:04:52.563903+00:00",
+  "updated_at": "2026-05-01T08:02:24.933833+00:00",
   "query": {
     "topics": [
       "llm",
@@ -32,10 +32,10 @@
     "pathwaycom/llm-app",
     "Mintplex-Labs/anything-llm",
     "666ghj/MiroFish",
+    "TauricResearch/TradingAgents",
     "shareAI-lab/learn-claude-code",
     "meilisearch/meilisearch",
     "ComposioHQ/awesome-claude-skills",
-    "TauricResearch/TradingAgents",
     "farion1231/cc-switch",
     "sansan0/TrendRadar",
     "code-yeongyu/oh-my-openagent",
@@ -73,13 +73,13 @@
     "wshobson/agents",
     "patchy631/ai-engineering-hub",
     "khoj-ai/khoj",
-    "ItzCrazyKns/Vane",
     "ruvnet/ruflo",
+    "ItzCrazyKns/Vane",
+    "ZhuLinsen/daily_stock_analysis",
     "TabbyML/tabby",
     "PDFMathTranslate/PDFMathTranslate",
-    "ZhuLinsen/daily_stock_analysis",
-    "alibaba/nacos",
     "continuedev/continue",
+    "alibaba/nacos",
     "Yeachan-Heo/oh-my-claudecode",
     "microsoft/playwright-mcp",
     "github/awesome-copilot",
@@ -125,7 +125,7 @@
     {
       "http_status": 200,
       "query": "topic:llm fork:false archived:false stars:500..80000",
-      "total_count": 1526,
+      "total_count": 1528,
       "incomplete_results": false,
       "accepted": 14
     },
@@ -139,28 +139,28 @@
     {
       "http_status": 200,
       "query": "topic:agents fork:false archived:false stars:500..80000",
-      "total_count": 372,
+      "total_count": 373,
       "incomplete_results": false,
       "accepted": 11
     },
     {
       "http_status": 200,
       "query": "topic:agent fork:false archived:false stars:500..80000",
-      "total_count": 536,
+      "total_count": 535,
       "incomplete_results": false,
       "accepted": 15
     },
     {
       "http_status": 200,
       "query": "topic:ai-agents fork:false archived:false stars:500..80000",
-      "total_count": 425,
+      "total_count": 427,
       "incomplete_results": false,
       "accepted": 15
     },
     {
       "http_status": 200,
       "query": "topic:mcp fork:false archived:false stars:500..80000",
-      "total_count": 556,
+      "total_count": 557,
       "incomplete_results": false,
       "accepted": 9
     },
@@ -188,7 +188,7 @@
     {
       "http_status": 200,
       "query": "topic:llm-inference fork:false archived:false stars:500..80000",
-      "total_count": 64,
+      "total_count": 65,
       "incomplete_results": false,
       "accepted": 18
     },
