@@ -10,6 +10,16 @@ on:
       - 'scripts/**'
       - '.github/workflows/daily-scan.yml'
 
+# Two scheduled runs (or a manual `workflow_dispatch` racing the cron)
+# both committing to `data/scores.json` will lose data: the second
+# `git push` is rejected as non-fast-forward and the workflow exits 0
+# with stale data on disk. `concurrency:` serialises runs by group
+# without cancelling the in-flight one, which is what we want for a
+# write workflow.
+concurrency:
+  group: daily-scan
+  cancel-in-progress: false
+
 permissions:
   contents: write   # needed to commit data/scores.json back to main
 
@@ -18,17 +28,23 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # pin to v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # pin to v5
         with:
           python-version: '3.12'
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          # `check-jsonschema` validates the produced scores.json
+          # against schemas/scores.schema.json before we let it ship.
+          # Pinned to a recent stable release.
+          pip install 'check-jsonschema>=0.30,<1'
 
       - name: Discover daily experiment pool (GitHub search)
         env:
@@ -38,18 +54,78 @@ jobs:
       - name: Scan curated leaderboard
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/scan.py -o data/scores.json
+        run: python scripts/scan.py -o data/scores.json --scan-health data/scan_health.json
 
-      - name: Scan experiment pool (up to 100 repos)
+      - name: Scan experiment pool
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/scan.py --experiment-only -o data/scores_experiment.json
+        run: python scripts/scan.py --experiment-only -o data/scores_experiment.json --scan-health data/scan_health_experiment.json
+
+      - name: Validate scores envelopes against scores.schema.json
+        # ML1: every consumer (analytics, dashboard, landing-page,
+        # insights RAG, research judge) pins this schema. Validating
+        # here means a producer-side envelope drift reds the daily
+        # scan instead of breaking each consumer one at a time.
+        run: |
+          set -euo pipefail
+          for f in data/scores.json data/scores_experiment.json; do
+            echo "=== validating $f ==="
+            check-jsonschema --schemafile schemas/scores.schema.json "$f"
+          done
+
+      - name: Fail on excessive scan failures
+        # ML3: if more than 10% of targeted repos fail in a single run,
+        # something is structurally wrong (rate limiting, network,
+        # scanner regression). Fail loud rather than silently shrink the
+        # `total_repos` denominator that downstream marketing copy
+        # quotes.
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, sys
+          for path in ("data/scores.json", "data/scores_experiment.json"):
+              with open(path) as fh:
+                  doc = json.load(fh)
+              ok = doc.get("total_repos") or 0
+              fail = len(doc.get("failures") or [])
+              total = ok + fail
+              if total == 0:
+                  continue
+              ratio = fail / total
+              print(f"{path}: ok={ok} fail={fail} ratio={ratio:.2%}")
+              if ratio > 0.10:
+                  print(f"::error::{path} failure ratio {ratio:.2%} > 10%")
+                  sys.exit(1)
+          PY
 
       - name: Commit scores + experiment metadata
+        # ML2: rebase before push and retry up to 3 times. Without this,
+        # any in-flight commit on `main` (e.g. a manual edit, or a
+        # docs-only change) breaks the push and leaves the freshly
+        # scanned data sitting in the workflow log only.
         run: |
+          set -euo pipefail
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/scores.json data/scores_experiment.json data/experiment_repos.json
-          git diff --staged --quiet || \
-            git commit -m "chore: update scores + daily experiment pool [skip ci]"
-          git push
+          git add data/scores.json data/scores_experiment.json data/experiment_repos.json data/scan_health.json data/scan_health_experiment.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No score changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: update scores + daily experiment pool [skip ci]"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main; then
+              if git push origin HEAD:main; then
+                echo "Pushed on attempt $attempt."
+                exit 0
+              fi
+            else
+              # Rebase conflict — abort and fall through to a fresh attempt.
+              git rebase --abort || true
+            fi
+            echo "Push attempt $attempt failed; retrying after backoff..."
+            sleep $((attempt * 5))
+          done
+          echo "::error::Failed to push after 3 attempts; data not committed."
+          exit 1

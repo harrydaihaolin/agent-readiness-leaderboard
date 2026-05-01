@@ -2,13 +2,20 @@
 """
 Agent Readiness Scanner v2
 ==========================
-Shallow-clones each repo and invokes `agent-readiness scan --json` to score
-AI agent infrastructure repos using the official 4-pillar model:
+Clones each target repo (full default-branch history; the legacy
+shallow-clone broke `git.has_history`) and invokes
+`agent-readiness scan --json` to score AI agent infrastructure repos
+using the official 4-pillar model:
 
   cognitive_load  — clarity and navigability of the codebase
   feedback        — testing, CI, and observability signals
   flow            — reliability, automation, and contributor experience
   safety          — security posture and responsible-AI signals
+
+Output envelope is pinned by `schemas/scores.schema.json`; consumers
+(analytics ingest, dashboard, landing-page, insights RAG, research
+judge) validate against that schema so any envelope change reds the
+ingest path of every consumer at once.
 """
 
 import argparse
@@ -183,51 +190,83 @@ def grade(score: float) -> str:
 # Scanner
 # ---------------------------------------------------------------------------
 
-def scan_repo(full_name: str) -> dict | None:
+def scan_repo(full_name: str) -> dict | tuple[None, str, str]:
+    """Scan one repo.
+
+    Returns the result dict on success. On failure, returns
+    `(None, error_class, reason)` where `error_class` is a stable string
+    suitable for dashboards/alerting and `reason` is a human-readable
+    truncated message. Callers map this onto the `failures: []` array of
+    the `scores.json` envelope (see `schemas/scores.schema.json`).
+    """
     owner, repo_name = full_name.split("/", 1)
     print(f"  → {full_name}", flush=True)
 
     # 1. Fetch GitHub metadata
     meta = get_repo_meta(full_name)
     if not meta:
-        print(f"    ✗ {full_name}: could not fetch metadata", file=sys.stderr)
-        return None
+        msg = "could not fetch metadata (404, rate limit, or network error)"
+        print(f"    ✗ {full_name}: {msg}", file=sys.stderr)
+        return (None, "metadata_unavailable", msg)
 
-    # 2. Shallow clone into a temp directory
+    # 2. Clone into a temp directory.
+    #
+    # We deliberately do NOT pass `--depth 1` here. A shallow clone has
+    # a single commit, which makes `git.has_history` (and any other
+    # heuristic that walks the log) misfire on every scanned repo. The
+    # cost-of-fetching difference for typical AI-infra repos is small
+    # compared to the noise the shallow clone introduced — see
+    # `agent-readiness-research/research/ideas.md` (`git.has_history`
+    # entry) and `agent-readiness-leaderboard/scripts/scan.py` history
+    # for the original bug.
     tmpdir = tempfile.mkdtemp(prefix="ar_scan_")
     try:
         clone_url = f"https://github.com/{full_name}.git"
-        clone = subprocess.run(
-            ["git", "clone", "--depth", "1", "--single-branch", "--no-tags",
-             clone_url, tmpdir],
-            capture_output=True,
-            timeout=120,
-        )
+        try:
+            clone = subprocess.run(
+                ["git", "clone", "--no-single-branch", "--no-tags",
+                 clone_url, tmpdir],
+                capture_output=True,
+                timeout=180,
+            )
+        except subprocess.TimeoutExpired:
+            msg = "clone timed out after 180s"
+            print(f"    ✗ {full_name}: {msg}", file=sys.stderr)
+            return (None, "clone_timeout", msg)
         if clone.returncode != 0:
             err = clone.stderr.decode(errors="replace")[:300]
             print(f"    ✗ {full_name}: clone failed: {err}", file=sys.stderr)
-            return None
+            return (None, "clone_failed", f"clone failed: {err}")
 
-        # 3. Run agent-readiness scan
-        ar = subprocess.run(
-            ["agent-readiness", "scan", tmpdir, "--json"],
-            capture_output=True,
-            timeout=120,
-        )
+        # 3. Run agent-readiness scan.
+        #
+        # The CLI exits 0 even when findings are present; it only exits 1
+        # when `--fail-below` is passed and the score regresses. We do
+        # not pass `--fail-below` here because the leaderboard wants the
+        # raw score regardless. So `returncode != 0` here genuinely
+        # signals an error inside the scanner, not a low-score repo.
+        try:
+            ar = subprocess.run(
+                ["agent-readiness", "scan", tmpdir, "--json"],
+                capture_output=True,
+                timeout=120,
+            )
+        except subprocess.TimeoutExpired:
+            msg = "agent-readiness scan timed out after 120s"
+            print(f"    ✗ {full_name}: {msg}", file=sys.stderr)
+            return (None, "scan_timeout", msg)
         stdout = ar.stdout.decode(errors="replace").strip()
-
-        # agent-readiness exits 1 when findings are present — that's still valid output
         if not stdout:
             err = ar.stderr.decode(errors="replace")[:300]
             print(f"    ✗ {full_name}: no output from agent-readiness: {err}", file=sys.stderr)
-            return None
+            return (None, "scan_no_output", f"no output: {err}")
 
         # 4. Parse JSON output
         try:
             ar_data = json.loads(stdout)
         except json.JSONDecodeError as exc:
             print(f"    ✗ {full_name}: JSON parse error: {exc}", file=sys.stderr)
-            return None
+            return (None, "scan_json_error", f"JSON parse error: {exc}")
 
         # 5. Extract pillar scores and top findings.
         #
@@ -358,8 +397,122 @@ def resolve_scan_targets(
 # Main
 # ---------------------------------------------------------------------------
 
+def _scanner_meta() -> dict[str, str | int | None]:
+    """Best-effort capture of the scanner version + rules pack version
+    so the scores.json envelope is reproducible.
+
+    Falls back to None for any field that can't be resolved; consumers
+    treat None as "unknown" rather than "wrong".
+    """
+    out: dict[str, str | int | None] = {
+        "scanner_version": None,
+        "rules_pack_version": None,
+        "checks_count": None,
+    }
+    try:
+        cli_ver = subprocess.run(
+            ["agent-readiness", "--version"],
+            capture_output=True,
+            timeout=10,
+        )
+        if cli_ver.returncode == 0:
+            text = (cli_ver.stdout or cli_ver.stderr).decode(errors="replace").strip()
+            # `agent-readiness --version` typically prints `agent-readiness 1.2.3`
+            parts = text.split()
+            if parts:
+                out["scanner_version"] = parts[-1]
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        pass
+    try:
+        # rules-eval --help dumps the loaded rules; check_count is more
+        # reliably surfaced through `rules-eval --rules-version-only`
+        # if/when that flag exists. Until then we scrape the help text.
+        info = subprocess.run(
+            ["agent-readiness", "rules-eval", "--list-rules", "--json"],
+            capture_output=True,
+            timeout=15,
+        )
+        if info.returncode == 0:
+            data = json.loads(info.stdout.decode(errors="replace") or "{}")
+            if isinstance(data, dict):
+                if isinstance(data.get("pack_version"), str):
+                    out["rules_pack_version"] = data["pack_version"]
+                if isinstance(data.get("rules"), list):
+                    out["checks_count"] = len(data["rules"])
+                elif isinstance(data.get("checks_count"), int):
+                    out["checks_count"] = data["checks_count"]
+    except (FileNotFoundError, subprocess.TimeoutExpired, json.JSONDecodeError):
+        pass
+    return out
+
+
+def _load_prior_scan_health(path: Path) -> dict[str, dict]:
+    if not path.is_file():
+        return {}
+    try:
+        doc = json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError):
+        return {}
+    repos = doc.get("repos") if isinstance(doc, dict) else None
+    if not isinstance(repos, list):
+        return {}
+    out: dict[str, dict] = {}
+    for row in repos:
+        if isinstance(row, dict) and isinstance(row.get("repo"), str):
+            out[row["repo"]] = row
+    return out
+
+
+def _write_scan_health(
+    *,
+    path: Path,
+    scanned_at: str,
+    successes: list[str],
+    failures: list[dict],
+    prior: dict[str, dict],
+) -> None:
+    """Maintain a per-repo health record across runs.
+
+    `prior` is the previous run's `scan_health.json` (or empty). We
+    increment `consecutive_failures` for each repo that failed both
+    runs, reset to 0 on success, and surface `last_success_ts` /
+    `last_failure_ts` for dashboard rendering.
+    """
+    rows: list[dict] = []
+    for repo in successes:
+        prev = prior.get(repo, {})
+        rows.append({
+            "repo": repo,
+            "last_success_ts": scanned_at,
+            "last_failure_ts": prev.get("last_failure_ts"),
+            "consecutive_failures": 0,
+            "error_class": None,
+        })
+    for fail in failures:
+        repo = fail["repo"]
+        prev = prior.get(repo, {})
+        prev_streak = prev.get("consecutive_failures") or 0
+        # If the prior row was a success, the streak starts at 1; else it
+        # increments. (We tolerate prior rows that come from before the
+        # health file existed and only have last_success_ts.)
+        streak = 1 if prev.get("error_class") in (None, "") else int(prev_streak) + 1
+        rows.append({
+            "repo": repo,
+            "last_success_ts": prev.get("last_success_ts"),
+            "last_failure_ts": scanned_at,
+            "consecutive_failures": streak,
+            "error_class": fail["error_class"],
+        })
+    rows.sort(key=lambda r: (-(r["consecutive_failures"] or 0), r["repo"]))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({
+        "last_updated": scanned_at,
+        "repos": rows,
+    }, indent=2))
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Shallow-clone and agent-readiness scan each target repo.")
+    ap = argparse.ArgumentParser(description="Clone each target repo and run `agent-readiness scan --json`.")
     ap.add_argument(
         "--output",
         "-o",
@@ -383,6 +536,12 @@ def main() -> int:
         action="store_true",
         help="Scan only repos from --experiment-json (daily experiment pool).",
     )
+    ap.add_argument(
+        "--scan-health",
+        type=Path,
+        default=Path("data/scan_health.json"),
+        help="Write per-repo scan health (last success, consecutive failures) here. Pass empty to skip.",
+    )
     args = ap.parse_args()
 
     targets = resolve_scan_targets(
@@ -390,29 +549,39 @@ def main() -> int:
         experiment_only=args.experiment_only,
         experiment_json=args.experiment_json,
     )
+    scanned_at = datetime.now(timezone.utc).isoformat()
+    scan_mode = (
+        "experiment_only"
+        if args.experiment_only
+        else ("curated_plus_experiment" if args.with_experiment else "curated_only")
+    )
+
     if not targets:
         if args.experiment_only:
             out_path = args.output
             out_path.parent.mkdir(parents=True, exist_ok=True)
             empty = {
-                "last_updated": datetime.now(timezone.utc).isoformat(),
-                "scan_version": "2.0.0",
+                "last_updated": scanned_at,
+                "scan_version": "2.1.0",
                 "scanner": "agent-readiness",
                 "total_repos": 0,
                 "repos": [],
+                "failures": [],
                 "scan_mode": "experiment_only",
+                **_scanner_meta(),
             }
             out_path.write_text(json.dumps(empty, indent=2))
             print(f"No experiment repos — wrote empty scores → {out_path}")
             return 0
         return 1
 
-    print("Agent Readiness Scanner v2.0")
+    print("Agent Readiness Scanner v2.1")
     print("=" * 50)
     print(f"Repos to scan: {len(targets)}")
 
     results: list[dict] = []
-    failed:  list[str]  = []
+    failures: list[dict] = []
+    prior_health = _load_prior_scan_health(args.scan_health) if args.scan_health else {}
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
         futures = {pool.submit(scan_repo, name): name for name in targets}
@@ -420,29 +589,43 @@ def main() -> int:
             name = futures[fut]
             try:
                 result = fut.result()
-                if result:
-                    results.append(result)
-                else:
-                    failed.append(name)
             except Exception as exc:
                 print(f"    ✗ {name}: unexpected error: {exc}", file=sys.stderr)
-                failed.append(name)
+                failures.append({
+                    "repo": name,
+                    "reason": f"unexpected error: {exc}"[:300],
+                    "error_class": "unexpected_error",
+                    "last_success_ts": prior_health.get(name, {}).get("last_success_ts"),
+                })
+                continue
+            if isinstance(result, dict):
+                results.append(result)
+            else:
+                # scan_repo returned (None, error_class, reason)
+                _, error_class, reason = result  # type: ignore[misc]
+                failures.append({
+                    "repo": name,
+                    "reason": str(reason)[:300],
+                    "error_class": error_class,
+                    "last_success_ts": prior_health.get(name, {}).get("last_success_ts"),
+                })
 
     results.sort(key=lambda x: x["overall_score"], reverse=True)
     for i, r in enumerate(results, 1):
         r["rank"] = i
 
+    meta = _scanner_meta()
     output = {
-        "last_updated": datetime.now(timezone.utc).isoformat(),
-        "scan_version": "2.0.0",
+        "last_updated": scanned_at,
+        "scan_version": "2.1.0",
         "scanner":      "agent-readiness",
+        "scanner_version":    meta["scanner_version"],
+        "rules_pack_version": meta["rules_pack_version"],
+        "checks_count":       meta["checks_count"],
         "total_repos":  len(results),
         "repos":        results,
-        "scan_mode": (
-            "experiment_only"
-            if args.experiment_only
-            else ("curated_plus_experiment" if args.with_experiment else "curated_only")
-        ),
+        "failures":     failures,
+        "scan_mode":    scan_mode,
     }
 
     out_path = args.output
@@ -450,9 +633,19 @@ def main() -> int:
     with out_path.open("w") as f:
         json.dump(output, f, indent=2)
 
+    if args.scan_health:
+        _write_scan_health(
+            path=args.scan_health,
+            scanned_at=scanned_at,
+            successes=[r["repo"] for r in results],
+            failures=failures,
+            prior=prior_health,
+        )
+
     print(f"\n✓ Scanned {len(results)} repos → {out_path}")
-    if failed:
-        print(f"  ✗ Failed ({len(failed)}): {', '.join(failed)}")
+    if failures:
+        names = ", ".join(f["repo"] for f in failures)
+        print(f"  ✗ Failed ({len(failures)}): {names}")
     print()
     for r in results:
         filled = int(r["overall_score"] / 5)

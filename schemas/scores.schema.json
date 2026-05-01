@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://harrydaihaolin.github.io/agent-readiness-leaderboard/schemas/scores.schema.json",
+  "title": "Agent Readiness Leaderboard scores.json",
+  "description": "Envelope for data/scores.json (and data/scores_experiment.json) produced by scripts/scan.py. Pinned by every consumer (analytics, dashboard, landing-page, insights RAG, research judge) so envelope changes break loud at ingest time instead of one consumer at a time.",
+  "type": "object",
+  "required": [
+    "last_updated",
+    "scan_version",
+    "scanner",
+    "total_repos",
+    "repos",
+    "scan_mode"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp the scan finished."
+    },
+    "scan_version": {
+      "type": "string",
+      "description": "Semver of scan.py output schema. Bump on incompatible envelope changes.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "scanner": {
+      "type": "string",
+      "description": "Name of the scanner CLI used (typically 'agent-readiness')."
+    },
+    "scanner_version": {
+      "type": "string",
+      "description": "Version of the scanner CLI invoked, captured from `agent-readiness --version`."
+    },
+    "rules_pack_version": {
+      "type": "string",
+      "description": "pack_version from the rules pack vendored into the scanner.",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "checks_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total number of rule check_ids known to the scanner at run time. Consumed by the landing page so 'Checks shipped' tracks reality."
+    },
+    "total_repos": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of repos that produced a successful scan (== len(repos)). Excludes failures."
+    },
+    "scan_mode": {
+      "type": "string",
+      "enum": [
+        "curated_only",
+        "experiment_only",
+        "curated_plus_experiment"
+      ]
+    },
+    "repos": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/RepoScore" }
+    },
+    "failures": {
+      "type": "array",
+      "description": "Repos that were targeted but failed to produce a score. Empty array (not omitted) when nothing failed.",
+      "items": { "$ref": "#/$defs/RepoFailure" }
+    }
+  },
+  "$defs": {
+    "RepoScore": {
+      "type": "object",
+      "required": [
+        "repo",
+        "overall_score",
+        "grade",
+        "pillars",
+        "top_findings"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "repo": {
+          "type": "string",
+          "description": "GitHub `owner/name`.",
+          "pattern": "^[^/]+/[^/]+$"
+        },
+        "name": { "type": "string" },
+        "owner": { "type": "string" },
+        "description": { "type": "string" },
+        "stars": { "type": "integer", "minimum": 0 },
+        "forks": { "type": "integer", "minimum": 0 },
+        "language": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "avatar": { "type": "string", "format": "uri" },
+        "topics": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "overall_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "grade": {
+          "type": "string",
+          "enum": ["S", "A", "B", "C", "D", "F"]
+        },
+        "pillars": {
+          "type": "object",
+          "description": "Per-pillar score 0-100. Keys are the four pillar IDs.",
+          "patternProperties": {
+            "^(cognitive_load|feedback|flow|safety)$": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "additionalProperties": false
+        },
+        "top_findings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TopFinding" }
+        },
+        "scanned_at": { "type": "string", "format": "date-time" },
+        "rank": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "TopFinding": {
+      "type": "object",
+      "required": [
+        "pillar",
+        "check_id",
+        "message",
+        "severity",
+        "fix_hint",
+        "count"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "pillar": {
+          "type": "string",
+          "enum": ["cognitive_load", "feedback", "flow", "safety"]
+        },
+        "check_id": { "type": "string" },
+        "message": { "type": "string" },
+        "severity": {
+          "type": "string",
+          "enum": ["info", "warn", "error"]
+        },
+        "fix_hint": { "type": "string" },
+        "count": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "RepoFailure": {
+      "type": "object",
+      "required": ["repo", "reason", "error_class"],
+      "additionalProperties": true,
+      "properties": {
+        "repo": {
+          "type": "string",
+          "pattern": "^[^/]+/[^/]+$"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Free-text human-readable description of the failure (truncated)."
+        },
+        "error_class": {
+          "type": "string",
+          "description": "Stable enum suitable for dashboards/alerting.",
+          "enum": [
+            "metadata_unavailable",
+            "clone_failed",
+            "clone_timeout",
+            "scan_no_output",
+            "scan_json_error",
+            "scan_timeout",
+            "unexpected_error"
+          ]
+        },
+        "last_success_ts": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "If known from prior scan_health.json, timestamp of last successful scan; null otherwise."
+        }
+      }
+    }
+  }
+}
