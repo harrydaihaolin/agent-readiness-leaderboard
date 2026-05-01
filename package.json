@@ -1,0 +1,6 @@
+{
+  "name": "agent-readiness-leaderboard",
+  "private": true,
+  "description": "Public leaderboard for agent-readiness scores (static site + Python scan scripts)",
+  "main": "index.html"
+}

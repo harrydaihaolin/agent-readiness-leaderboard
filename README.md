@@ -2,6 +2,35 @@
 
 Public leaderboard: curated high-signal AI/agent repos plus a **daily experiment pool** (GitHub Search) scanned with [`agent-readiness`](https://github.com/harrydaihaolin/agent-readiness).
 
+## Install
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+## Run
+
+Serve the static site locally (from repo root):
+
+```bash
+python3 -m http.server 8080
+# open http://127.0.0.1:8080/
+```
+
+Regenerate curated scores (requires a configured environment — see Scripts below):
+
+```bash
+python3 scripts/scan.py
+```
+
+## Test
+
+```bash
+python3 -m py_compile scripts/scan.py scripts/discover_repos.py
+```
+
 ## Scripts
 
 | Script | Purpose |
