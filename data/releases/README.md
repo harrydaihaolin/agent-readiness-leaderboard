@@ -74,6 +74,9 @@ name; older runs are renamed with the engine pack version embedded:
 | --- | --- | --- |
 | `scores_v3_1000_2026-05-01.v100.json` | rules pack v1.0.0 (7 checks) | first v3 freeze, retained for diff vs v1.4.0 |
 | `scores_v3_1000_2026-05-01.json` | rules pack v1.4.0 (37 checks) | v3.1 rerun on `agent-readiness>=1.4.0` |
+| `scores_v3_1000_2026-05-02.json` | rules pack v1.5.0 (38 checks) | v3.2 rerun on `agent-readiness>=1.5.0`; recalibrated `repo_shape.large_files` (target band 30–60%) |
 
 `scripts/release_diff.py` (in `agent-readiness-research`) consumes both
-files to render the v1.0 → v1.4 diff cited by the article.
+files to render the v1.0 → v1.4 diff cited by the article. The same
+script can also diff v3.1 ↔ v3.2 to surface the impact of the v1.5.0
+recalibration.
