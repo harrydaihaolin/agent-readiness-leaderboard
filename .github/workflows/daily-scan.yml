@@ -58,7 +58,7 @@ jobs:
       shard_count: ${{ steps.resolve.outputs.shard_count }}
       shard_matrix: ${{ steps.resolve.outputs.shard_matrix }}
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # pin to v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin to v6.0.2
 
       - name: Resolve cohort + shard plan
         id: resolve
@@ -102,7 +102,7 @@ jobs:
       matrix:
         shard: ${{ fromJson(needs.discover.outputs.shard_matrix) }}
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # pin to v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin to v6.0.2
         with:
           fetch-depth: 1
 
@@ -143,7 +143,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # pin to v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # pin to v6.0.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
