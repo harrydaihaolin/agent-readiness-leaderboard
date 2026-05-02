@@ -9,6 +9,22 @@ Releases below are listed newest-first and never deleted; the article
 or downstream consumer that cited the release expects the artefact
 to remain at its original URL forever.
 
+## v3.2 — pending (2026-05-XX)
+
+**Dataset:** same cohort as v3-2026-05-01 (`v3_1000_2026-05-01.json`).
+**Scores:** `scores_v3_1000_2026-05-XX.json` (pending; will be cut by `release-v3-snapshot.yml` once `agent-readiness 1.5.0` lands on PyPI and this leaderboard's pin bumps).
+**Engine:** `agent-readiness>=1.5.0,<2` (rules pack v1.5.0, **38 checks**).
+
+### What changes vs v3.1
+
+* Rules pack v1.5.0 ships one calibration: `repo_shape.large_files` thresholds bump from 500 lines / 50 KB to 1500 lines / 150 KB. Target band 30–60% (was 88.1% on v3.1, no longer discriminating). Production fire rate confirmation is the explicit gate of this snapshot.
+* New community-contributed check: `cognitive_load.readme_root_present`. Low expected fire rate (most cohort repos already have a root README).
+* No other rule changes; the rest of the v3.1 ideas backlog ([`agent-readiness-research/research/ideas.archive.md`](https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/ideas.archive.md)) is closed out as deferred-with-rationale (engine matcher gap or research-grade gate per item).
+
+### v3.2 release gate
+
+If `repo_shape.large_files` lands outside 30–60% on the v3.2 snapshot, a `agent-readiness 1.5.1` patches thresholds further; this `v3.2` slot stays "pending" until the gate clears.
+
 ## v3-2026-05-01 — 2026-05-02
 
 **Dataset:** [`v3_1000_2026-05-01.json`](./v3_1000_2026-05-01.json)
