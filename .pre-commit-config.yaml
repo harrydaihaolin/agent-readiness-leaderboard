@@ -3,16 +3,36 @@ repos:
     rev: v4.6.0
     hooks:
       - id: trailing-whitespace
+        # data/*.json is regenerated daily by the scan workflow and
+        # uses json.dump (no trailing newline); auto-fixing would just
+        # bounce against the next scheduled run.
+        exclude: ^data/.*\.json$
       - id: end-of-file-fixer
+        exclude: ^data/.*\.json$
       - id: check-yaml
       - id: check-toml
       - id: check-added-large-files
         args: [--maxkb=1024]
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
+    # Keep this aligned with the ruff version CI installs (latest).
+    # If CI bumps ruff, bump this rev too so local hooks can't silently
+    # lag and let new lint rules slip through (this is exactly how
+    # PR #3's E701 errors got past pre-commit).
+    rev: v0.6.9
     hooks:
       - id: ruff
         args: [--fix]
         files: ^scripts/
-      - id: ruff-format
-        files: ^scripts/
+      # Note: ruff-format is intentionally disabled. scripts/scan.py uses
+      # column-aligned trailing comments (`"repo",  # 12k ★ desc`) that
+      # the formatter would collapse. Add it later in a dedicated
+      # codebase-wide reformat pass if/when we adopt that style.
+  # Cheap byte-compile guard mirrors the CI step. Catches syntax errors
+  # locally, before the network round-trip to GitHub Actions.
+  - repo: local
+    hooks:
+      - id: py-compile-scripts
+        name: byte-compile scripts/*.py
+        entry: python -m py_compile
+        language: system
+        files: ^scripts/.*\.py$
