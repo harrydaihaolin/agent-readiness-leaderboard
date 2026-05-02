@@ -1,0 +1,2363 @@
+{
+  "last_updated": "2026-05-02T04:39:54.504257+00:00",
+  "scan_version": "2.1.0",
+  "scanner": "agent-readiness",
+  "scanner_version": "1.1.0",
+  "rules_pack_version": null,
+  "checks_count": null,
+  "total_repos": 30,
+  "repos": [
+    {
+      "repo": "huggingface/accelerate",
+      "name": "accelerate",
+      "owner": "huggingface",
+      "description": "\ud83d\ude80 A simple way to launch, train, and use PyTorch models on almost any device and distributed configuration, automatic mixed precision (including fp8), and easy-to-configure FSDP and DeepSpeed support",
+      "stars": 9650,
+      "forks": 1341,
+      "language": "Python",
+      "url": "https://github.com/huggingface/accelerate",
+      "avatar": "https://avatars.githubusercontent.com/u/25720743?v=4",
+      "topics": [],
+      "overall_score": 94.5,
+      "grade": "S",
+      "pillars": {
+        "cognitive_load": 85.1,
+        "feedback": 99.5,
+        "flow": 97.2,
+        "safety": 98.7
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "21 findings \u2014 e.g. Large file: docs/source/usage_guides/megatron_lm.md (611 lines > 500); Large file: docs/source/usage_guides/deepspeed.md (745 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 21
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: src/accelerate/accelerator.py changed 417 times and is >200 lines.; Hotspot: src/accelerate/commands/launch.py changed 190 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.token_budget",
+          "message": "Estimated orientation cost is ~57,208 tokens \u2014 may exceed agent context window.",
+          "severity": "warn",
+          "fix_hint": "Trim AGENTS.md / README to the essentials and split monolithic\nmodules so the largest representative source file is < 500 lines.\nThe orientation budget is fixed; the only variable is how much\nsignal you fit into it.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "env.example_parity",
+          "message": "Env var usage found in source files but none of .env.example, .env.sample, .env.template, config/.env.example, deploy/.env.example, docker/.env.example, infra/.env.example, env/.env.example, envs/.env.example present.",
+          "severity": "warn",
+          "fix_hint": "Add a `.env.example` file at the repo root listing each env var\nyour code reads, with empty values or example placeholders. Add\na README sentence telling agents to `cp .env.example .env` before\nrunning.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:16.968000+00:00",
+      "rank": 1
+    },
+    {
+      "repo": "guardrails-ai/guardrails",
+      "name": "guardrails",
+      "owner": "guardrails-ai",
+      "description": "Adding guardrails to large language models.",
+      "stars": 6804,
+      "forks": 590,
+      "language": "Python",
+      "url": "https://github.com/guardrails-ai/guardrails",
+      "avatar": "https://avatars.githubusercontent.com/u/140440022?v=4",
+      "topics": [
+        "ai",
+        "foundation-model",
+        "gpt-3",
+        "llm",
+        "openai"
+      ],
+      "overall_score": 94.2,
+      "grade": "S",
+      "pillars": {
+        "cognitive_load": 85.1,
+        "feedback": 98.1,
+        "flow": 97.9,
+        "safety": 98.7
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "11 findings \u2014 e.g. Large file: guardrails/validator_base.py (597 lines > 500); Large file: guardrails/async_guard.py (551 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 11
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: guardrails/guard.py changed 261 times and is >200 lines.; Hotspot: poetry.lock changed 230 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.token_budget",
+          "message": "Estimated orientation cost is ~36,446 tokens \u2014 may exceed agent context window.",
+          "severity": "warn",
+          "fix_hint": "Trim AGENTS.md / README to the essentials and split monolithic\nmodules so the largest representative source file is < 500 lines.\nThe orientation budget is fixed; the only variable is how much\nsignal you fit into it.\n",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "deploy.smoke_check",
+          "message": "A deploy step is configured but no workflow performs a post-deploy\nsmoke check (HTTP probe, Playwright/Cypress/Puppeteer, or Lighthouse).\n",
+          "severity": "warn",
+          "fix_hint": "After the deploy step (or in a separate `workflow_run` workflow),\nadd a smoke check that hits the deployed URL and fails on non-2xx\nor on a missing expected marker. Minimum useful version:\n\n    - name: Smoke check deployed site\n      run: |\n        set -euo pipefail\n        base=\"${{ steps.deployment.outputs.page_url }}\"\n        curl -fsSL \"$base\" | grep -q '<div id=\"root\"></div>'\n        curl -fsS  -o /dev/null -w '%{http_code}\\n' \"${base}data/healthz.json\"\n\nFor SPA-on-Pages projects, also probe a deep route to verify the\n404 fallback redirects to a valid hash route.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:04.397586+00:00",
+      "rank": 2
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "name": "smolagents",
+      "owner": "huggingface",
+      "description": "\ud83e\udd17 smolagents: a barebones library for agents that think in code.",
+      "stars": 27033,
+      "forks": 2539,
+      "language": "Python",
+      "url": "https://github.com/huggingface/smolagents",
+      "avatar": "https://avatars.githubusercontent.com/u/25720743?v=4",
+      "topics": [],
+      "overall_score": 93.7,
+      "grade": "S",
+      "pillars": {
+        "cognitive_load": 85.8,
+        "feedback": 97.9,
+        "flow": 96.1,
+        "safety": 100.0
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "14 findings \u2014 e.g. Large file: docs/source/ko/guided_tour.md (613 lines > 500); Large file: docs/source/en/guided_tour.md (652 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 14
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: src/smolagents/agents.py changed 193 times and is >200 lines.; Hotspot: src/smolagents/models.py changed 155 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.token_budget",
+          "message": "Estimated orientation cost is ~84,676 tokens \u2014 may exceed agent context window.",
+          "severity": "warn",
+          "fix_hint": "Trim AGENTS.md / README to the essentials and split monolithic\nmodules so the largest representative source file is < 500 lines.\nThe orientation budget is fixed; the only variable is how much\nsignal you fit into it.\n",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "agent_docs.ci_feedback_loop",
+          "message": "AGENTS.md is present but does not tell agents to monitor CI runs /\ncheck results and act on failures as feedback.\n",
+          "severity": "warn",
+          "fix_hint": "Add a short \"CI and the feedback loop\" section to `AGENTS.md`: after\npushing or updating a PR, monitor workflow / PR check results; when CI\nfails, use logs as signal, fix the root cause, and iterate until green.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "env.example_parity",
+          "message": "Env var usage found in source files but none of .env.example, .env.sample, .env.template, config/.env.example, deploy/.env.example, docker/.env.example, infra/.env.example, env/.env.example, envs/.env.example present.",
+          "severity": "warn",
+          "fix_hint": "Add a `.env.example` file at the repo root listing each env var\nyour code reads, with empty values or example placeholders. Add\na README sentence telling agents to `cp .env.example .env` before\nrunning.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:14.689764+00:00",
+      "rank": 3
+    },
+    {
+      "repo": "lightonai/pylate",
+      "name": "pylate",
+      "owner": "lightonai",
+      "description": "Late Interaction Models Training & Retrieval",
+      "stars": 796,
+      "forks": 79,
+      "language": "Python",
+      "url": "https://github.com/lightonai/pylate",
+      "avatar": "https://avatars.githubusercontent.com/u/32305486?v=4",
+      "topics": [
+        "colbert",
+        "information-retrieval",
+        "language-model",
+        "rag"
+      ],
+      "overall_score": 93.1,
+      "grade": "S",
+      "pillars": {
+        "cognitive_load": 86.4,
+        "feedback": 95.3,
+        "flow": 97.0,
+        "safety": 98.7
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "6 findings \u2014 e.g. Large file: README.md (510 lines > 500); Large file: docs/index.md (510 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 6
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: pylate/models/colbert.py changed 31 times and is >200 lines.; Hotspot: README.md changed 22 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "3 findings \u2014 e.g. At least one ecosystem-specific lockfile is committed. (no clause matched); None of these expected paths exist: poetry.lock, uv.lock, Pipfile.lock, pdm.lock, package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, Cargo.lock, Gemfile.lock, composer.lock, go.sum, mix.lock, flake.lock, conda-lock.yml, pixi.lock",
+          "severity": "warn",
+          "fix_hint": "Run `poetry lock` / `npm install` / `cargo update` (whichever your\nmanifest needs) and commit the resulting lockfile. For pip-only\nPython projects, freezing `requirements.txt` to exact versions or\nswitching to `uv` / `poetry` is acceptable.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:12.278923+00:00",
+      "rank": 4
+    },
+    {
+      "repo": "AlphaAvatar/AlphaAvatar",
+      "name": "AlphaAvatar",
+      "owner": "AlphaAvatar",
+      "description": "A real-time interactive Omni Avatar built on LiveKit, which allows you to seamlessly integrate with any open source Avatar components (real-time model, visual, voice, memory, search, etc.).",
+      "stars": 569,
+      "forks": 23,
+      "language": "Python",
+      "url": "https://github.com/AlphaAvatar/AlphaAvatar",
+      "avatar": "https://avatars.githubusercontent.com/u/40850672?v=4",
+      "topics": [
+        "agent",
+        "ai",
+        "avatar",
+        "livekit",
+        "llm",
+        "memory"
+      ],
+      "overall_score": 89.7,
+      "grade": "S",
+      "pillars": {
+        "cognitive_load": 89.7,
+        "feedback": 84.8,
+        "flow": 96.3,
+        "safety": 98.7
+      },
+      "top_findings": [
+        {
+          "pillar": "feedback",
+          "check_id": "test_command.discoverable",
+          "message": "6 findings \u2014 e.g. At least one canonical test invocation is statically discoverable. (no clause matched); Makefile is missing target 'test:'.",
+          "severity": "warn",
+          "fix_hint": "Add a `test:` target to your Makefile that runs your test suite\nnon-interactively. Example: `test:\\n\\tpython -m pytest tests/`.\nThis is the universal headless contract; everything else is a\nfallback.\n",
+          "count": 6
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: README.md changed 70 times and is >200 lines.; Hotspot: ROADMAP.md changed 35 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "2 findings \u2014 e.g. Large file: avatar-plugins/avatar-plugins-memory/alphaavatar/plugins/memory/memory_prompts.py (561 lines > 500); Large file: avatar-plugins/avatar-plugins-memory/alphaavatar/plugins/memory/memory_langchain.py (644 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 2
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:26.348840+00:00",
+      "rank": 5
+    },
+    {
+      "repo": "antvis/mcp-server-chart",
+      "name": "mcp-server-chart",
+      "owner": "antvis",
+      "description": "\ud83e\udd16 A visualization mcp & skills contains 25+ visual charts using @antvis. Using for chart generation and data analysis.",
+      "stars": 4025,
+      "forks": 377,
+      "language": "TypeScript",
+      "url": "https://github.com/antvis/mcp-server-chart",
+      "avatar": "https://avatars.githubusercontent.com/u/19199542?v=4",
+      "topics": [
+        "antv",
+        "llm",
+        "mcp",
+        "mcp-server",
+        "skills",
+        "visualization"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 91.6,
+        "feedback": 95.8,
+        "flow": 95.2,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "3 findings \u2014 e.g. At least one ecosystem-specific lockfile is committed. (no clause matched); None of these expected paths exist: poetry.lock, uv.lock, Pipfile.lock, pdm.lock, package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, Cargo.lock, Gemfile.lock, composer.lock, go.sum, mix.lock, flake.lock, conda-lock.yml, pixi.lock",
+          "severity": "warn",
+          "fix_hint": "Run `poetry lock` / `npm install` / `cargo update` (whichever your\nmanifest needs) and commit the resulting lockfile. For pip-only\nPython projects, freezing `requirements.txt` to exact versions or\nswitching to `uv` / `poetry` is acceptable.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "Hotspot: README.md changed 40 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "env.example_parity",
+          "message": "Env var usage found in source files but none of .env.example, .env.sample, .env.template, config/.env.example, deploy/.env.example, docker/.env.example, infra/.env.example, env/.env.example, envs/.env.example present.",
+          "severity": "warn",
+          "fix_hint": "Add a `.env.example` file at the repo root listing each env var\nyour code reads, with empty values or example placeholders. Add\na README sentence telling agents to `cp .env.example .env` before\nrunning.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 3/12 groups; missing: python_pycache, dotenv, dist_build, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:39:58.843261+00:00",
+      "rank": 6
+    },
+    {
+      "repo": "24kchengYe/MemoMind",
+      "name": "MemoMind",
+      "owner": "24kchengYe",
+      "description": "Give your AI agent a brain that remembers. Local memory system for Claude Code \u2014 100% private, GPU-accelerated, zero cloud dependency.",
+      "stars": 666,
+      "forks": 14,
+      "language": "Python",
+      "url": "https://github.com/24kchengYe/MemoMind",
+      "avatar": "https://avatars.githubusercontent.com/u/90444974?v=4",
+      "topics": [
+        "agent-memory",
+        "ai",
+        "claude-code",
+        "llm",
+        "local-first",
+        "mcp"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 83.9,
+        "feedback": 91.5,
+        "flow": 96.3,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "37 findings \u2014 e.g. Large file: build-ppt.js (1,272 lines > 500); Large file: build-ppt-zh.js (55,866 bytes > 51,200)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 37
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "3 findings \u2014 e.g. Hotspot: README.md changed 41 times and is >200 lines.; Hotspot: dashboard.html changed 32 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 3
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "ci.configured",
+          "message": "3 findings \u2014 e.g. At least one CI provider config is present. (no clause matched); None of these expected paths exist: .github/workflows/*.yml, .github/workflows/*.yaml, .circleci/config.yml, .gitlab-ci.yml, .travis.yml, azure-pipelines.yml, bitbucket-pipelines.yml, .buildkite/**, .drone.yml, .woodpecker.yml, .woodpecker/**, Jenkinsfile, appveyor.yml, .appveyor.yml, cloudbuild.yaml, .semaphore/**, codefresh.yaml, .teamcity/**",
+          "severity": "warn",
+          "fix_hint": "Drop a `.github/workflows/ci.yml` that installs deps, runs the test\ncommand, and reports status to PRs. Even a 20-line workflow is\nworth more than nothing \u2014 the agent gets red/green feedback per\npush. If you use a hosted CI system (BuildKite, TeamCity, Jenkins),\nadd a status badge to your README so the loop is visible to agents\neven without an in-repo config file.\n",
+          "count": 3
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "3 findings \u2014 e.g. At least one ecosystem-specific lockfile is committed. (no clause matched); None of these expected paths exist: poetry.lock, uv.lock, Pipfile.lock, pdm.lock, package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, Cargo.lock, Gemfile.lock, composer.lock, go.sum, mix.lock, flake.lock, conda-lock.yml, pixi.lock",
+          "severity": "warn",
+          "fix_hint": "Run `poetry lock` / `npm install` / `cargo update` (whichever your\nmanifest needs) and commit the resulting lockfile. For pip-only\nPython projects, freezing `requirements.txt` to exact versions or\nswitching to `uv` / `poetry` is acceptable.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.token_budget",
+          "message": "Estimated orientation cost is ~78,793 tokens \u2014 may exceed agent context window.",
+          "severity": "warn",
+          "fix_hint": "Trim AGENTS.md / README to the essentials and split monolithic\nmodules so the largest representative source file is < 500 lines.\nThe orientation budget is fixed; the only variable is how much\nsignal you fit into it.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.top_level_count",
+          "message": "Repo root has 22 non-meta files \u2014 consider organising into subdirectories.",
+          "severity": "warn",
+          "fix_hint": "Move source into `src/<package>/`, scripts into `scripts/`, docs\ninto `docs/`. The root should contain manifest + README + license\n+ maybe a Makefile, and that's it.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 4/12 groups; missing: dist_build, go_vendor, rust_target, jvm_class, ide_junk, python_egg_info, coverage, terraform.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:39:59.033396+00:00",
+      "rank": 7
+    },
+    {
+      "repo": "RightNow-AI/openfang",
+      "name": "openfang",
+      "owner": "RightNow-AI",
+      "description": "Open-source Agent Operating System",
+      "stars": 17104,
+      "forks": 2177,
+      "language": "Rust",
+      "url": "https://github.com/RightNow-AI/openfang",
+      "avatar": "https://avatars.githubusercontent.com/u/226207176?v=4",
+      "topics": [
+        "agent-framework",
+        "ai-agents",
+        "llm",
+        "mcp",
+        "open-source",
+        "openclaw"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 90.4,
+        "feedback": 97.9,
+        "flow": 99.0,
+        "safety": 91.3
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "141 findings \u2014 e.g. Large file: README.md (521 lines > 500); Large file: docs/workflows.md (813 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 141
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: Cargo.lock changed 111 times and is >200 lines.; Hotspot: crates/openfang-kernel/src/kernel.rs changed 110 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "agent_docs.ci_feedback_loop",
+          "message": "AGENTS.md is present but does not tell agents to monitor CI runs /\ncheck results and act on failures as feedback.\n",
+          "severity": "warn",
+          "fix_hint": "Add a short \"CI and the feedback loop\" section to `AGENTS.md`: after\npushing or updating a PR, monitor workflow / PR check results; when CI\nfails, use logs as signal, fix the root cause, and iterate until green.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 2/12 groups; missing: python_pycache, node_modules, dist_build, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:01.084260+00:00",
+      "rank": 8
+    },
+    {
+      "repo": "adhikasp/mcp-client-cli",
+      "name": "mcp-client-cli",
+      "owner": "adhikasp",
+      "description": "A simple CLI to run LLM prompt and implement MCP client.",
+      "stars": 672,
+      "forks": 82,
+      "language": "Python",
+      "url": "https://github.com/adhikasp/mcp-client-cli",
+      "avatar": "https://avatars.githubusercontent.com/u/6151302?v=4",
+      "topics": [
+        "langchain",
+        "llm",
+        "mcp",
+        "model-context-protocol"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 92.8,
+        "feedback": 97.9,
+        "flow": 95.2,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "2 findings \u2014 e.g. Hotspot: src/mcp_client_cli/cli.py changed 49 times and is >200 lines.; Hotspot: README.md changed 26 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 2
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "Large file: src/mcp_client_cli/memory.py (626 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "agent_docs.ci_feedback_loop",
+          "message": "AGENTS.md is present but does not tell agents to monitor CI runs /\ncheck results and act on failures as feedback.\n",
+          "severity": "warn",
+          "fix_hint": "Add a short \"CI and the feedback loop\" section to `AGENTS.md`: after\npushing or updating a PR, monitor workflow / PR check results; when CI\nfails, use logs as signal, fix the root cause, and iterate until green.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "env.example_parity",
+          "message": "Env var usage found in source files but none of .env.example, .env.sample, .env.template, config/.env.example, deploy/.env.example, docker/.env.example, infra/.env.example, env/.env.example, envs/.env.example present.",
+          "severity": "warn",
+          "fix_hint": "Add a `.env.example` file at the repo root listing each env var\nyour code reads, with empty values or example placeholders. Add\na README sentence telling agents to `cp .env.example .env` before\nrunning.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 4/12 groups; missing: node_modules, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:01.986189+00:00",
+      "rank": 9
+    },
+    {
+      "repo": "dzhng/deep-research",
+      "name": "deep-research",
+      "owner": "dzhng",
+      "description": "An AI-powered research assistant that performs iterative, deep research on any topic by combining search engines, web scraping, and large language models.  The goal of this repo is to provide the simplest implementation of a deep research agent - e.g. an agent that can refine its research direction overtime and deep dive into a topic.",
+      "stars": 18839,
+      "forks": 1945,
+      "language": "TypeScript",
+      "url": "https://github.com/dzhng/deep-research",
+      "avatar": "https://avatars.githubusercontent.com/u/1329503?v=4",
+      "topics": [
+        "agent",
+        "ai",
+        "gpt",
+        "o3-mini",
+        "research"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 90.8,
+        "feedback": 95.7,
+        "flow": 96.3,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "feedback",
+          "check_id": "ci.configured",
+          "message": "3 findings \u2014 e.g. At least one CI provider config is present. (no clause matched); None of these expected paths exist: .github/workflows/*.yml, .github/workflows/*.yaml, .circleci/config.yml, .gitlab-ci.yml, .travis.yml, azure-pipelines.yml, bitbucket-pipelines.yml, .buildkite/**, .drone.yml, .woodpecker.yml, .woodpecker/**, Jenkinsfile, appveyor.yml, .appveyor.yml, cloudbuild.yaml, .semaphore/**, codefresh.yaml, .teamcity/**",
+          "severity": "warn",
+          "fix_hint": "Drop a `.github/workflows/ci.yml` that installs deps, runs the test\ncommand, and reports status to PRs. Even a 20-line workflow is\nworth more than nothing \u2014 the agent gets red/green feedback per\npush. If you use a hosted CI system (BuildKite, TeamCity, Jenkins),\nadd a status badge to your README so the loop is visible to agents\neven without an in-repo config file.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "2 findings \u2014 e.g. Hotspot: README.md changed 20 times and is >200 lines.; Hotspot: src/deep-research.ts changed 19 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 2
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 3/12 groups; missing: python_pycache, dist_build, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:02.028626+00:00",
+      "rank": 10
+    },
+    {
+      "repo": "aiming-lab/SimpleMem",
+      "name": "SimpleMem",
+      "owner": "aiming-lab",
+      "description": "SimpleMem: Efficient Lifelong Memory for LLM Agents \u2014 Text & Multimodal",
+      "stars": 3267,
+      "forks": 334,
+      "language": "Python",
+      "url": "https://github.com/aiming-lab/SimpleMem",
+      "avatar": "https://avatars.githubusercontent.com/u/186755503?v=4",
+      "topics": [
+        "agent",
+        "audio",
+        "compression",
+        "knowledge-graph",
+        "lifelong-memory",
+        "llm"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 86.9,
+        "feedback": 95.7,
+        "flow": 97.0,
+        "safety": 94.3
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "30 findings \u2014 e.g. Large file: README.md (826 lines > 500); Large file: core/hybrid_retriever.py (970 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 30
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "ci.configured",
+          "message": "3 findings \u2014 e.g. At least one CI provider config is present. (no clause matched); None of these expected paths exist: .github/workflows/*.yml, .github/workflows/*.yaml, .circleci/config.yml, .gitlab-ci.yml, .travis.yml, azure-pipelines.yml, bitbucket-pipelines.yml, .buildkite/**, .drone.yml, .woodpecker.yml, .woodpecker/**, Jenkinsfile, appveyor.yml, .appveyor.yml, cloudbuild.yaml, .semaphore/**, codefresh.yaml, .teamcity/**",
+          "severity": "warn",
+          "fix_hint": "Drop a `.github/workflows/ci.yml` that installs deps, runs the test\ncommand, and reports status to PRs. Even a 20-line workflow is\nworth more than nothing \u2014 the agent gets red/green feedback per\npush. If you use a hosted CI system (BuildKite, TeamCity, Jenkins),\nadd a status badge to your README so the loop is visible to agents\neven without an in-repo config file.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "Hotspot: README.md changed 44 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.token_budget",
+          "message": "Estimated orientation cost is ~48,576 tokens \u2014 may exceed agent context window.",
+          "severity": "warn",
+          "fix_hint": "Trim AGENTS.md / README to the essentials and split monolithic\nmodules so the largest representative source file is < 500 lines.\nThe orientation budget is fixed; the only variable is how much\nsignal you fit into it.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:07.162678+00:00",
+      "rank": 11
+    },
+    {
+      "repo": "getclawe/clawe",
+      "name": "clawe",
+      "owner": "getclawe",
+      "description": "Multi-agent coordination system: think Trello for OpenClaw agents. ",
+      "stars": 722,
+      "forks": 85,
+      "language": "TypeScript",
+      "url": "https://github.com/getclawe/clawe",
+      "avatar": "https://avatars.githubusercontent.com/u/258775303?v=4",
+      "topics": [
+        "ai-agents",
+        "ai-assistant",
+        "claude-code",
+        "clawbot",
+        "openclaw"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 87.7,
+        "feedback": 99.5,
+        "flow": 98.1,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "8 findings \u2014 e.g. Large file: LICENSE (662 lines > 500); Large file: .agents/skills/vercel-react-best-practices/AGENTS.md (69,657 bytes > 51,200)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 8
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: pnpm-lock.yaml changed 22 times and is >200 lines.; Hotspot: README.md changed 20 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 3/12 groups; missing: python_pycache, dist_build, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:08.039921+00:00",
+      "rank": 12
+    },
+    {
+      "repo": "mihaelamj/cupertino",
+      "name": "cupertino",
+      "owner": "mihaelamj",
+      "description": "A local Apple Documentation crawler and MCP server. Written in Swift.",
+      "stars": 666,
+      "forks": 25,
+      "language": "Swift",
+      "url": "https://github.com/mihaelamj/cupertino",
+      "avatar": "https://avatars.githubusercontent.com/u/1407900?v=4",
+      "topics": [
+        "apple-documentation",
+        "cli",
+        "command-line-tool",
+        "developer-tools",
+        "documentation-tools",
+        "local-server"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 87.0,
+        "feedback": 93.2,
+        "flow": 91.1,
+        "safety": 94.3
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "37 findings \u2014 e.g. Large file: README.md (766 lines > 500); Large file: docs/ARCHITECTURE.md (705 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 37
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: README.md changed 45 times and is >200 lines.; Hotspot: Packages/Sources/Shared/Constants.swift changed 43 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "flow",
+          "check_id": "entry_points.detected",
+          "message": "5 findings \u2014 e.g. At least one entry-point convention is present. (no clause matched); Manifest pyproject.toml not present.",
+          "severity": "warn",
+          "fix_hint": "Add a `[project.scripts]` table to pyproject.toml mapping a CLI\nname to your `module.cli:main` entry point. For Go, add\n`cmd/<name>/main.go`. For Node, set `\"bin\"` or `\"main\"` in\npackage.json. The goal: an agent running `--help` on the package\nshould find a command that works.\n",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "3 findings \u2014 e.g. At least one ecosystem-specific lockfile is committed. (no clause matched); None of these expected paths exist: poetry.lock, uv.lock, Pipfile.lock, pdm.lock, package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, Cargo.lock, Gemfile.lock, composer.lock, go.sum, mix.lock, flake.lock, conda-lock.yml, pixi.lock",
+          "severity": "warn",
+          "fix_hint": "Run `poetry lock` / `npm install` / `cargo update` (whichever your\nmanifest needs) and commit the resulting lockfile. For pip-only\nPython projects, freezing `requirements.txt` to exact versions or\nswitching to `uv` / `poetry` is acceptable.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.detected",
+          "message": "No project manifest found (pyproject.toml, package.json, Cargo.toml, go.mod, ...).",
+          "severity": "warn",
+          "fix_hint": "Drop a `pyproject.toml` (or `package.json` / `Cargo.toml` / etc.)\nat the repo root with at least name + version + dependencies. For\nmonorepos, every package directory should have its own manifest.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 1/12 groups; missing: python_pycache, node_modules, dotenv, dist_build, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:08.813325+00:00",
+      "rank": 13
+    },
+    {
+      "repo": "yoheinakajima/babyagi",
+      "name": "babyagi",
+      "owner": "yoheinakajima",
+      "description": "",
+      "stars": 22248,
+      "forks": 2848,
+      "language": "Python",
+      "url": "https://github.com/yoheinakajima/babyagi",
+      "avatar": "https://avatars.githubusercontent.com/u/1701418?v=4",
+      "topics": [],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 93.2,
+        "feedback": 95.7,
+        "flow": 94.5,
+        "safety": 94.3
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "4 findings \u2014 e.g. Large file: babyagi/dashboard/templates/function_graph.html (508 lines > 500); Large file: babyagi/dashboard/templates/chat.html (505 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 4
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "ci.configured",
+          "message": "3 findings \u2014 e.g. At least one CI provider config is present. (no clause matched); None of these expected paths exist: .github/workflows/*.yml, .github/workflows/*.yaml, .circleci/config.yml, .gitlab-ci.yml, .travis.yml, azure-pipelines.yml, bitbucket-pipelines.yml, .buildkite/**, .drone.yml, .woodpecker.yml, .woodpecker/**, Jenkinsfile, appveyor.yml, .appveyor.yml, cloudbuild.yaml, .semaphore/**, codefresh.yaml, .teamcity/**",
+          "severity": "warn",
+          "fix_hint": "Drop a `.github/workflows/ci.yml` that installs deps, runs the test\ncommand, and reports status to PRs. Even a 20-line workflow is\nworth more than nothing \u2014 the agent gets red/green feedback per\npush. If you use a hosted CI system (BuildKite, TeamCity, Jenkins),\nadd a status badge to your README so the loop is visible to agents\neven without an in-repo config file.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "headless.no_setup_prompts",
+          "message": "Setup mentions a GUI step: 'open your browser'.",
+          "severity": "warn",
+          "fix_hint": "Replace \"open the dashboard to copy your API key\" with \"set\n$YOURAPP_API_KEY (get one at https://example.com/settings/api)\".\nMove any GUI step into a one-time human bootstrap section clearly\nseparated from the headless install / run flow.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:10.486652+00:00",
+      "rank": 14
+    },
+    {
+      "repo": "getmetal/motorhead",
+      "name": "motorhead",
+      "owner": "getmetal",
+      "description": "\ud83e\udde0 Motorhead is a memory and information retrieval server for LLMs.",
+      "stars": 914,
+      "forks": 87,
+      "language": "Rust",
+      "url": "https://github.com/getmetal/motorhead",
+      "avatar": "https://avatars.githubusercontent.com/u/75705874?v=4",
+      "topics": [
+        "llmops",
+        "llms",
+        "machine-learning",
+        "ml",
+        "mlops",
+        "rust"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 90.0,
+        "feedback": 99.5,
+        "flow": 97.9,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "3 findings \u2014 e.g. Hotspot: src/memory.rs changed 31 times and is >200 lines.; Hotspot: src/models.rs changed 20 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: install, test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 4/12 groups; missing: python_pycache, go_vendor, rust_target, jvm_class, ide_junk, python_egg_info, coverage, terraform.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:12.208222+00:00",
+      "rank": 15
+    },
+    {
+      "repo": "neuml/txtai",
+      "name": "txtai",
+      "owner": "neuml",
+      "description": "\ud83d\udca1 All-in-one AI framework for semantic search, LLM orchestration and language model workflows",
+      "stars": 12452,
+      "forks": 806,
+      "language": "Python",
+      "url": "https://github.com/neuml/txtai",
+      "avatar": "https://avatars.githubusercontent.com/u/59890304?v=4",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "embeddings",
+        "information-retrieval",
+        "language-model"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 86.4,
+        "feedback": 95.8,
+        "flow": 94.5,
+        "safety": 94.3
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "26 findings \u2014 e.g. Large file: examples/workflows.py (746 lines > 500); Large file: examples/baseball.py (713 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 26
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: README.md changed 222 times and is >200 lines.; Hotspot: src/python/txtai/embeddings/base.py changed 81 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "3 findings \u2014 e.g. At least one ecosystem-specific lockfile is committed. (no clause matched); None of these expected paths exist: poetry.lock, uv.lock, Pipfile.lock, pdm.lock, package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, Cargo.lock, Gemfile.lock, composer.lock, go.sum, mix.lock, flake.lock, conda-lock.yml, pixi.lock",
+          "severity": "warn",
+          "fix_hint": "Run `poetry lock` / `npm install` / `cargo update` (whichever your\nmanifest needs) and commit the resulting lockfile. For pip-only\nPython projects, freezing `requirements.txt` to exact versions or\nswitching to `uv` / `poetry` is acceptable.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "env.example_parity",
+          "message": "Env var usage found in source files but none of .env.example, .env.sample, .env.template, config/.env.example, deploy/.env.example, docker/.env.example, infra/.env.example, env/.env.example, envs/.env.example present.",
+          "severity": "warn",
+          "fix_hint": "Add a `.env.example` file at the repo root listing each env var\nyour code reads, with empty values or example placeholders. Add\na README sentence telling agents to `cp .env.example .env` before\nrunning.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 4/12 groups; missing: node_modules, dotenv, go_vendor, rust_target, jvm_class, python_egg_info, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:13.327226+00:00",
+      "rank": 16
+    },
+    {
+      "repo": "VoltAgent/awesome-agent-skills",
+      "name": "awesome-agent-skills",
+      "owner": "VoltAgent",
+      "description": "A curated collection of 1000+ agent skills from official dev teams and the community, compatible with Claude Code, Codex, Gemini CLI, Cursor, and more.",
+      "stars": 19834,
+      "forks": 2100,
+      "language": "",
+      "url": "https://github.com/VoltAgent/awesome-agent-skills",
+      "avatar": "https://avatars.githubusercontent.com/u/201282378?v=4",
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "antigravity-skills",
+        "awesome",
+        "awesome-list",
+        "awesome-lists"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 87.7,
+        "feedback": 89.4,
+        "flow": 63.6,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "flow",
+          "check_id": "headless.unrunnable_e2e",
+          "message": "No agent-targeted docs, no conventional entry point, and no\nstatically-discoverable test command \u2014 repo is unrunnable\nend-to-end by an agent.\n",
+          "severity": "error",
+          "fix_hint": "Pick the lightest of the three to add first \u2014 agent-targeted docs are\nby far the cheapest. Drop an AGENTS.md at the repo root that names a\ncanonical entry point and a canonical test command, then back those\nclaims with the actual files (`[project.scripts]` in pyproject.toml,\n`test:` target in a Makefile, etc.). The goal is for an agent to be\nable to read one file and run two commands without guessing.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "entry_points.detected",
+          "message": "5 findings \u2014 e.g. At least one entry-point convention is present. (no clause matched); Manifest pyproject.toml not present.",
+          "severity": "warn",
+          "fix_hint": "Add a `[project.scripts]` table to pyproject.toml mapping a CLI\nname to your `module.cli:main` entry point. For Go, add\n`cmd/<name>/main.go`. For Node, set `\"bin\"` or `\"main\"` in\npackage.json. The goal: an agent running `--help` on the package\nshould find a command that works.\n",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "ci.configured",
+          "message": "3 findings \u2014 e.g. At least one CI provider config is present. (no clause matched); None of these expected paths exist: .github/workflows/*.yml, .github/workflows/*.yaml, .circleci/config.yml, .gitlab-ci.yml, .travis.yml, azure-pipelines.yml, bitbucket-pipelines.yml, .buildkite/**, .drone.yml, .woodpecker.yml, .woodpecker/**, Jenkinsfile, appveyor.yml, .appveyor.yml, cloudbuild.yaml, .semaphore/**, codefresh.yaml, .teamcity/**",
+          "severity": "warn",
+          "fix_hint": "Drop a `.github/workflows/ci.yml` that installs deps, runs the test\ncommand, and reports status to PRs. Even a 20-line workflow is\nworth more than nothing \u2014 the agent gets red/green feedback per\npush. If you use a hosted CI system (BuildKite, TeamCity, Jenkins),\nadd a status badge to your README so the loop is visible to agents\neven without an in-repo config file.\n",
+          "count": 3
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "3 findings \u2014 e.g. At least one ecosystem-specific lockfile is committed. (no clause matched); None of these expected paths exist: poetry.lock, uv.lock, Pipfile.lock, pdm.lock, package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, Cargo.lock, Gemfile.lock, composer.lock, go.sum, mix.lock, flake.lock, conda-lock.yml, pixi.lock",
+          "severity": "warn",
+          "fix_hint": "Run `poetry lock` / `npm install` / `cargo update` (whichever your\nmanifest needs) and commit the resulting lockfile. For pip-only\nPython projects, freezing `requirements.txt` to exact versions or\nswitching to `uv` / `poetry` is acceptable.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "Hotspot: README.md changed 203 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "meta.consistency",
+          "message": "README references pytest but no pytest configuration was found.",
+          "severity": "warn",
+          "fix_hint": "If your README says \"run `pytest`\", drop a `[tool.pytest.ini_options]`\ntable in pyproject.toml so a fresh checkout actually runs tests\nwith `pytest`. Same logic for any other tool you mention: every\n`make X`, `npm run X`, or `pip install -e .` line in the README must\nbe backed by the corresponding target/script/manifest. Agent docs\nshould be \u2265 100 bytes of real content, not a stub.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README has no fenced code blocks (agents cannot copy commands verbatim).",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:15.489158+00:00",
+      "rank": 17
+    },
+    {
+      "repo": "thedaviddias/llms-txt-hub",
+      "name": "llms-txt-hub",
+      "owner": "thedaviddias",
+      "description": "\ud83e\udd16 The largest directory for AI-ready documentation and tools implementing the proposed llms.txt standard",
+      "stars": 825,
+      "forks": 434,
+      "language": "TypeScript",
+      "url": "https://github.com/thedaviddias/llms-txt-hub",
+      "avatar": "https://avatars.githubusercontent.com/u/237229?v=4",
+      "topics": [
+        "cursor",
+        "cursor-ai",
+        "directory",
+        "llms",
+        "llms-txt",
+        "llmstxt"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 87.7,
+        "feedback": 99.5,
+        "flow": 97.4,
+        "safety": 91.3
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "8 findings \u2014 e.g. Large file: README.md (406,117 bytes > 51,200); Large file: scripts/pr-backfill-dry-run.ts (1,538 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 8
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: README.md changed 55 times and is >200 lines.; Hotspot: data/websites.json changed 43 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README has no fenced code blocks (agents cannot copy commands verbatim).",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "workflow.concurrency_guard",
+          "message": "A workflow does `git push` and no workflow has a top-level\n`concurrency:` block. The self-pushing workflow can race itself.\n",
+          "severity": "warn",
+          "fix_hint": "Add a `concurrency:` block at the top of any workflow that does\n`git push`. Use a stable group name (e.g. the workflow file name) so\nmultiple runs of the same workflow serialise. For write workflows,\nset `cancel-in-progress: false`:\n\n    concurrency:\n      group: ${{ github.workflow }}\n      cancel-in-progress: false\n\nCombine with `git pull --rebase` before the `git push` so the second\nrun picks up the first run's commit instead of failing on a non-fast\nforward.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 3/12 groups; missing: python_pycache, dist_build, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:15.700942+00:00",
+      "rank": 18
+    },
+    {
+      "repo": "Azure-Samples/miyagi",
+      "name": "miyagi",
+      "owner": "Azure-Samples",
+      "description": "Sample to envision intelligent apps with Microsoft's Copilot stack for AI-infused product experiences.",
+      "stars": 752,
+      "forks": 255,
+      "language": "Jupyter Notebook",
+      "url": "https://github.com/Azure-Samples/miyagi",
+      "avatar": "https://avatars.githubusercontent.com/u/1844662?v=4",
+      "topics": [
+        "agents",
+        "aks",
+        "assistants",
+        "azure",
+        "azure-openai",
+        "azureai"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 84.6,
+        "feedback": 98.0,
+        "flow": 97.4,
+        "safety": 79.1
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "8 findings \u2014 e.g. Large file: deploy/infrastructure/kubernetes/manifests/10-infrastructure/ingress-nginx/deploy-v1.7.0.yaml (646 lines > 500); Large file: sandbox/fine-tuning/Llama2/miyagi-data-mix-training-set.csv (201,464 bytes > 51,200)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 8
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.dependency_automation",
+          "message": "4 findings \u2014 e.g. At least one automated dependency / vuln scanner is configured. (no clause matched); None of these expected paths exist: .github/dependabot.yml, .github/dependabot.yaml, .renovaterc, .renovaterc.json, .renovaterc.json5, renovate.json, renovate.json5, .github/renovate.json, .github/renovate.json5",
+          "severity": "warn",
+          "fix_hint": "Drop a minimal `.github/dependabot.yml` (or `renovate.json`) at\nthe repo root that updates `pip` / `npm` / `github-actions`\nweekly. Add a CodeQL workflow if your language is supported. See\nhttps://docs.github.com/en/code-security/dependabot for examples.\n",
+          "count": 4
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "3 findings \u2014 e.g. Hotspot: sandbox/usecases/rag/dotnet/Getting-started.ipynb changed 13 times and is >200 lines.; Hotspot: .gitignore changed 13 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "2 findings \u2014 e.g. README is missing signals for: install, test.; README has no fenced code blocks (agents cannot copy commands verbatim).",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 2
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 6/12 groups; missing: dist_build, go_vendor, rust_target, jvm_class, python_egg_info, coverage.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:16.502316+00:00",
+      "rank": 19
+    },
+    {
+      "repo": "dissorial/doc-chatbot",
+      "name": "doc-chatbot",
+      "owner": "dissorial",
+      "description": "Document chatbot \u2014 multiple files, topics, chat windows and chat history. Powered by GPT.",
+      "stars": 855,
+      "forks": 141,
+      "language": "TypeScript",
+      "url": "https://github.com/dissorial/doc-chatbot",
+      "avatar": "https://avatars.githubusercontent.com/u/87335884?v=4",
+      "topics": [
+        "chat",
+        "chatbot",
+        "document-embedding",
+        "gpt-3",
+        "gpt-4",
+        "langchain"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 90.0,
+        "feedback": 95.7,
+        "flow": 96.3,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "feedback",
+          "check_id": "ci.configured",
+          "message": "3 findings \u2014 e.g. At least one CI provider config is present. (no clause matched); None of these expected paths exist: .github/workflows/*.yml, .github/workflows/*.yaml, .circleci/config.yml, .gitlab-ci.yml, .travis.yml, azure-pipelines.yml, bitbucket-pipelines.yml, .buildkite/**, .drone.yml, .woodpecker.yml, .woodpecker/**, Jenkinsfile, appveyor.yml, .appveyor.yml, cloudbuild.yaml, .semaphore/**, codefresh.yaml, .teamcity/**",
+          "severity": "warn",
+          "fix_hint": "Drop a `.github/workflows/ci.yml` that installs deps, runs the test\ncommand, and reports status to PRs. Even a 20-line workflow is\nworth more than nothing \u2014 the agent gets red/green feedback per\npush. If you use a hosted CI system (BuildKite, TeamCity, Jenkins),\nadd a status badge to your README so the loop is visible to agents\neven without an in-repo config file.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "2 findings \u2014 e.g. Hotspot: pages/index.tsx changed 24 times and is >200 lines.; Hotspot: yarn.lock changed 10 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 2
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 3/12 groups; missing: python_pycache, dist_build, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:21.133637+00:00",
+      "rank": 20
+    },
+    {
+      "repo": "nomic-ai/contrastors",
+      "name": "contrastors",
+      "owner": "nomic-ai",
+      "description": "Train Models Contrastively in Pytorch",
+      "stars": 787,
+      "forks": 66,
+      "language": "Python",
+      "url": "https://github.com/nomic-ai/contrastors",
+      "avatar": "https://avatars.githubusercontent.com/u/102670180?v=4",
+      "topics": [
+        "contrastive-learning",
+        "deep-learning",
+        "dense-retrieval",
+        "embeddings",
+        "image-embeddings",
+        "multimodal"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 88.5,
+        "feedback": 95.7,
+        "flow": 87.8,
+        "safety": 94.3
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "12 findings \u2014 e.g. Large file: scripts/text/st_mine_hard_negatives.py (635 lines > 500); Large file: scripts/text/index_filtering_new.py (660 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 12
+        },
+        {
+          "pillar": "flow",
+          "check_id": "entry_points.detected",
+          "message": "5 findings \u2014 e.g. At least one entry-point convention is present. (no clause matched); Manifest pyproject.toml not present.",
+          "severity": "warn",
+          "fix_hint": "Add a `[project.scripts]` table to pyproject.toml mapping a CLI\nname to your `module.cli:main` entry point. For Go, add\n`cmd/<name>/main.go`. For Node, set `\"bin\"` or `\"main\"` in\npackage.json. The goal: an agent running `--help` on the package\nshould find a command that works.\n",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "ci.configured",
+          "message": "3 findings \u2014 e.g. At least one CI provider config is present. (no clause matched); None of these expected paths exist: .github/workflows/*.yml, .github/workflows/*.yaml, .circleci/config.yml, .gitlab-ci.yml, .travis.yml, azure-pipelines.yml, bitbucket-pipelines.yml, .buildkite/**, .drone.yml, .woodpecker.yml, .woodpecker/**, Jenkinsfile, appveyor.yml, .appveyor.yml, cloudbuild.yaml, .semaphore/**, codefresh.yaml, .teamcity/**",
+          "severity": "warn",
+          "fix_hint": "Drop a `.github/workflows/ci.yml` that installs deps, runs the test\ncommand, and reports status to PRs. Even a 20-line workflow is\nworth more than nothing \u2014 the agent gets red/green feedback per\npush. If you use a hosted CI system (BuildKite, TeamCity, Jenkins),\nadd a status badge to your README so the loop is visible to agents\neven without an in-repo config file.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "env.example_parity",
+          "message": "Env var usage found in source files but none of .env.example, .env.sample, .env.template, config/.env.example, deploy/.env.example, docker/.env.example, infra/.env.example, env/.env.example, envs/.env.example present.",
+          "severity": "warn",
+          "fix_hint": "Add a `.env.example` file at the repo root listing each env var\nyour code reads, with empty values or example placeholders. Add\na README sentence telling agents to `cp .env.example .env` before\nrunning.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "setup.command_count",
+          "message": "Setup section has 6 distinct commands \u2014 consider wrapping in `make install` or a setup script.",
+          "severity": "warn",
+          "fix_hint": "Bundle multi-step setup into a single `make setup` (or\n`scripts/setup`) target. The README then documents one command\ninstead of five. The script can still do five things \u2014 it just\nhides the noise from the agent.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:21.913433+00:00",
+      "rank": 21
+    },
+    {
+      "repo": "ai-boost/awesome-harness-engineering",
+      "name": "awesome-harness-engineering",
+      "owner": "ai-boost",
+      "description": "Awesome list for AI agent harness engineering: tools, patterns, evals, memory, MCP, permissions, observability, and orchestration.",
+      "stars": 690,
+      "forks": 54,
+      "language": "Python",
+      "url": "https://github.com/ai-boost/awesome-harness-engineering",
+      "avatar": "https://avatars.githubusercontent.com/u/70333750?v=4",
+      "topics": [
+        "agent-harness",
+        "agent-memory",
+        "agent-orchestration",
+        "ai-agents",
+        "awesome-list",
+        "context-engineering"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 93.0,
+        "feedback": 87.9,
+        "flow": 90.9,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "flow",
+          "check_id": "entry_points.detected",
+          "message": "5 findings \u2014 e.g. At least one entry-point convention is present. (no clause matched); Manifest pyproject.toml not present.",
+          "severity": "warn",
+          "fix_hint": "Add a `[project.scripts]` table to pyproject.toml mapping a CLI\nname to your `module.cli:main` entry point. For Go, add\n`cmd/<name>/main.go`. For Node, set `\"bin\"` or `\"main\"` in\npackage.json. The goal: an agent running `--help` on the package\nshould find a command that works.\n",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "ci.configured",
+          "message": "3 findings \u2014 e.g. At least one CI provider config is present. (no clause matched); None of these expected paths exist: .github/workflows/*.yml, .github/workflows/*.yaml, .circleci/config.yml, .gitlab-ci.yml, .travis.yml, azure-pipelines.yml, bitbucket-pipelines.yml, .buildkite/**, .drone.yml, .woodpecker.yml, .woodpecker/**, Jenkinsfile, appveyor.yml, .appveyor.yml, cloudbuild.yaml, .semaphore/**, codefresh.yaml, .teamcity/**",
+          "severity": "warn",
+          "fix_hint": "Drop a `.github/workflows/ci.yml` that installs deps, runs the test\ncommand, and reports status to PRs. Even a 20-line workflow is\nworth more than nothing \u2014 the agent gets red/green feedback per\npush. If you use a hosted CI system (BuildKite, TeamCity, Jenkins),\nadd a status badge to your README so the loop is visible to agents\neven without an in-repo config file.\n",
+          "count": 3
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "3 findings \u2014 e.g. At least one ecosystem-specific lockfile is committed. (no clause matched); None of these expected paths exist: poetry.lock, uv.lock, Pipfile.lock, pdm.lock, package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, Cargo.lock, Gemfile.lock, composer.lock, go.sum, mix.lock, flake.lock, conda-lock.yml, pixi.lock",
+          "severity": "warn",
+          "fix_hint": "Run `poetry lock` / `npm install` / `cargo update` (whichever your\nmanifest needs) and commit the resulting lockfile. For pip-only\nPython projects, freezing `requirements.txt` to exact versions or\nswitching to `uv` / `poetry` is acceptable.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "Hotspot: README.md changed 71 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "meta.consistency",
+          "message": "README references pytest but no pytest configuration was found.",
+          "severity": "warn",
+          "fix_hint": "If your README says \"run `pytest`\", drop a `[tool.pytest.ini_options]`\ntable in pyproject.toml so a fresh checkout actually runs tests\nwith `pytest`. Same logic for any other tool you mention: every\n`make X`, `npm run X`, or `pip install -e .` line in the README must\nbe backed by the corresponding target/script/manifest. Agent docs\nshould be \u2265 100 bytes of real content, not a stub.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README has no fenced code blocks (agents cannot copy commands verbatim).",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "Large file: README.md (150,322 bytes > 51,200)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "agent_docs.ci_feedback_loop",
+          "message": "AGENTS.md is present but does not tell agents to monitor CI runs /\ncheck results and act on failures as feedback.\n",
+          "severity": "warn",
+          "fix_hint": "Add a short \"CI and the feedback loop\" section to `AGENTS.md`: after\npushing or updating a PR, monitor workflow / PR check results; when CI\nfails, use logs as signal, fix the root cause, and iterate until green.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:25.135812+00:00",
+      "rank": 22
+    },
+    {
+      "repo": "weibaohui/k8m",
+      "name": "k8m",
+      "owner": "weibaohui",
+      "description": "\u4e00\u6b3e\u8f7b\u91cf\u7ea7\u3001\u8de8\u5e73\u53f0\u7684 Mini Kubernetes AI Dashboard\uff0c\u652f\u6301\u5927\u6a21\u578b+\u667a\u80fd\u4f53+MCP(\u652f\u6301\u8bbe\u7f6e\u64cd\u4f5c\u6743\u9650)\uff0c\u96c6\u6210\u591a\u96c6\u7fa4\u7ba1\u7406\u3001\u667a\u80fd\u5206\u6790\u3001\u5b9e\u65f6\u5f02\u5e38\u68c0\u6d4b\u7b49\u529f\u80fd\uff0c\u652f\u6301\u591a\u67b6\u6784\u5e76\u53ef\u5355\u6587\u4ef6\u90e8\u7f72\uff0c\u52a9\u529b\u9ad8\u6548\u96c6\u7fa4\u7ba1\u7406\u4e0e\u8fd0\u7ef4\u4f18\u5316\u3002",
+      "stars": 814,
+      "forks": 141,
+      "language": "Go",
+      "url": "https://github.com/weibaohui/k8m",
+      "avatar": "https://avatars.githubusercontent.com/u/27042034?v=4",
+      "topics": [
+        "2fa",
+        "ai",
+        "apigateway",
+        "chatgpt",
+        "dashboard",
+        "k8s"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 83.6,
+        "feedback": 99.5,
+        "flow": 95.3,
+        "safety": 90.0
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "121 findings \u2014 e.g. Large file: k8m.log (761,874 bytes > 51,200); Large file: ui/public/pages/cluster/mutating_webhook.json (688 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 121
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: main.go changed 456 times and is >200 lines.; Hotspot: README.md changed 202 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "workflow.concurrency_guard",
+          "message": "A workflow does `git push` and no workflow has a top-level\n`concurrency:` block. The self-pushing workflow can race itself.\n",
+          "severity": "warn",
+          "fix_hint": "Add a `concurrency:` block at the top of any workflow that does\n`git push`. Use a stable group name (e.g. the workflow file name) so\nmultiple runs of the same workflow serialise. For write workflows,\nset `cancel-in-progress: false`:\n\n    concurrency:\n      group: ${{ github.workflow }}\n      cancel-in-progress: false\n\nCombine with `git pull --rebase` before the `git push` so the second\nrun picks up the first run's commit instead of failing on a non-fast\nforward.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 4/12 groups; missing: python_pycache, dist_build, rust_target, jvm_class, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:38.855298+00:00",
+      "rank": 23
+    },
+    {
+      "repo": "Agenta-AI/agenta",
+      "name": "agenta",
+      "owner": "Agenta-AI",
+      "description": "The open-source LLMOps platform: prompt playground, prompt management, LLM evaluation, and LLM observability all in one place.",
+      "stars": 4084,
+      "forks": 516,
+      "language": "TypeScript",
+      "url": "https://github.com/Agenta-AI/agenta",
+      "avatar": "https://avatars.githubusercontent.com/u/127993667?v=4",
+      "topics": [
+        "agents",
+        "evaluation",
+        "llm-as-a-judge",
+        "llm-evaluation",
+        "llm-framework",
+        "llm-monitoring"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 90.4,
+        "feedback": 99.5,
+        "flow": 99.7,
+        "safety": 95.7
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "363 findings \u2014 e.g. Large file: .all-contributorsrc (589 lines > 500); Large file: AGENTS.md (1,470 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 363
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: README.md changed 270 times and is >200 lines.; Hotspot: web/pnpm-lock.yaml changed 115 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 5/12 groups; missing: dist_build, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:41.946887+00:00",
+      "rank": 24
+    },
+    {
+      "repo": "gptme/gptme",
+      "name": "gptme",
+      "owner": "gptme",
+      "description": "Your agent in your terminal, equipped with local tools: writes code, uses the terminal, browses the web. Make your own persistent autonomous agent on top!",
+      "stars": 4287,
+      "forks": 383,
+      "language": "Python",
+      "url": "https://github.com/gptme/gptme",
+      "avatar": "https://avatars.githubusercontent.com/u/157223935?v=4",
+      "topics": [
+        "agent",
+        "agents",
+        "ai-agents",
+        "ai-assistant",
+        "anthropic",
+        "chatbot"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 88.5,
+        "feedback": 100.0,
+        "flow": 96.0,
+        "safety": 95.7
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "79 findings \u2014 e.g. Large file: README.md (645 lines > 500); Large file: docs/alternatives.rst (544 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 79
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: pyproject.toml changed 219 times and is >200 lines.; Hotspot: README.md changed 141 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.token_budget",
+          "message": "Estimated orientation cost is ~82,242 tokens \u2014 may exceed agent context window.",
+          "severity": "warn",
+          "fix_hint": "Trim AGENTS.md / README to the essentials and split monolithic\nmodules so the largest representative source file is < 500 lines.\nThe orientation budget is fixed; the only variable is how much\nsignal you fit into it.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "workflow.concurrency_guard",
+          "message": "A workflow does `git push` and no workflow has a top-level\n`concurrency:` block. The self-pushing workflow can race itself.\n",
+          "severity": "warn",
+          "fix_hint": "Add a `concurrency:` block at the top of any workflow that does\n`git push`. Use a stable group name (e.g. the workflow file name) so\nmultiple runs of the same workflow serialise. For write workflows,\nset `cancel-in-progress: false`:\n\n    concurrency:\n      group: ${{ github.workflow }}\n      cancel-in-progress: false\n\nCombine with `git pull --rebase` before the `git push` so the second\nrun picks up the first run's commit instead of failing on a non-fast\nforward.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 5/12 groups; missing: node_modules, dist_build, go_vendor, rust_target, jvm_class, python_egg_info, terraform.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:42.699811+00:00",
+      "rank": 25
+    },
+    {
+      "repo": "Atmosphere/atmosphere",
+      "name": "atmosphere",
+      "owner": "Atmosphere",
+      "description": "Real-time transport layer for Java AI agents. Build once with @Agent \u2014 deliver over WebSocket, SSE, gRPC, and WebTransport/HTTP3. Talk MCP, A2A and AG-UI. ",
+      "stars": 3758,
+      "forks": 757,
+      "language": "Java",
+      "url": "https://github.com/Atmosphere/atmosphere",
+      "avatar": "https://avatars.githubusercontent.com/u/318873?v=4",
+      "topics": [
+        "acp",
+        "agentic-ai",
+        "embabel",
+        "event-driven",
+        "java",
+        "koog"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 89.7,
+        "feedback": 99.5,
+        "flow": 96.6,
+        "safety": 91.3
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "70 findings \u2014 e.g. Large file: pom.xml (56,378 bytes > 51,200); Large file: cli/atmosphere (71,488 bytes > 51,200)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 70
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: pom.xml changed 765 times and is >200 lines.; Hotspot: modules/cpr/src/main/java/org/atmosphere/cpr/AtmosphereFramework.java changed 525 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "flow",
+          "check_id": "workflow.concurrency_guard",
+          "message": "A workflow does `git push` and no workflow has a top-level\n`concurrency:` block. The self-pushing workflow can race itself.\n",
+          "severity": "warn",
+          "fix_hint": "Add a `concurrency:` block at the top of any workflow that does\n`git push`. Use a stable group name (e.g. the workflow file name) so\nmultiple runs of the same workflow serialise. For write workflows,\nset `cancel-in-progress: false`:\n\n    concurrency:\n      group: ${{ github.workflow }}\n      cancel-in-progress: false\n\nCombine with `git pull --rebase` before the `git push` so the second\nrun picks up the first run's commit instead of failing on a non-fast\nforward.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 3/12 groups; missing: python_pycache, dotenv, dist_build, go_vendor, rust_target, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:41:00.087303+00:00",
+      "rank": 26
+    },
+    {
+      "repo": "crmne/ruby_llm",
+      "name": "ruby_llm",
+      "owner": "crmne",
+      "description": "One beautiful Ruby API for OpenAI, Anthropic, Gemini, Bedrock, Azure, OpenRouter, DeepSeek, Ollama, VertexAI, Perplexity, Mistral, xAI, GPUStack & OpenAI compatible APIs. Agents, Chat, Vision, Audio, PDF, Images, Embeddings, Tools, Streaming & Rails integration.",
+      "stars": 3885,
+      "forks": 433,
+      "language": "Ruby",
+      "url": "https://github.com/crmne/ruby_llm",
+      "avatar": "https://avatars.githubusercontent.com/u/106617?v=4",
+      "topics": [
+        "agents",
+        "ai",
+        "anthropic",
+        "chatgpt",
+        "claude",
+        "deepseek"
+      ],
+      "overall_score": 75.0,
+      "grade": "A",
+      "pillars": {
+        "cognitive_load": 84.3,
+        "feedback": 93.9,
+        "flow": 99.7,
+        "safety": 94.3
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "105 findings \u2014 e.g. Large file: spec/ruby_llm/chat_tools_spec.rb (774 lines > 500); Large file: spec/fixtures/ruby.wav (109,356 bytes > 51,200)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 105
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: lib/ruby_llm/models.json changed 98 times and is >200 lines.; Hotspot: docs/index.md changed 63 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "3 findings \u2014 e.g. At least one ecosystem-specific lockfile is committed. (no clause matched); None of these expected paths exist: poetry.lock, uv.lock, Pipfile.lock, pdm.lock, package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, Cargo.lock, Gemfile.lock, composer.lock, go.sum, mix.lock, flake.lock, conda-lock.yml, pixi.lock",
+          "severity": "warn",
+          "fix_hint": "Run `poetry lock` / `npm install` / `cargo update` (whichever your\nmanifest needs) and commit the resulting lockfile. For pip-only\nPython projects, freezing `requirements.txt` to exact versions or\nswitching to `uv` / `poetry` is acceptable.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: run, test.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "deploy.smoke_check",
+          "message": "A deploy step is configured but no workflow performs a post-deploy\nsmoke check (HTTP probe, Playwright/Cypress/Puppeteer, or Lighthouse).\n",
+          "severity": "warn",
+          "fix_hint": "After the deploy step (or in a separate `workflow_run` workflow),\nadd a smoke check that hits the deployed URL and fails on non-2xx\nor on a missing expected marker. Minimum useful version:\n\n    - name: Smoke check deployed site\n      run: |\n        set -euo pipefail\n        base=\"${{ steps.deployment.outputs.page_url }}\"\n        curl -fsSL \"$base\" | grep -q '<div id=\"root\"></div>'\n        curl -fsS  -o /dev/null -w '%{http_code}\\n' \"${base}data/healthz.json\"\n\nFor SPA-on-Pages projects, also probe a deep route to verify the\n404 fallback redirects to a valid hash route.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 4/12 groups; missing: python_pycache, node_modules, rust_target, jvm_class, ide_junk, python_egg_info, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:41:03.940366+00:00",
+      "rank": 27
+    },
+    {
+      "repo": "alirezarezvani/claude-code-tresor",
+      "name": "claude-code-tresor",
+      "owner": "alirezarezvani",
+      "description": "A world-class collection of Claude Code utilities: autonomous skills, expert agents, slash commands, and prompts that supercharge your development workflow",
+      "stars": 701,
+      "forks": 160,
+      "language": "Shell",
+      "url": "https://github.com/alirezarezvani/claude-code-tresor",
+      "avatar": "https://avatars.githubusercontent.com/u/5697919?v=4",
+      "topics": [
+        "agent-development-kit",
+        "agentic-ai",
+        "agentic-coding",
+        "agentic-workflow",
+        "agents",
+        "anthropic-claude"
+      ],
+      "overall_score": 30.0,
+      "grade": "D",
+      "pillars": {
+        "cognitive_load": 90.9,
+        "feedback": 93.2,
+        "flow": 91.2,
+        "safety": 72.6
+      },
+      "top_findings": [
+        {
+          "pillar": "safety",
+          "check_id": "secrets.basic_scan",
+          "message": "Possible aws_access_key_id found.",
+          "severity": "error",
+          "fix_hint": "ROTATE the leaked credential immediately (don't just delete it\nfrom the file \u2014 assume it's compromised the moment it touched\ngit). Then remove it from history (`git filter-repo`) and\nconfigure a secrets scanner (`gitleaks`, GitHub secret scanning)\nto prevent recurrence.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "99 findings \u2014 e.g. Large file: RELEASE-NOTES-v2.5.0.md (668 lines > 500); Large file: ARCHITECTURE.md (675 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 99
+        },
+        {
+          "pillar": "flow",
+          "check_id": "entry_points.detected",
+          "message": "5 findings \u2014 e.g. At least one entry-point convention is present. (no clause matched); Manifest pyproject.toml not present.",
+          "severity": "warn",
+          "fix_hint": "Add a `[project.scripts]` table to pyproject.toml mapping a CLI\nname to your `module.cli:main` entry point. For Go, add\n`cmd/<name>/main.go`. For Node, set `\"bin\"` or `\"main\"` in\npackage.json. The goal: an agent running `--help` on the package\nshould find a command that works.\n",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "3 findings \u2014 e.g. At least one ecosystem-specific lockfile is committed. (no clause matched); None of these expected paths exist: poetry.lock, uv.lock, Pipfile.lock, pdm.lock, package-lock.json, npm-shrinkwrap.json, yarn.lock, pnpm-lock.yaml, Cargo.lock, Gemfile.lock, composer.lock, go.sum, mix.lock, flake.lock, conda-lock.yml, pixi.lock",
+          "severity": "warn",
+          "fix_hint": "Run `poetry lock` / `npm install` / `cargo update` (whichever your\nmanifest needs) and commit the resulting lockfile. For pip-only\nPython projects, freezing `requirements.txt` to exact versions or\nswitching to `uv` / `poetry` is acceptable.\n",
+          "count": 3
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "agent_docs.canonical",
+          "message": "None of these expected paths exist: AGENTS.md",
+          "severity": "warn",
+          "fix_hint": "Add an AGENTS.md to the repo root with: canonical commands\n(install/test/lint/run), a do-not-touch list, and commit conventions.\nSee agent-readiness/AGENTS.md for an example.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "Hotspot: README.md changed 15 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.detected",
+          "message": "No project manifest found (pyproject.toml, package.json, Cargo.toml, go.mod, ...).",
+          "severity": "warn",
+          "fix_hint": "Drop a `pyproject.toml` (or `package.json` / `Cargo.toml` / etc.)\nat the repo root with at least name + version + dependencies. For\nmonorepos, every package directory should have its own manifest.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "workflow.concurrency_guard",
+          "message": "A workflow does `git push` and no workflow has a top-level\n`concurrency:` block. The self-pushing workflow can race itself.\n",
+          "severity": "warn",
+          "fix_hint": "Add a `concurrency:` block at the top of any workflow that does\n`git push`. Use a stable group name (e.g. the workflow file name) so\nmultiple runs of the same workflow serialise. For write workflows,\nset `cancel-in-progress: false`:\n\n    concurrency:\n      group: ${{ github.workflow }}\n      cancel-in-progress: false\n\nCombine with `git pull --rebase` before the `git push` so the second\nrun picks up the first run's commit instead of failing on a non-fast\nforward.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:40:30.746578+00:00",
+      "rank": 28
+    },
+    {
+      "repo": "happier-dev/happier",
+      "name": "happier",
+      "owner": "happier-dev",
+      "description": "Web, Desktop & Mobile client for Codex, Claude Code, OpenCode, Kimi, Augment Code, Qwen, fully end-to-end encrypted",
+      "stars": 744,
+      "forks": 61,
+      "language": "TypeScript",
+      "url": "https://github.com/happier-dev/happier",
+      "avatar": "https://avatars.githubusercontent.com/u/258441704?v=4",
+      "topics": [
+        "ai-agents",
+        "claude",
+        "claude-code",
+        "codex",
+        "gemini",
+        "kimi"
+      ],
+      "overall_score": 30.0,
+      "grade": "D",
+      "pillars": {
+        "cognitive_load": 90.4,
+        "feedback": 99.5,
+        "flow": 98.6,
+        "safety": 68.3
+      },
+      "top_findings": [
+        {
+          "pillar": "safety",
+          "check_id": "secrets.basic_scan",
+          "message": "Possible google_api_key found.",
+          "severity": "error",
+          "fix_hint": "ROTATE the leaked credential immediately (don't just delete it\nfrom the file \u2014 assume it's compromised the moment it touched\ngit). Then remove it from history (`git filter-repo`) and\nconfigure a secrets scanner (`gitleaks`, GitHub secret scanning)\nto prevent recurrence.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "330 findings \u2014 e.g. Large file: AGENTS.md (70,693 bytes > 51,200); Large file: docs/encryption.md (550 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 330
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: package.json changed 141 times and is >200 lines.; Hotspot: yarn.lock changed 109 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "safety",
+          "check_id": "gitignore.covers_junk",
+          "message": ".gitignore covers 4/12 groups; missing: python_pycache, go_vendor, rust_target, jvm_class, python_egg_info, coverage, terraform, logs.",
+          "severity": "warn",
+          "fix_hint": "Run `gitignore.io` for your stack and paste the result into\n`.gitignore`. At minimum, cover: `__pycache__`, `node_modules`,\n`.env`, `dist/`, `build/`, `*.log`, IDE settings, coverage dirs.\n",
+          "count": 1
+        },
+        {
+          "pillar": "safety",
+          "check_id": "safety.gitleaks_config",
+          "message": "None of these expected paths exist: .gitleaks.toml, .gitleaks.yaml, .gitleaks.yml, gitleaks.toml, .trufflehog.yaml, .trufflehog.yml, .secrets.baseline, .pre-commit-config.yaml, .github/workflows/gitleaks.yml, .github/workflows/secret-scan.yml",
+          "severity": "warn",
+          "fix_hint": "Add a `.gitleaks.toml` (or `.secrets.baseline` for detect-secrets) and\nwire it into pre-commit or a GitHub Actions workflow. Example:\nhttps://github.com/gitleaks/gitleaks-action.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:41:07.696750+00:00",
+      "rank": 29
+    },
+    {
+      "repo": "helicone/helicone",
+      "name": "helicone",
+      "owner": "helicone",
+      "description": "\ud83e\uddca Open source LLM observability platform. One line of code to monitor, evaluate, and experiment. YC W23 \ud83c\udf53",
+      "stars": 5591,
+      "forks": 560,
+      "language": "TypeScript",
+      "url": "https://github.com/Helicone/helicone",
+      "avatar": "https://avatars.githubusercontent.com/u/114524975?v=4",
+      "topics": [
+        "agent-monitoring",
+        "analytics",
+        "evaluation",
+        "gpt",
+        "langchain",
+        "large-language-models"
+      ],
+      "overall_score": 30.0,
+      "grade": "D",
+      "pillars": {
+        "cognitive_load": 85.1,
+        "feedback": 97.9,
+        "flow": 97.7,
+        "safety": 77.0
+      },
+      "top_findings": [
+        {
+          "pillar": "safety",
+          "check_id": "secrets.basic_scan",
+          "message": "Possible pem_private_key found.",
+          "severity": "error",
+          "fix_hint": "ROTATE the leaked credential immediately (don't just delete it\nfrom the file \u2014 assume it's compromised the moment it touched\ngit). Then remove it from history (`git filter-repo`) and\nconfigure a secrets scanner (`gitleaks`, GitHub secret scanning)\nto prevent recurrence.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "188 findings \u2014 e.g. Large file: CLAUDE.md (557 lines > 500); Large file: clickhouse/ch_hcone.py (523 lines > 500)",
+          "severity": "warn",
+          "fix_hint": "Split the file into smaller modules grouped by concept, or add an\nexclusion in `.agent-readiness.toml` if the file is truly intentional\n(large generated tables, etc.).\n",
+          "count": 188
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: web/lib/clients/jawnTypes/public.ts changed 357 times and is >200 lines.; Hotspot: docs/swagger.json changed 352 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "For each hotspot, identify the dominant axes of change (e.g. one\nfile holds both API routing and validation logic) and split along\nthose lines. After the split, both halves see lower per-file churn.\n",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "readme.has_run_instructions",
+          "message": "README is missing signals for: install.",
+          "severity": "warn",
+          "fix_hint": "Add three short sections to README: Install (one fenced block),\nRun (one fenced block showing the canonical entry point), Test\n(one fenced block). Three fenced blocks is the floor; if your\nproject genuinely needs more, write more.\n",
+          "count": 1
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.token_budget",
+          "message": "Estimated orientation cost is ~143,697 tokens \u2014 may exceed agent context window.",
+          "severity": "warn",
+          "fix_hint": "Trim AGENTS.md / README to the essentials and split monolithic\nmodules so the largest representative source file is < 500 lines.\nThe orientation budget is fixed; the only variable is how much\nsignal you fit into it.\n",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "agent_docs.ci_feedback_loop",
+          "message": "AGENTS.md is present but does not tell agents to monitor CI runs /\ncheck results and act on failures as feedback.\n",
+          "severity": "warn",
+          "fix_hint": "Add a short \"CI and the feedback loop\" section to `AGENTS.md`: after\npushing or updating a PR, monitor workflow / PR check results; when CI\nfails, use logs as signal, fix the root cause, and iterate until green.\n",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "workflow.concurrency_guard",
+          "message": "A workflow does `git push` and no workflow has a top-level\n`concurrency:` block. The self-pushing workflow can race itself.\n",
+          "severity": "warn",
+          "fix_hint": "Add a `concurrency:` block at the top of any workflow that does\n`git push`. Use a stable group name (e.g. the workflow file name) so\nmultiple runs of the same workflow serialise. For write workflows,\nset `cancel-in-progress: false`:\n\n    concurrency:\n      group: ${{ github.workflow }}\n      cancel-in-progress: false\n\nCombine with `git pull --rebase` before the `git push` so the second\nrun picks up the first run's commit instead of failing on a non-fast\nforward.\n",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T04:41:42.948232+00:00",
+      "rank": 30
+    }
+  ],
+  "failures": [],
+  "scan_mode": "experiment_only"
+}

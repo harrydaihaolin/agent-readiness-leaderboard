@@ -1,0 +1,336 @@
+{
+  "updated_at": "2026-05-02T04:31:20.742751+00:00",
+  "query": {
+    "topics": [
+      "llm",
+      "llms",
+      "agents",
+      "agent",
+      "ai-agents",
+      "mcp",
+      "rag",
+      "langchain",
+      "llmops",
+      "llm-inference",
+      "vector-database",
+      "prompt-engineering"
+    ],
+    "qualifiers": "fork:false archived:false stars:500..80000",
+    "per_topic": 120,
+    "star_bands": [
+      "200..1000",
+      "1001..5000",
+      "5001..20000",
+      "20001..200000"
+    ],
+    "include_curated": true
+  },
+  "max_results": 30,
+  "repos": [
+    "Azure-Samples/miyagi",
+    "RightNow-AI/openfang",
+    "guardrails-ai/guardrails",
+    "24kchengYe/MemoMind",
+    "aiming-lab/SimpleMem",
+    "Atmosphere/atmosphere",
+    "antvis/mcp-server-chart",
+    "neuml/txtai",
+    "adhikasp/mcp-client-cli",
+    "dzhng/deep-research",
+    "getclawe/clawe",
+    "mihaelamj/cupertino",
+    "AlphaAvatar/AlphaAvatar",
+    "thedaviddias/llms-txt-hub",
+    "yoheinakajima/babyagi",
+    "lightonai/pylate",
+    "getmetal/motorhead",
+    "huggingface/smolagents",
+    "huggingface/accelerate",
+    "VoltAgent/awesome-agent-skills",
+    "Agenta-AI/agenta",
+    "crmne/ruby_llm",
+    "dissorial/doc-chatbot",
+    "nomic-ai/contrastors",
+    "helicone/helicone",
+    "weibaohui/k8m",
+    "gptme/gptme",
+    "ai-boost/awesome-harness-engineering",
+    "happier-dev/happier",
+    "alirezarezvani/claude-code-tresor"
+  ],
+  "search_meta": [
+    {
+      "http_status": 200,
+      "query": "topic:llm fork:false archived:false stars:200..1000",
+      "page": 1,
+      "total_count": 1603,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "topic:llm fork:false archived:false stars:200..1000",
+      "page": 2,
+      "total_count": 1603,
+      "incomplete_results": false,
+      "accepted": 120
+    },
+    {
+      "http_status": 200,
+      "query": "topic:llms fork:false archived:false stars:200..1000",
+      "page": 1,
+      "total_count": 250,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "topic:llms fork:false archived:false stars:200..1000",
+      "page": 2,
+      "total_count": 250,
+      "incomplete_results": false,
+      "accepted": 116
+    },
+    {
+      "http_status": 200,
+      "query": "topic:llms fork:false archived:false stars:1001..5000",
+      "page": 1,
+      "total_count": 111,
+      "incomplete_results": false,
+      "accepted": 4
+    },
+    {
+      "http_status": 200,
+      "query": "topic:agents fork:false archived:false stars:200..1000",
+      "page": 1,
+      "total_count": 322,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "topic:agents fork:false archived:false stars:200..1000",
+      "page": 2,
+      "total_count": 322,
+      "incomplete_results": false,
+      "accepted": 97
+    },
+    {
+      "http_status": 200,
+      "query": "topic:agents fork:false archived:false stars:1001..5000",
+      "page": 1,
+      "total_count": 165,
+      "incomplete_results": false,
+      "accepted": 23
+    },
+    {
+      "http_status": 200,
+      "query": "topic:agent fork:false archived:false stars:200..1000",
+      "page": 1,
+      "total_count": 492,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "topic:agent fork:false archived:false stars:200..1000",
+      "page": 2,
+      "total_count": 492,
+      "incomplete_results": false,
+      "accepted": 95
+    },
+    {
+      "http_status": 200,
+      "query": "topic:agent fork:false archived:false stars:1001..5000",
+      "page": 1,
+      "total_count": 248,
+      "incomplete_results": false,
+      "accepted": 20
+    },
+    {
+      "http_status": 200,
+      "query": "topic:agent fork:false archived:false stars:5001..20000",
+      "page": 1,
+      "total_count": 88,
+      "incomplete_results": false,
+      "accepted": 5
+    },
+    {
+      "http_status": 200,
+      "query": "topic:ai-agents fork:false archived:false stars:200..1000",
+      "page": 1,
+      "total_count": 466,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "topic:ai-agents fork:false archived:false stars:200..1000",
+      "page": 2,
+      "total_count": 466,
+      "incomplete_results": false,
+      "accepted": 90
+    },
+    {
+      "http_status": 200,
+      "query": "topic:ai-agents fork:false archived:false stars:1001..5000",
+      "page": 1,
+      "total_count": 171,
+      "incomplete_results": false,
+      "accepted": 26
+    },
+    {
+      "http_status": 200,
+      "query": "topic:ai-agents fork:false archived:false stars:5001..20000",
+      "page": 1,
+      "total_count": 63,
+      "incomplete_results": false,
+      "accepted": 2
+    },
+    {
+      "http_status": 200,
+      "query": "topic:ai-agents fork:false archived:false stars:20001..200000",
+      "page": 1,
+      "total_count": 38,
+      "incomplete_results": false,
+      "accepted": 2
+    },
+    {
+      "http_status": 200,
+      "query": "topic:mcp fork:false archived:false stars:200..1000",
+      "page": 1,
+      "total_count": 571,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "topic:mcp fork:false archived:false stars:200..1000",
+      "page": 2,
+      "total_count": 571,
+      "incomplete_results": false,
+      "accepted": 64
+    },
+    {
+      "http_status": 200,
+      "query": "topic:mcp fork:false archived:false stars:1001..5000",
+      "page": 1,
+      "total_count": 247,
+      "incomplete_results": false,
+      "accepted": 38
+    },
+    {
+      "http_status": 200,
+      "query": "topic:mcp fork:false archived:false stars:5001..20000",
+      "page": 1,
+      "total_count": 75,
+      "incomplete_results": false,
+      "accepted": 18
+    },
+    {
+      "http_status": 200,
+      "query": "topic:rag fork:false archived:false stars:200..1000",
+      "page": 1,
+      "total_count": 333,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "topic:rag fork:false archived:false stars:200..1000",
+      "page": 2,
+      "total_count": 333,
+      "incomplete_results": false,
+      "accepted": 73
+    },
+    {
+      "http_status": 200,
+      "query": "topic:rag fork:false archived:false stars:1001..5000",
+      "page": 1,
+      "total_count": 150,
+      "incomplete_results": false,
+      "accepted": 31
+    },
+    {
+      "http_status": 200,
+      "query": "topic:rag fork:false archived:false stars:5001..20000",
+      "page": 1,
+      "total_count": 54,
+      "incomplete_results": false,
+      "accepted": 16
+    },
+    {
+      "http_status": 200,
+      "query": "topic:langchain fork:false archived:false stars:200..1000",
+      "page": 1,
+      "total_count": 226,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "topic:langchain fork:false archived:false stars:200..1000",
+      "page": 2,
+      "total_count": 226,
+      "incomplete_results": false,
+      "accepted": 83
+    },
+    {
+      "http_status": 200,
+      "query": "topic:langchain fork:false archived:false stars:1001..5000",
+      "page": 1,
+      "total_count": 79,
+      "incomplete_results": false,
+      "accepted": 28
+    },
+    {
+      "http_status": 200,
+      "query": "topic:langchain fork:false archived:false stars:5001..20000",
+      "page": 1,
+      "total_count": 26,
+      "incomplete_results": false,
+      "accepted": 7
+    },
+    {
+      "http_status": 200,
+      "query": "topic:langchain fork:false archived:false stars:20001..200000",
+      "page": 1,
+      "total_count": 14,
+      "incomplete_results": false,
+      "accepted": 1
+    },
+    {
+      "http_status": 200,
+      "query": "topic:llmops fork:false archived:false stars:200..1000",
+      "page": 1,
+      "total_count": 53,
+      "incomplete_results": false,
+      "accepted": 21
+    },
+    {
+      "http_status": 200,
+      "query": "topic:llmops fork:false archived:false stars:1001..5000",
+      "page": 1,
+      "total_count": 42,
+      "incomplete_results": false,
+      "accepted": 14
+    },
+    {
+      "http_status": 200,
+      "query": "topic:llmops fork:false archived:false stars:5001..20000",
+      "page": 1,
+      "total_count": 22,
+      "incomplete_results": false,
+      "accepted": 5
+    },
+    {
+      "http_status": 200,
+      "query": "topic:llmops fork:false archived:false stars:20001..200000",
+      "page": 1,
+      "total_count": 8,
+      "incomplete_results": false,
+      "accepted": 1
+    }
+  ],
+  "note": "Deterministic 30-repo sample for D2 path validation; seed=42."
+}
