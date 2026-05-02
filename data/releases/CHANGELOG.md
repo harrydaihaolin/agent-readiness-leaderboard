@@ -9,10 +9,10 @@ Releases below are listed newest-first and never deleted; the article
 or downstream consumer that cited the release expects the artefact
 to remain at its original URL forever.
 
-## v3.2 — pending (2026-05-XX)
+## v3.2-2026-05-02 — 2026-05-02 (in flight)
 
-**Dataset:** same cohort as v3-2026-05-01 (`v3_1000_2026-05-01.json`).
-**Scores:** `scores_v3_1000_2026-05-XX.json` (pending; will be cut by `release-v3-snapshot.yml` once `agent-readiness 1.5.0` lands on PyPI and this leaderboard's pin bumps).
+**Dataset:** [`v3_1000_2026-05-02.json`](./v3_1000_2026-05-02.json) — same `repos[]` as `v3_1000_2026-05-01.json` (the v3.1 freeze); date-stamped a day later so the rescored output lands at `scores_v3_1000_2026-05-02.json` without overwriting the immutable v3.1 snapshot.
+**Scores:** [`scores_v3_1000_2026-05-02.json`](./scores_v3_1000_2026-05-02.json) — minted by `release-v3-snapshot.yml` after the leaderboard's pin bumped to `agent-readiness>=1.5.0,<2`.
 **Engine:** `agent-readiness>=1.5.0,<2` (rules pack v1.5.0, **38 checks**).
 
 ### What changes vs v3.1

@@ -3,6 +3,20 @@
   "schema_version": 1,
   "releases": [
     {
+      "tag": "v3.2-2026-05-02",
+      "title": "v3.2 — 1000 popular AI / agent repos (rules pack v1.5.0 re-scan)",
+      "frozen_at": "2026-05-02",
+      "dataset": "v3_1000_2026-05-02.json",
+      "scores": "scores_v3_1000_2026-05-02.json",
+      "engine": "agent-readiness>=1.5.0,<2",
+      "rules_pack": "v1.5.0",
+      "checks": 38,
+      "repos": 1000,
+      "purpose": "v1.5.0 ideas-sweep production-confirmation snapshot. Same cohort as v3.1; recalibrated repo_shape.large_files thresholds (target band 30-60%) and adds cognitive_load.readme_root_present.",
+      "github_release": null,
+      "article": "https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/scanning-1000-ai-repos-v3.md"
+    },
+    {
       "tag": "v3-2026-05-01",
       "title": "v3 — 1000 popular AI / agent repos",
       "frozen_at": "2026-05-01",
@@ -22,7 +36,7 @@
       "checks": 37,
       "repos": 1000,
       "github_release": "https://github.com/harrydaihaolin/agent-readiness-leaderboard/releases/tag/v3-2026-05-01",
-      "article": "https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/scanning-1000-ai-repos-v3.draft.md"
+      "article": "https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/scanning-1000-ai-repos-v3.md"
     },
     {
       "tag": "v3-prelim-30",
