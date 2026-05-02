@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-01T08:02:24.933833+00:00",
+  "updated_at": "2026-05-02T05:36:59.207283+00:00",
   "query": {
     "topics": [
       "llm",
@@ -16,7 +16,9 @@
       "prompt-engineering"
     ],
     "qualifiers": "fork:false archived:false stars:500..80000",
-    "per_topic": 25
+    "per_topic": 25,
+    "star_bands": null,
+    "include_curated": false
   },
   "max_results": 100,
   "repos": [
@@ -29,13 +31,13 @@
     "thedotmack/claude-mem",
     "bytedance/deer-flow",
     "microsoft/ai-agents-for-beginners",
+    "TauricResearch/TradingAgents",
     "pathwaycom/llm-app",
     "Mintplex-Labs/anything-llm",
     "666ghj/MiroFish",
-    "TauricResearch/TradingAgents",
     "shareAI-lab/learn-claude-code",
-    "meilisearch/meilisearch",
     "ComposioHQ/awesome-claude-skills",
+    "meilisearch/meilisearch",
     "farion1231/cc-switch",
     "sansan0/TrendRadar",
     "code-yeongyu/oh-my-openagent",
@@ -56,9 +58,9 @@
     "HKUDS/nanobot",
     "LC044/WeChatMsg",
     "666ghj/BettaFish",
-    "pingcap/tidb",
     "D4Vinci/Scrapling",
-    "asgeirtj/system_prompts_leaks",
+    "pingcap/tidb",
+    "safishamsi/graphify",
     "2noise/ChatTTS",
     "QuivrHQ/quivr",
     "mindsdb/mindsdb",
@@ -68,12 +70,12 @@
     "alibaba/arthas",
     "danny-avila/LibreChat",
     "sickn33/antigravity-awesome-skills",
+    "ruvnet/ruflo",
     "1Panel-dev/1Panel",
     "HKUDS/LightRAG",
     "wshobson/agents",
     "patchy631/ai-engineering-hub",
     "khoj-ai/khoj",
-    "ruvnet/ruflo",
     "ItzCrazyKns/Vane",
     "ZhuLinsen/daily_stock_analysis",
     "TabbyML/tabby",
@@ -81,21 +83,17 @@
     "continuedev/continue",
     "alibaba/nacos",
     "Yeachan-Heo/oh-my-claudecode",
-    "microsoft/playwright-mcp",
     "github/awesome-copilot",
+    "microsoft/playwright-mcp",
     "AstrBotDevs/AstrBot",
     "zeroclaw-labs/zeroclaw",
     "CopilotKit/CopilotKit",
     "datawhalechina/happy-llm",
     "bytedance/UI-TARS-desktop",
-    "github/github-mcp-server",
     "ashishpatel26/500-AI-Agents-Projects",
-    "onyx-dot-app/onyx",
     "qwibitai/nanoclaw",
     "huggingface/agents-course",
     "simstudioai/sim",
-    "labring/FastGPT",
-    "linshenkx/prompt-optimizer",
     "NirDiamant/RAG_Techniques",
     "aishwaryanr/awesome-generative-ai-guide",
     "gitleaks/gitleaks",
@@ -103,8 +101,8 @@
     "VectifyAI/PageIndex",
     "elder-plinius/CL4R1T4S",
     "BloopAI/vibe-kanban",
-    "getzep/graphiti",
     "HandsOnLLM/Hands-On-Large-Language-Models",
+    "getzep/graphiti",
     "Cinnamon/kotaemon",
     "PrefectHQ/fastmcp",
     "liguodongiot/llm-action",
@@ -114,24 +112,28 @@
     "langchain-ai/deepagents",
     "jina-ai/serve",
     "NirDiamant/GenAI_Agents",
-    "1Panel-dev/MaxKB",
     "promptfoo/promptfoo",
     "AccumulateMore/CV",
     "dyad-sh/dyad",
-    "AI4Finance-Foundation/FinGPT",
-    "humanlayer/12-factor-agents"
+    "humanlayer/12-factor-agents",
+    "google/adk-python",
+    "comet-ml/opik",
+    "Lightning-AI/litgpt",
+    "bentoml/OpenLLM"
   ],
   "search_meta": [
     {
       "http_status": 200,
       "query": "topic:llm fork:false archived:false stars:500..80000",
-      "total_count": 1528,
+      "page": 1,
+      "total_count": 1529,
       "incomplete_results": false,
       "accepted": 14
     },
     {
       "http_status": 200,
       "query": "topic:llms fork:false archived:false stars:500..80000",
+      "page": 1,
       "total_count": 269,
       "incomplete_results": false,
       "accepted": 21
@@ -139,6 +141,7 @@
     {
       "http_status": 200,
       "query": "topic:agents fork:false archived:false stars:500..80000",
+      "page": 1,
       "total_count": 373,
       "incomplete_results": false,
       "accepted": 11
@@ -146,65 +149,74 @@
     {
       "http_status": 200,
       "query": "topic:agent fork:false archived:false stars:500..80000",
-      "total_count": 535,
+      "page": 1,
+      "total_count": 536,
       "incomplete_results": false,
       "accepted": 15
     },
     {
       "http_status": 200,
       "query": "topic:ai-agents fork:false archived:false stars:500..80000",
-      "total_count": 427,
+      "page": 1,
+      "total_count": 428,
       "incomplete_results": false,
       "accepted": 15
     },
     {
       "http_status": 200,
       "query": "topic:mcp fork:false archived:false stars:500..80000",
-      "total_count": 557,
+      "page": 1,
+      "total_count": 559,
       "incomplete_results": false,
-      "accepted": 9
+      "accepted": 8
     },
     {
       "http_status": 200,
       "query": "topic:rag fork:false archived:false stars:500..80000",
-      "total_count": 356,
+      "page": 1,
+      "total_count": 358,
       "incomplete_results": false,
-      "accepted": 6
+      "accepted": 5
     },
     {
       "http_status": 200,
       "query": "topic:langchain fork:false archived:false stars:500..80000",
-      "total_count": 185,
+      "page": 1,
+      "total_count": 186,
       "incomplete_results": false,
-      "accepted": 15
+      "accepted": 1
     },
     {
       "http_status": 200,
       "query": "topic:llmops fork:false archived:false stars:500..80000",
+      "page": 1,
       "total_count": 92,
       "incomplete_results": false,
-      "accepted": 14
+      "accepted": 4
     },
     {
       "http_status": 200,
       "query": "topic:llm-inference fork:false archived:false stars:500..80000",
+      "page": 1,
       "total_count": 65,
       "incomplete_results": false,
-      "accepted": 18
+      "accepted": 3
     },
     {
       "http_status": 200,
       "query": "topic:vector-database fork:false archived:false stars:500..80000",
+      "page": 1,
       "total_count": 96,
       "incomplete_results": false,
-      "accepted": 12
+      "accepted": 1
     },
     {
       "http_status": 200,
       "query": "topic:prompt-engineering fork:false archived:false stars:500..80000",
+      "page": 1,
       "total_count": 160,
       "incomplete_results": false,
-      "accepted": 13
+      "accepted": 0
     }
   ]
 }
