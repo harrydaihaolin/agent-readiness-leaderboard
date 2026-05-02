@@ -118,7 +118,10 @@ jobs:
 
       - name: Scan shard ${{ matrix.shard }}/${{ needs.discover.outputs.shard_count }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Same rationale as in release-v3-snapshot.yml: AR_GITHUB_TOKEN
+          # (PAT) has its own quota, away from the 5000/h shared by all
+          # workflow runs in this repo.
+          GITHUB_TOKEN: ${{ secrets.AR_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           mkdir -p _shards

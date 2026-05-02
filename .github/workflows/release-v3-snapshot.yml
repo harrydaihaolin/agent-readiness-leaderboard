@@ -109,7 +109,13 @@ jobs:
 
       - name: Scan shard ${{ matrix.shard }}/${{ needs.discover.outputs.shard_count }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Prefer the wider-scope AR_GITHUB_TOKEN (PAT). The default
+          # GITHUB_TOKEN has a 5000/h shared quota across every job in
+          # this repo, which gets exhausted quickly when 4 scan shards
+          # run alongside daily-scan + PR CI + dependabot bumps. Falling
+          # back to the default token keeps forks / public-fork runs
+          # working when the secret is not configured.
+          GITHUB_TOKEN: ${{ secrets.AR_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           mkdir -p _shards
