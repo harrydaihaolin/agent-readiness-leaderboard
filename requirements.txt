@@ -1,2 +1,5 @@
 requests>=2.28.0
-agent-readiness>=1.0.0
+# v3.1 article + future loops require the 37-check pack from v1.4.0.
+# Keep the major-pinned upper bound so a future v2 can't auto-upgrade
+# the daily scan into uncharted territory.
+agent-readiness>=1.4.0,<2

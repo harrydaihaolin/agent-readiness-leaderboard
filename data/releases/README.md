@@ -63,3 +63,17 @@ python3 scripts/scan.py \
 
 The article cites the resulting `scores_v3_*.json` by an immutable
 GitHub Release URL, not by the path on `main`.
+
+## Engine version pinning convention
+
+When the same dataset is scanned under different engine versions, we
+keep both snapshots side by side. The fresher run keeps the canonical
+name; older runs are renamed with the engine pack version embedded:
+
+| Snapshot | Engine pack | Created |
+| --- | --- | --- |
+| `scores_v3_1000_2026-05-01.v100.json` | rules pack v1.0.0 (7 checks) | first v3 freeze, retained for diff vs v1.4.0 |
+| `scores_v3_1000_2026-05-01.json` | rules pack v1.4.0 (37 checks) | v3.1 rerun on `agent-readiness>=1.4.0` |
+
+`scripts/release_diff.py` (in `agent-readiness-research`) consumes both
+files to render the v1.0 → v1.4 diff cited by the article.
