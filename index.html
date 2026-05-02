@@ -27,10 +27,10 @@
 <header class="hero">
   <div class="hero-badge">
     <span class="live-dot"></span>
-    Live · Updated Daily
+    Live · 1,000 repos · Re-scored daily
   </div>
   <h1>Agent Readiness Leaderboard</h1>
-  <p>Which AI agent frameworks are themselves agent-ready? Scored daily by <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">agent-readiness</a> across 4 pillars.</p>
+  <p>1,000 popular AI / agent repos, re-scored daily by <a href="https://github.com/harrydaihaolin/agent-readiness" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">agent-readiness</a> across 4 pillars. The cohort is frozen so day-over-day scores are comparable; <a href="https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/scanning-1000-ai-repos-v3.md" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">read the v3 article →</a></p>
 </header>
 
 <div class="stats-bar">
@@ -50,31 +50,13 @@
   </div>
 </div>
 
-<aside class="release-banner" aria-label="Frozen v3 cohort">
-  <p>
-    <strong>Frozen v3 cohort:</strong> 1000 popular AI / agent repos
-    scanned with <code>agent-readiness 1.4.0</code> (rules pack v1.4.0,
-    37 checks).
-    <a href="https://github.com/harrydaihaolin/agent-readiness-leaderboard/releases/tag/v3-2026-05-01" target="_blank" rel="noopener">
-      Dataset + scores release →
-    </a>
-    <a href="https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/scanning-1000-ai-repos-v3.draft.md" target="_blank" rel="noopener">
-      Read the article →
-    </a>
-  </p>
-  <p class="release-banner-meta">
-    Index of frozen releases:
-    <a href="data/releases/index.json"><code>data/releases/index.json</code></a>.
-  </p>
-</aside>
-
 <section class="about" aria-label="About this leaderboard">
   <details class="about-tip">
     <summary>
       <span class="about-tip-summary-icon">💡</span>
       <span class="about-tip-summary-text">
         <strong>How is this scored?</strong>
-        — four pillars, two scopes (curated vs. experiment).
+        — four pillars, one cohort (1,000 popular AI / agent repos).
       </span>
       <a class="about-tip-summary-cta"
          href="https://harrydaihaolin.github.io/agent-readiness-landing-page/"
@@ -112,17 +94,19 @@
         </div>
       </div>
 
-      <h2>Scope: curated vs. experiment</h2>
-      <div class="scope-grid">
-        <div class="scope-tile">
-          <div class="scope-tile-name">Curated</div>
-          <div class="scope-tile-body">A hand-picked list of ~95 AI-agent infrastructure repos (frameworks, inference servers, vector stores, observability, orchestration). The canonical leaderboard.</div>
-        </div>
-        <div class="scope-tile">
-          <div class="scope-tile-name">Experiment</div>
-          <div class="scope-tile-body">Up to ~100 repos auto-discovered daily by GitHub topic / star search. Used to keep the rules engine honest against codebases the curated list never sees.</div>
-        </div>
-      </div>
+      <h2>The cohort</h2>
+      <p class="about-intro" style="margin-top:0;">
+        The 1,000 repos are the v3 cohort frozen at
+        <a href="data/releases/index.json"><code>data/releases/v3_1000_2026-05-01.json</code></a>
+        — a popularity-stratified sample of AI / agent codebases (frameworks,
+        inference servers, vector stores, orchestration, evals, observability,
+        and applications) drawn from GitHub topic / star search. The cohort
+        is intentionally fixed so that day-over-day score deltas reflect
+        rule-engine and repo-maintainer changes, not cohort drift. The frozen
+        snapshot used for the v3 article — pinned to
+        <code>agent-readiness 1.4.0</code> with rules pack v1.4.0 (37 checks)
+        — is at <a href="https://github.com/harrydaihaolin/agent-readiness-leaderboard/releases/tag/v3-2026-05-01" target="_blank" rel="noopener">v3-2026-05-01</a>.
+      </p>
 
       <div class="about-cta">
         <div class="about-cta-text">

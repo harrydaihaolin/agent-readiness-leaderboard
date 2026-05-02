@@ -22,47 +22,16 @@ const PILLARS = {
 };
 
 // ── State ──────────────────────────────────────────────────────────────────
-//   curatedRepos    — from data/scores.json            (the canonical leaderboard)
-//   experimentRepos — from data/scores_experiment.json (daily-discovered pool; may be empty / absent)
-//   scope           — which slice the user is viewing: 'curated' | 'experiment' | 'combined'
-let curatedRepos    = [];
-let experimentRepos = [];
-let curatedMeta     = { last_updated: null, total: 0 };
-let experimentMeta  = { last_updated: null, total: 0, available: false };
-let scope     = 'curated';
-let allRepos  = [];     // recomputed by setScope()
+//   The leaderboard is a single view of the v3 1000-repo cohort, re-scored
+//   daily. Source of truth: data/scores.json (written by daily-scan.yml).
+//   The frozen snapshot used by the v3 article lives separately under
+//   data/releases/scores_v3_*.json and is never displayed live here.
+let allRepos  = [];
+let meta      = { last_updated: null, total: 0 };
 let page      = 1;
 let pageSize  = 20;
 let sortKey   = 'score';
-let sortDir   = -1;   // -1 = descending (high→low), 1 = ascending (low→high)
-
-function recomputeAllRepos() {
-  if (scope === 'curated') {
-    allRepos = curatedRepos;
-  } else if (scope === 'experiment') {
-    allRepos = experimentRepos;
-  } else {
-    // combined: dedupe by full_name (curated wins on collision)
-    const seen = new Map();
-    for (const r of curatedRepos) seen.set((r.repo || '').toLowerCase(), { ...r, _scope: 'curated' });
-    for (const r of experimentRepos) {
-      const k = (r.repo || '').toLowerCase();
-      if (!seen.has(k)) seen.set(k, { ...r, _scope: 'experiment' });
-    }
-    allRepos = [...seen.values()];
-  }
-}
-
-function setScope(next) {
-  if (next === scope) return;
-  if (next === 'experiment' && !experimentMeta.available) return;
-  if (next === 'combined'   && !experimentMeta.available) return;
-  scope = next;
-  page  = 1;
-  recomputeAllRepos();
-  document.getElementById('sRepos').textContent = allRepos.length;
-  renderPage();
-}
+let sortDir   = -1;   // -1 = descending, 1 = ascending
 
 // ── Sort & page helpers ────────────────────────────────────────────────────
 function getSorted() {
@@ -173,34 +142,13 @@ function renderToolbar() {
       ${label}${active ? ` <span class="sort-arrow">${arrow}</span>` : ''}
     </button>`;
   };
-  const expDisabled = experimentMeta.available ? '' : 'disabled title="No experiment pool yet"';
-  const mkScope = (key, label, count) => {
-    const active = scope === key;
-    const disabled = (key !== 'curated' && !experimentMeta.available) ? 'disabled' : '';
-    return `<button class="scope-btn${active ? ' active' : ''}" ${disabled}
-      onclick="setScope('${key}')" title="${label}">${label}${count != null ? ` (${count})` : ''}</button>`;
-  };
   const pageSizes = [10, 20, 25, 50].map(n =>
     `<option value="${n}"${n === pageSize ? ' selected' : ''}>${n}</option>`).join('');
-  const start = (page - 1) * pageSize + 1;
+  const start = allRepos.length === 0 ? 0 : (page - 1) * pageSize + 1;
   const end   = Math.min(page * pageSize, allRepos.length);
-  const combinedCount = experimentMeta.available
-    ? new Set([
-        ...curatedRepos.map(r => (r.repo || '').toLowerCase()),
-        ...experimentRepos.map(r => (r.repo || '').toLowerCase()),
-      ]).size
-    : null;
 
   return `
     <div class="toolbar">
-      <div class="sort-group">
-        <span class="sort-label">Scope</span>
-        <div class="scope-group">
-          ${mkScope('curated',    'Curated',    curatedMeta.total)}
-          ${mkScope('experiment', 'Experiment', experimentMeta.available ? experimentMeta.total : null)}
-          ${mkScope('combined',   'Combined',   combinedCount)}
-        </div>
-      </div>
       <div class="sort-group">
         <span class="sort-label">Sort by</span>
         ${mkBtn('score', 'Score')}
@@ -294,7 +242,6 @@ function buildCard(repo, idx) {
           <div class="repo-name">
             <a href="${repo.url}" target="_blank" rel="noopener"
                onclick="event.stopPropagation()">${repo.owner}/${repo.name}</a>
-            ${repo._scope === 'experiment' ? '<span class="scope-tag" title="Discovered automatically; not in the curated list">Experiment</span>' : ''}
           </div>
           <div class="repo-meta">
             ${repo.language ? `<span>◉ ${repo.language}</span>` : ''}
@@ -336,10 +283,9 @@ function renderPage() {
 }
 
 // ── Data loading ───────────────────────────────────────────────────────────
-//   The page reads two sibling files:
-//     data/scores.json              — curated leaderboard (always present)
-//     data/scores_experiment.json   — daily-discovered pool (may be missing /
-//                                     empty; the page degrades to curated-only)
+//   Reads data/scores.json — the live daily re-score of the v3 1000-repo
+//   cohort. The article's frozen snapshot lives separately under
+//   data/releases/ and is not displayed here.
 async function fetchJson(path) {
   const res = await fetch(path + '?_=' + Date.now(), { cache: 'no-store' });
   if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -347,49 +293,19 @@ async function fetchJson(path) {
 }
 
 async function load() {
-  let curatedErr = null;
   try {
     const data = await fetchJson('./data/scores.json');
-    curatedRepos       = data.repos || [];
-    curatedMeta        = { last_updated: data.last_updated, total: data.total_repos || curatedRepos.length };
-    document.getElementById('sUpdated').textContent = timeAgo(data.last_updated);
+    allRepos = data.repos || [];
+    meta     = { last_updated: data.last_updated, total: data.total_repos || allRepos.length };
+    document.getElementById('sUpdated').textContent = data.last_updated ? timeAgo(data.last_updated) : '—';
   } catch (e) {
-    curatedErr = e;
-  }
-
-  try {
-    const data = await fetchJson('./data/scores_experiment.json');
-    const repos = data.repos || [];
-    if (repos.length > 0) {
-      experimentRepos = repos;
-      experimentMeta  = {
-        last_updated: data.last_updated,
-        total: data.total_repos || repos.length,
-        available: true,
-      };
-    } else {
-      experimentMeta = { last_updated: null, total: 0, available: false };
-    }
-  } catch {
-    // Missing experiment file is expected in older deployments — silent.
-    experimentMeta = { last_updated: null, total: 0, available: false };
-  }
-
-  document.getElementById('sNext').textContent = nextScan();
-
-  if (curatedErr && experimentRepos.length === 0) {
     document.getElementById('leaderboard').innerHTML =
       `<div class="state">⚠️ Could not load scores.<br>
-       <small style="color:var(--faint)">${curatedErr.message}</small></div>`;
+       <small style="color:var(--faint)">${e.message}</small></div>`;
     return;
   }
 
-  // If curated failed but experiment loaded, switch the user there automatically.
-  if (curatedErr && experimentRepos.length > 0) {
-    scope = 'experiment';
-  }
-
-  recomputeAllRepos();
+  document.getElementById('sNext').textContent = nextScan();
   document.getElementById('sRepos').textContent = allRepos.length;
   renderPage();
 }
