@@ -19,6 +19,7 @@ ingest path of every consumer at once.
 """
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -538,6 +539,52 @@ def _write_scan_health(
     }, indent=2))
 
 
+def _parse_shard(value: str | None) -> tuple[int, int] | None:
+    """Parse the ``--shard N/M`` flag.
+
+    Returns ``(index_0_based, total)`` or ``None`` when unset.
+    Validates ``1 <= N <= M``.
+    """
+    if not value:
+        return None
+    if "/" not in value:
+        raise argparse.ArgumentTypeError(
+            f"--shard expects 'N/M' (e.g. 1/4), got {value!r}"
+        )
+    n_str, m_str = value.split("/", 1)
+    try:
+        n = int(n_str)
+        m = int(m_str)
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError(
+            f"--shard 'N/M' must be integers, got {value!r}"
+        ) from exc
+    if not (m >= 1 and 1 <= n <= m):
+        raise argparse.ArgumentTypeError(
+            f"--shard 'N/M' requires 1 <= N <= M, got {value!r}"
+        )
+    return (n - 1, m)
+
+
+def _shard_index(repo: str, total: int) -> int:
+    """Stable partition for a repo name across shards.
+
+    ``hashlib.sha1`` is overkill for a partition function but it gives
+    us a deterministic, language-agnostic hash that doesn't depend on
+    Python's ``hash`` PYTHONHASHSEED. Lowercase + strip avoids
+    accidental drift between fixture casing and live casing.
+    """
+    h = hashlib.sha1(repo.lower().strip().encode("utf-8")).hexdigest()
+    return int(h, 16) % total
+
+
+def filter_to_shard(targets: list[str], shard: tuple[int, int] | None) -> list[str]:
+    if not shard:
+        return targets
+    idx, total = shard
+    return [r for r in targets if _shard_index(r, total) == idx]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Clone each target repo and run `agent-readiness scan --json`.")
     ap.add_argument(
@@ -569,13 +616,35 @@ def main() -> int:
         default=Path("data/scan_health.json"),
         help="Write per-repo scan health (last success, consecutive failures) here. Pass empty to skip.",
     )
+    ap.add_argument(
+        "--shard",
+        default=None,
+        help=(
+            "Partition the target list into M stable shards and scan only "
+            "shard N (1-indexed). Format: 'N/M' e.g. --shard 1/4. The "
+            "partition is keyed on hashlib.sha1(repo.lower()), so the same "
+            "shard always covers the same repos across reruns. The output "
+            "envelope is intentionally NOT a complete scores.json — it must "
+            "be merged via scripts/merge_shards.py before being committed "
+            "or validated against the schema."
+        ),
+    )
     args = ap.parse_args()
+
+    shard = _parse_shard(args.shard)
 
     targets = resolve_scan_targets(
         curated_only=not args.with_experiment and not args.experiment_only,
         experiment_only=args.experiment_only,
         experiment_json=args.experiment_json,
     )
+    full_target_count = len(targets)
+    if shard:
+        targets = filter_to_shard(targets, shard)
+        print(
+            f"Sharding: {len(targets)}/{full_target_count} repos in shard "
+            f"{shard[0] + 1}/{shard[1]}"
+        )
     scanned_at = datetime.now(timezone.utc).isoformat()
     scan_mode = (
         "experiment_only"
@@ -654,13 +723,23 @@ def main() -> int:
         "failures":     failures,
         "scan_mode":    scan_mode,
     }
+    if shard:
+        # Shard envelopes are intermediate; merge_shards.py will fold
+        # them into a single canonical envelope. We record the shard
+        # tuple so the merger can sanity-check that it has all M
+        # shards before stitching.
+        output["shard"] = {"index": shard[0] + 1, "total": shard[1]}
 
     out_path = args.output
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w") as f:
         json.dump(output, f, indent=2)
 
-    if args.scan_health:
+    # Sharded runs intentionally skip scan_health: each shard sees only
+    # a slice of the cohort, so writing scan_health here would erase
+    # the other shards' streak data. merge_shards.py reconstitutes
+    # scan_health from the merged envelope after fan-in.
+    if args.scan_health and not shard:
         _write_scan_health(
             path=args.scan_health,
             scanned_at=scanned_at,
