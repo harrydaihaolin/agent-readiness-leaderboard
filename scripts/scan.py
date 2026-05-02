@@ -406,8 +406,18 @@ def _scanner_meta() -> dict[str, str | int | None]:
     """Best-effort capture of the scanner version + rules pack version
     so the scores.json envelope is reproducible.
 
-    Falls back to None for any field that can't be resolved; consumers
-    treat None as "unknown" rather than "wrong".
+    Tries two channels and falls through to None when both fail:
+
+    1. ``agent-readiness --version`` for ``scanner_version``.
+    2. The bundled rules pack inside the installed ``agent_readiness``
+       package: parse ``MANIFEST`` for ``vendored_tag`` (the
+       canonical pin produced by ``scripts/vendor_rules.sh``) and
+       count ``*.yaml`` for ``checks_count``. This works against
+       ``agent-readiness 1.1.x``, which does not yet expose a
+       ``--list-rules`` JSON channel.
+
+    Schema-level: ``scores.schema.json`` allows null for these
+    fields, so consumers treat None as "unknown" rather than "wrong".
     """
     out: dict[str, str | int | None] = {
         "scanner_version": None,
@@ -428,26 +438,38 @@ def _scanner_meta() -> dict[str, str | int | None]:
                 out["scanner_version"] = parts[-1]
     except (FileNotFoundError, subprocess.TimeoutExpired):
         pass
+
+    # Read rules pack version + checks count straight from the
+    # installed package's vendored tree. This is the source of truth
+    # the scanner actually loads at runtime, so a mismatch with
+    # ``MANIFEST`` would already be a self-bug.
     try:
-        # rules-eval --help dumps the loaded rules; check_count is more
-        # reliably surfaced through `rules-eval --rules-version-only`
-        # if/when that flag exists. Until then we scrape the help text.
-        info = subprocess.run(
-            ["agent-readiness", "rules-eval", "--list-rules", "--json"],
-            capture_output=True,
-            timeout=15,
-        )
-        if info.returncode == 0:
-            data = json.loads(info.stdout.decode(errors="replace") or "{}")
-            if isinstance(data, dict):
-                if isinstance(data.get("pack_version"), str):
-                    out["rules_pack_version"] = data["pack_version"]
-                if isinstance(data.get("rules"), list):
-                    out["checks_count"] = len(data["rules"])
-                elif isinstance(data.get("checks_count"), int):
-                    out["checks_count"] = data["checks_count"]
-    except (FileNotFoundError, subprocess.TimeoutExpired, json.JSONDecodeError):
+        import importlib.util
+
+        spec = importlib.util.find_spec("agent_readiness")
+        if spec and spec.origin:
+            pkg_dir = Path(spec.origin).parent
+            rp = pkg_dir / "rules_pack"
+            manifest = rp / "MANIFEST"
+            if manifest.is_file():
+                # MANIFEST is a tiny .toml-ish file with `vendored_tag = "vX.Y.Z"`.
+                # Grep it without requiring a TOML parser to keep zero deps.
+                for line in manifest.read_text().splitlines():
+                    if line.strip().startswith("vendored_tag"):
+                        # vendored_tag = "v1.4.0"
+                        _, _, val = line.partition("=")
+                        ver = val.strip().strip('"').strip("'")
+                        if ver.startswith("v"):
+                            ver = ver[1:]
+                        if ver:
+                            out["rules_pack_version"] = ver
+                        break
+            if rp.is_dir():
+                out["checks_count"] = sum(1 for _ in rp.rglob("*.yaml"))
+    except Exception:
+        # Best-effort; keep going with whatever we did get.
         pass
+
     return out
 
 

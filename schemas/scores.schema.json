@@ -29,18 +29,24 @@
       "description": "Name of the scanner CLI used (typically 'agent-readiness')."
     },
     "scanner_version": {
-      "type": "string",
-      "description": "Version of the scanner CLI invoked, captured from `agent-readiness --version`."
+      "type": ["string", "null"],
+      "description": "Version of the scanner CLI invoked, captured from `agent-readiness --version`. Null when the scanner did not expose it."
     },
     "rules_pack_version": {
-      "type": "string",
-      "description": "pack_version from the rules pack vendored into the scanner.",
-      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+      "type": ["string", "null"],
+      "description": "pack_version from the rules pack vendored into the scanner. Null when the scanner did not expose it; consumers treat null as 'unknown' rather than 'wrong'.",
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" }
+      ]
     },
     "checks_count": {
-      "type": "integer",
-      "minimum": 0,
-      "description": "Total number of rule check_ids known to the scanner at run time. Consumed by the landing page so 'Checks shipped' tracks reality."
+      "type": ["integer", "null"],
+      "description": "Total number of rule check_ids known to the scanner at run time. Consumed by the landing page so 'Checks shipped' tracks reality. Null when the scanner did not expose it.",
+      "anyOf": [
+        { "type": "null" },
+        { "type": "integer", "minimum": 0 }
+      ]
     },
     "total_repos": {
       "type": "integer",
