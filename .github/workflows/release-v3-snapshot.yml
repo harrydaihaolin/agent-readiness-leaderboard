@@ -1,0 +1,136 @@
+name: Release v3 snapshot (1000 repos)
+
+# One-shot, manually triggered. Produces an immutable scan snapshot of
+# the curated ∪ experiment cohort against a frozen dataset, intended
+# for the "scanning 1000 AI repos" v3 article. Outputs land in
+# `data/releases/scores_v3_<size>_<date>.json` and are uploaded to a
+# GitHub Release so the article can link an immutable URL.
+#
+# This workflow does NOT overwrite `data/scores.json` and is NOT on a
+# schedule — it never races the daily scanner.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dataset:
+        description: 'Frozen dataset path under data/releases/ (e.g. v3_1000_2026-05-01.json).'
+        required: true
+        default: 'v3_1000_2026-05-01.json'
+      release_tag:
+        description: 'Optional GitHub release tag to publish under (leave blank to skip release upload).'
+        required: false
+        default: ''
+
+# Distinct group from `daily-scan` — we explicitly *want* a manual
+# release run to coexist with whatever the daily scan is doing.
+concurrency:
+  group: release-v3-snapshot
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # commit snapshot back + (optionally) create release
+
+jobs:
+  scan-1000:
+    runs-on: ubuntu-latest
+    # 1000 repos at ~30 s/repo wall-clock with 8 workers ≈ 60–80 min.
+    # Budget 4 h to leave headroom for slow clones + retries.
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # pin to v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # pin to v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install 'check-jsonschema>=0.30,<1'
+
+      - name: Resolve frozen dataset
+        id: dataset
+        run: |
+          set -euo pipefail
+          DS="data/releases/${{ inputs.dataset }}"
+          if [ ! -f "$DS" ]; then
+            echo "::error::Dataset not found: $DS"
+            exit 1
+          fi
+          # Output filename mirrors the dataset name so they are paired.
+          base="$(basename "$DS" .json)"
+          out="data/releases/scores_${base}.json"
+          echo "dataset=$DS"      >> "$GITHUB_OUTPUT"
+          echo "out=$out"          >> "$GITHUB_OUTPUT"
+          echo "size=$(jq '.repos | length' "$DS")" >> "$GITHUB_OUTPUT"
+
+      - name: Scan frozen 1000-repo cohort
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/scan.py \
+            --experiment-only \
+            --experiment-json "${{ steps.dataset.outputs.dataset }}" \
+            --output         "${{ steps.dataset.outputs.out }}" \
+            --scan-health    "data/scan_health_v3.json"
+
+      - name: Validate snapshot against scores.schema.json
+        run: |
+          check-jsonschema --schemafile schemas/scores.schema.json \
+            "${{ steps.dataset.outputs.out }}"
+
+      - name: Summarise snapshot
+        run: |
+          python3 - <<PY
+          import json
+          p = "${{ steps.dataset.outputs.out }}"
+          d = json.load(open(p))
+          ok   = d.get("total_repos") or 0
+          fail = len(d.get("failures") or [])
+          print(f"snapshot={p}")
+          print(f"scanned_ok={ok} failures={fail} dataset_size=${{ steps.dataset.outputs.size }}")
+          PY
+
+      - name: Commit snapshot under data/releases/
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "${{ steps.dataset.outputs.out }}" data/scan_health_v3.json
+          if git diff --staged --quiet; then
+            echo "No snapshot changes."
+            exit 0
+          fi
+          git commit -m "chore: v3 1000-repo snapshot ${{ inputs.dataset }} [skip ci]"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main || { git rebase --abort || true; continue; }
+            git push origin HEAD:main && exit 0
+            sleep $((attempt * 5))
+          done
+          echo "::error::Failed to push snapshot after 3 attempts."
+          exit 1
+
+      - name: Upload snapshot to GitHub Release (optional)
+        if: inputs.release_tag != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          tag="${{ inputs.release_tag }}"
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" \
+              --title "Agent-readiness v3 dataset $tag" \
+              --notes "Frozen dataset + scan snapshot for the v3 article. Dataset: ${{ inputs.dataset }}." \
+              "${{ steps.dataset.outputs.dataset }}#dataset-${{ inputs.dataset }}" \
+              "${{ steps.dataset.outputs.out }}#scores-${{ inputs.dataset }}"
+          else
+            gh release upload "$tag" \
+              "${{ steps.dataset.outputs.dataset }}#dataset-${{ inputs.dataset }}" \
+              "${{ steps.dataset.outputs.out }}#scores-${{ inputs.dataset }}" \
+              --clobber
+          fi

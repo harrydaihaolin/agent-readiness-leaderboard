@@ -1,0 +1,215 @@
+{
+  "last_updated": "2026-05-02T04:39:54.504257+00:00",
+  "repos": [
+    {
+      "repo": "24kchengYe/MemoMind",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "Agenta-AI/agenta",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "AlphaAvatar/AlphaAvatar",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "Atmosphere/atmosphere",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "Azure-Samples/miyagi",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "RightNow-AI/openfang",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "VoltAgent/awesome-agent-skills",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "adhikasp/mcp-client-cli",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "ai-boost/awesome-harness-engineering",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "aiming-lab/SimpleMem",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "alirezarezvani/claude-code-tresor",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "antvis/mcp-server-chart",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "crmne/ruby_llm",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "dissorial/doc-chatbot",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "dzhng/deep-research",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "getclawe/clawe",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "getmetal/motorhead",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "gptme/gptme",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "guardrails-ai/guardrails",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "happier-dev/happier",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "helicone/helicone",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "huggingface/accelerate",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "lightonai/pylate",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "mihaelamj/cupertino",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "neuml/txtai",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "nomic-ai/contrastors",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "thedaviddias/llms-txt-hub",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "weibaohui/k8m",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "yoheinakajima/babyagi",
+      "last_success_ts": "2026-05-02T04:39:54.504257+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    }
+  ]
+}
