@@ -1,674 +1,674 @@
 {
-  "last_updated": "2026-05-02T05:36:59.374539+00:00",
+  "last_updated": "2026-05-02T07:08:37.532462+00:00",
   "repos": [
     {
       "repo": "dagster-io/dagster",
       "last_success_ts": null,
-      "last_failure_ts": "2026-05-02T05:36:59.374539+00:00",
-      "consecutive_failures": 1,
+      "last_failure_ts": "2026-05-02T07:08:37.532462+00:00",
+      "consecutive_failures": 2,
       "error_class": "clone_timeout"
     },
     {
       "repo": "kubernetes/kubernetes",
       "last_success_ts": null,
-      "last_failure_ts": "2026-05-02T05:36:59.374539+00:00",
-      "consecutive_failures": 1,
+      "last_failure_ts": "2026-05-02T07:08:37.532462+00:00",
+      "consecutive_failures": 2,
       "error_class": "clone_timeout"
     },
     {
       "repo": "567-labs/instructor",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "AgentOps-AI/agentops",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "Arize-ai/phoenix",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "BerriAI/litellm",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ComposioHQ/composio",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "EleutherAI/lm-evaluation-harness",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "FoundationAgents/MetaGPT",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "GreyDGL/PentestGPT",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "HKUDS/AutoAgent",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "Helicone/helicone",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "InternLM/MindSearch",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "NVIDIA-NeMo/NeMo",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "OpenBMB/ChatDev",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "OpenHands/OpenHands",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "OpenPipe/OpenPipe",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "PrefectHQ/prefect",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "QwenLM/Qwen-Agent",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "SWE-agent/SWE-agent",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "SerpentAI/SerpentAI",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "Significant-Gravitas/AutoGPT",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "TencentQQGYLab/AppAgent",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "TransformerOptimus/SuperAGI",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "VoltAgent/voltagent",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "activeloopai/deeplake",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "agno-agi/agno",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "anthropics/anthropic-sdk-python",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "apache/airflow",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "argoproj/argo-workflows",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "assafelovic/gpt-researcher",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "browser-use/browser-use",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "camel-ai/camel",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "celery/celery",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "chroma-core/chroma",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "crewAIInc/crewAI",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "deepset-ai/haystack",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "deepspeedai/DeepSpeed",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "e2b-dev/E2B",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ggml-org/llama.cpp",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "griptape-ai/griptape",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "guardrails-ai/guardrails",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "guidance-ai/guidance",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "hiyouga/LlamaFactory",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "huggingface/accelerate",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "huggingface/peft",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "huggingface/smolagents",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "huggingface/text-generation-inference",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "huggingface/transformers",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "kubeflow/kubeflow",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "kyegomez/swarms",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "lancedb/lancedb",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "langchain-ai/langchain",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "langchain-ai/langgraph",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "langfuse/langfuse",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "langgenius/dify",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "letta-ai/letta",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "mem0ai/mem0",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "microsoft/TaskWeaver",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "microsoft/autogen",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "microsoft/graphrag",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "microsoft/promptflow",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "microsoft/semantic-kernel",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "milvus-io/milvus",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "milvus-io/pymilvus",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "mistralai/mistral-inference",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ml-explore/mlx",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "mlflow/mlflow",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "modelcontextprotocol/python-sdk",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "modelcontextprotocol/typescript-sdk",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "mudler/LocalAI",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "n8n-io/n8n",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "neuml/txtai",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "nomic-ai/gpt4all",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ollama/ollama",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "oobabooga/text-generation-webui",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "open-webui/open-webui",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "openai/openai-agents-python",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "openai/openai-python",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "openai/swarm",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "pydantic/pydantic-ai",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "qdrant/qdrant",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ray-project/ray",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "run-llama/llama_index",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "sgl-project/sglang",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "simular-ai/Agent-S",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "skypilot-org/skypilot",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "stanfordnlp/dspy",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "temporalio/temporal",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "traceloop/openllmetry",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "unslothai/unsloth",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "vibrantlabsai/ragas",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "vllm-project/vllm",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "wandb/wandb",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "weaviate/weaviate",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "yoheinakajima/babyagi",
-      "last_success_ts": "2026-05-02T05:36:59.374539+00:00",
+      "last_success_ts": "2026-05-02T07:08:37.532462+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null

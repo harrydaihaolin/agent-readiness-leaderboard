@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-02T05:36:59.374539+00:00",
+  "last_updated": "2026-05-02T07:08:37.532462+00:00",
   "scan_version": "2.1.0",
   "scanner": "agent-readiness",
   "scanner_version": "1.1.0",
@@ -12,8 +12,8 @@
       "name": "airflow",
       "owner": "apache",
       "description": "Apache Airflow - A platform to programmatically author, schedule, and monitor workflows",
-      "stars": 45257,
-      "forks": 16980,
+      "stars": 45256,
+      "forks": 16981,
       "language": "Python",
       "url": "https://github.com/apache/airflow",
       "avatar": "https://avatars.githubusercontent.com/u/47359?v=4",
@@ -59,78 +59,15 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:45:14.319689+00:00",
+      "scanned_at": "2026-05-02T07:16:51.182596+00:00",
       "rank": 1
-    },
-    {
-      "repo": "Arize-ai/phoenix",
-      "name": "phoenix",
-      "owner": "Arize-ai",
-      "description": "AI Observability & Evaluation",
-      "stars": 9498,
-      "forks": 851,
-      "language": "Python",
-      "url": "https://github.com/Arize-ai/phoenix",
-      "avatar": "https://avatars.githubusercontent.com/u/59858760?v=4",
-      "topics": [
-        "agents",
-        "ai-monitoring",
-        "ai-observability",
-        "aiengineering",
-        "anthropic",
-        "datasets"
-      ],
-      "overall_score": 85.6,
-      "grade": "S",
-      "pillars": {
-        "cognitive_load": 82.3,
-        "feedback": 100.0,
-        "flow": 69.6,
-        "safety": 81.0
-      },
-      "top_findings": [
-        {
-          "pillar": "cognitive_load",
-          "check_id": "repo_shape.large_files",
-          "message": "5 findings \u2014 e.g. Large file: docs.json (>500 lines or >50 KB).; Large file: helm/values.yaml (>500 lines or >50 KB).",
-          "severity": "warn",
-          "fix_hint": "Split large files into smaller, focused modules.",
-          "count": 5
-        },
-        {
-          "pillar": "flow",
-          "check_id": "env.example_parity",
-          "message": "Env var usage found in source files but no .env.example present.",
-          "severity": "warn",
-          "fix_hint": "Add .env.example listing all required env vars (with placeholder values).",
-          "count": 1
-        },
-        {
-          "pillar": "flow",
-          "check_id": "devcontainer.present",
-          "message": "No devcontainer configuration found.",
-          "severity": "warn",
-          "fix_hint": "Add .devcontainer/devcontainer.json to define a reproducible development environment (image, extensions, post-create commands).",
-          "count": 1
-        },
-        {
-          "pillar": "flow",
-          "check_id": "templates.present",
-          "message": "Missing: PR template (.github/pull_request_template.md).",
-          "severity": "warn",
-          "fix_hint": "Add PR template (.github/pull_request_template.md) to streamline agent-driven contributions.",
-          "count": 1
-        }
-      ],
-      "scanned_at": "2026-05-02T05:46:21.819482+00:00",
-      "rank": 2
     },
     {
       "repo": "langgenius/dify",
       "name": "dify",
       "owner": "langgenius",
       "description": "Production-ready platform for agentic workflow development.",
-      "stars": 139842,
+      "stars": 139847,
       "forks": 21936,
       "language": "TypeScript",
       "url": "https://github.com/langgenius/dify",
@@ -185,7 +122,78 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:42:32.372461+00:00",
+      "scanned_at": "2026-05-02T07:14:01.178210+00:00",
+      "rank": 2
+    },
+    {
+      "repo": "Arize-ai/phoenix",
+      "name": "phoenix",
+      "owner": "Arize-ai",
+      "description": "AI Observability & Evaluation",
+      "stars": 9498,
+      "forks": 851,
+      "language": "Python",
+      "url": "https://github.com/Arize-ai/phoenix",
+      "avatar": "https://avatars.githubusercontent.com/u/59858760?v=4",
+      "topics": [
+        "agents",
+        "ai-monitoring",
+        "ai-observability",
+        "aiengineering",
+        "anthropic",
+        "datasets"
+      ],
+      "overall_score": 83.4,
+      "grade": "S",
+      "pillars": {
+        "cognitive_load": 75.0,
+        "feedback": 100.0,
+        "flow": 69.6,
+        "safety": 81.0
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "5 findings \u2014 e.g. Large file: docs.json (>500 lines or >50 KB).; Large file: helm/values.yaml (>500 lines or >50 KB).",
+          "severity": "warn",
+          "fix_hint": "Split large files into smaller, focused modules.",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "git.churn_hotspots",
+          "message": "5 findings \u2014 e.g. Hotspot: app/schema.graphql changed 485 times and is >200 lines.; Hotspot: CHANGELOG.md changed 468 times and is >200 lines.",
+          "severity": "warn",
+          "fix_hint": "Consider splitting this file into smaller, focused modules.",
+          "count": 5
+        },
+        {
+          "pillar": "flow",
+          "check_id": "env.example_parity",
+          "message": "Env var usage found in source files but no .env.example present.",
+          "severity": "warn",
+          "fix_hint": "Add .env.example listing all required env vars (with placeholder values).",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "devcontainer.present",
+          "message": "No devcontainer configuration found.",
+          "severity": "warn",
+          "fix_hint": "Add .devcontainer/devcontainer.json to define a reproducible development environment (image, extensions, post-create commands).",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "templates.present",
+          "message": "Missing: PR template (.github/pull_request_template.md).",
+          "severity": "warn",
+          "fix_hint": "Add PR template (.github/pull_request_template.md) to streamline agent-driven contributions.",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T07:17:45.183793+00:00",
       "rank": 3
     },
     {
@@ -194,7 +202,7 @@
       "owner": "ComposioHQ",
       "description": "Composio powers 1000+ toolkits, tool search, context management, authentication, and a sandboxed workbench to help you build AI agents that turn intent into action.",
       "stars": 27984,
-      "forks": 4540,
+      "forks": 4541,
       "language": "TypeScript",
       "url": "https://github.com/ComposioHQ/composio",
       "avatar": "https://avatars.githubusercontent.com/u/128464815?v=4",
@@ -264,7 +272,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:41:36.323718+00:00",
+      "scanned_at": "2026-05-02T07:13:10.206429+00:00",
       "rank": 4
     },
     {
@@ -272,7 +280,7 @@
       "name": "weaviate",
       "owner": "weaviate",
       "description": "Weaviate is an open-source vector database that stores both objects and vectors, allowing for the combination of vector search with structured filtering with the fault tolerance and scalability of a cloud-native database\u200b.",
-      "stars": 16118,
+      "stars": 16119,
       "forks": 1269,
       "language": "Go",
       "url": "https://github.com/weaviate/weaviate",
@@ -335,7 +343,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:43:54.894670+00:00",
+      "scanned_at": "2026-05-02T07:15:27.438462+00:00",
       "rank": 5
     },
     {
@@ -344,7 +352,7 @@
       "owner": "pydantic",
       "description": "AI Agent Framework, the Pydantic way",
       "stars": 16792,
-      "forks": 2009,
+      "forks": 2010,
       "language": "Python",
       "url": "https://github.com/pydantic/pydantic-ai",
       "avatar": "https://avatars.githubusercontent.com/u/110818415?v=4",
@@ -421,7 +429,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:13.638615+00:00",
+      "scanned_at": "2026-05-02T07:09:58.720395+00:00",
       "rank": 6
     },
     {
@@ -430,7 +438,7 @@
       "owner": "run-llama",
       "description": "LlamaIndex is the leading document agent and OCR platform",
       "stars": 49090,
-      "forks": 7338,
+      "forks": 7339,
       "language": "Python",
       "url": "https://github.com/run-llama/llama_index",
       "avatar": "https://avatars.githubusercontent.com/u/130722866?v=4",
@@ -492,7 +500,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:11.950721+00:00",
+      "scanned_at": "2026-05-02T07:10:46.529366+00:00",
       "rank": 7
     },
     {
@@ -500,8 +508,8 @@
       "name": "OpenHands",
       "owner": "OpenHands",
       "description": "\ud83d\ude4c OpenHands: AI-Driven Development",
-      "stars": 72495,
-      "forks": 9163,
+      "stars": 72497,
+      "forks": 9166,
       "language": "Python",
       "url": "https://github.com/OpenHands/OpenHands",
       "avatar": "https://avatars.githubusercontent.com/u/225919603?v=4",
@@ -571,7 +579,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:05.748686+00:00",
+      "scanned_at": "2026-05-02T07:11:44.114277+00:00",
       "rank": 8
     },
     {
@@ -651,7 +659,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:56.157835+00:00",
+      "scanned_at": "2026-05-02T07:12:35.083960+00:00",
       "rank": 9
     },
     {
@@ -738,7 +746,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:41:22.150015+00:00",
+      "scanned_at": "2026-05-02T07:12:52.793607+00:00",
       "rank": 10
     },
     {
@@ -746,8 +754,8 @@
       "name": "langfuse",
       "owner": "langfuse",
       "description": "\ud83e\udea2 Open source LLM engineering platform: LLM Observability, metrics, evals, prompt management, playground, datasets. Integrates with OpenTelemetry, Langchain, OpenAI SDK, LiteLLM, and more. \ud83c\udf4aYC W23 ",
-      "stars": 26443,
-      "forks": 2681,
+      "stars": 26447,
+      "forks": 2682,
       "language": "TypeScript",
       "url": "https://github.com/langfuse/langfuse",
       "avatar": "https://avatars.githubusercontent.com/u/134601687?v=4",
@@ -809,7 +817,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:45:19.130974+00:00",
+      "scanned_at": "2026-05-02T07:16:40.260080+00:00",
       "rank": 11
     },
     {
@@ -817,8 +825,8 @@
       "name": "LocalAI",
       "owner": "mudler",
       "description": "LocalAI is the open-source AI engine. Run any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.",
-      "stars": 45999,
-      "forks": 4043,
+      "stars": 46001,
+      "forks": 4044,
       "language": "Go",
       "url": "https://github.com/mudler/LocalAI",
       "avatar": "https://avatars.githubusercontent.com/u/2420543?v=4",
@@ -896,7 +904,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:29.667503+00:00",
+      "scanned_at": "2026-05-02T07:12:05.486082+00:00",
       "rank": 12
     },
     {
@@ -904,8 +912,8 @@
       "name": "llama.cpp",
       "owner": "ggml-org",
       "description": "LLM inference in C/C++",
-      "stars": 107844,
-      "forks": 17674,
+      "stars": 107851,
+      "forks": 17678,
       "language": "C++",
       "url": "https://github.com/ggml-org/llama.cpp",
       "avatar": "https://avatars.githubusercontent.com/u/134263123?v=4",
@@ -970,7 +978,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:48.001425+00:00",
+      "scanned_at": "2026-05-02T07:12:28.367079+00:00",
       "rank": 13
     },
     {
@@ -1049,7 +1057,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:43:13.747820+00:00",
+      "scanned_at": "2026-05-02T07:14:47.932202+00:00",
       "rank": 14
     },
     {
@@ -1058,7 +1066,7 @@
       "owner": "GreyDGL",
       "description": "Automated Penetration Testing Agentic Framework Powered by Large Language Models",
       "stars": 12904,
-      "forks": 2207,
+      "forks": 2208,
       "language": "Python",
       "url": "https://github.com/GreyDGL/PentestGPT",
       "avatar": "https://avatars.githubusercontent.com/u/78410652?v=4",
@@ -1134,7 +1142,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:46:34.338016+00:00",
+      "scanned_at": "2026-05-02T07:18:00.206467+00:00",
       "rank": 15
     },
     {
@@ -1142,7 +1150,7 @@
       "name": "mlflow",
       "owner": "mlflow",
       "description": "The open source AI engineering platform for agents, LLMs, and ML models. MLflow enables teams of all sizes to debug, evaluate, monitor, and optimize production-quality AI applications while controlling costs and managing access to models and data.",
-      "stars": 25678,
+      "stars": 25679,
       "forks": 5675,
       "language": "Python",
       "url": "https://github.com/mlflow/mlflow",
@@ -1213,7 +1221,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:48:24.642298+00:00",
+      "scanned_at": "2026-05-02T07:19:47.835914+00:00",
       "rank": 16
     },
     {
@@ -1308,7 +1316,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:16.993473+00:00",
+      "scanned_at": "2026-05-02T07:09:49.164967+00:00",
       "rank": 17
     },
     {
@@ -1395,7 +1403,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:42:19.725431+00:00",
+      "scanned_at": "2026-05-02T07:13:51.814027+00:00",
       "rank": 18
     },
     {
@@ -1490,7 +1498,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:43:24.375697+00:00",
+      "scanned_at": "2026-05-02T07:14:57.656075+00:00",
       "rank": 19
     },
     {
@@ -1577,7 +1585,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:48:04.757553+00:00",
+      "scanned_at": "2026-05-02T07:19:24.147203+00:00",
       "rank": 20
     },
     {
@@ -1656,7 +1664,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:05.797236+00:00",
+      "scanned_at": "2026-05-02T07:10:39.866311+00:00",
       "rank": 21
     },
     {
@@ -1664,8 +1672,8 @@
       "name": "qdrant",
       "owner": "qdrant",
       "description": "Qdrant - High-performance, massive-scale Vector Database and Vector Search Engine for the next generation of AI. Also available in the cloud https://cloud.qdrant.io/",
-      "stars": 30952,
-      "forks": 2228,
+      "stars": 30953,
+      "forks": 2229,
       "language": "Rust",
       "url": "https://github.com/qdrant/qdrant",
       "avatar": "https://avatars.githubusercontent.com/u/73504361?v=4",
@@ -1751,7 +1759,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:42:15.723969+00:00",
+      "scanned_at": "2026-05-02T07:13:46.386518+00:00",
       "rank": 22
     },
     {
@@ -1759,7 +1767,7 @@
       "name": "browser-use",
       "owner": "browser-use",
       "description": "\ud83c\udf10 Make websites accessible for AI agents. Automate tasks online with ease.",
-      "stars": 91611,
+      "stars": 91618,
       "forks": 10427,
       "language": "Python",
       "url": "https://github.com/browser-use/browser-use",
@@ -1838,7 +1846,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:46:59.197733+00:00",
+      "scanned_at": "2026-05-02T07:18:23.188391+00:00",
       "rank": 23
     },
     {
@@ -1846,8 +1854,8 @@
       "name": "ragas",
       "owner": "vibrantlabsai",
       "description": "Supercharge Your LLM Application Evaluations \ud83d\ude80",
-      "stars": 13745,
-      "forks": 1388,
+      "stars": 13746,
+      "forks": 1389,
       "language": "Python",
       "url": "https://github.com/vibrantlabsai/ragas",
       "avatar": "https://avatars.githubusercontent.com/u/122604797?v=4",
@@ -1930,7 +1938,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:41:19.062738+00:00",
+      "scanned_at": "2026-05-02T07:12:55.337480+00:00",
       "rank": 24
     },
     {
@@ -1938,8 +1946,8 @@
       "name": "open-webui",
       "owner": "open-webui",
       "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
-      "stars": 135148,
-      "forks": 19213,
+      "stars": 135155,
+      "forks": 19214,
       "language": "Python",
       "url": "https://github.com/open-webui/open-webui",
       "avatar": "https://avatars.githubusercontent.com/u/158137808?v=4",
@@ -2009,7 +2017,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:42:01.547578+00:00",
+      "scanned_at": "2026-05-02T07:13:33.787935+00:00",
       "rank": 25
     },
     {
@@ -2103,7 +2111,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:45:52.777519+00:00",
+      "scanned_at": "2026-05-02T07:17:18.725595+00:00",
       "rank": 26
     },
     {
@@ -2111,8 +2119,8 @@
       "name": "mem0",
       "owner": "mem0ai",
       "description": "Universal memory layer for AI Agents",
-      "stars": 54557,
-      "forks": 6163,
+      "stars": 54561,
+      "forks": 6165,
       "language": "Python",
       "url": "https://github.com/mem0ai/mem0",
       "avatar": "https://avatars.githubusercontent.com/u/137054526?v=4",
@@ -2198,7 +2206,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:41:33.234704+00:00",
+      "scanned_at": "2026-05-02T07:13:07.320081+00:00",
       "rank": 27
     },
     {
@@ -2206,7 +2214,7 @@
       "name": "haystack",
       "owner": "deepset-ai",
       "description": "Open-source AI orchestration framework for building context-engineered, production-ready LLM applications. Design modular pipelines and agent workflows with explicit control over retrieval, routing, memory, and generation. Built for scalable agents, RAG, multimodal applications, semantic search, and conversational systems.",
-      "stars": 25050,
+      "stars": 25051,
       "forks": 2755,
       "language": "MDX",
       "url": "https://github.com/deepset-ai/haystack",
@@ -2293,7 +2301,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:37:35.770691+00:00",
+      "scanned_at": "2026-05-02T07:09:14.137252+00:00",
       "rank": 28
     },
     {
@@ -2301,8 +2309,8 @@
       "name": "openai-agents-python",
       "owner": "openai",
       "description": "A lightweight, powerful framework for multi-agent workflows",
-      "stars": 25718,
-      "forks": 3921,
+      "stars": 25724,
+      "forks": 3922,
       "language": "Python",
       "url": "https://github.com/openai/openai-agents-python",
       "avatar": "https://avatars.githubusercontent.com/u/14957082?v=4",
@@ -2326,7 +2334,7 @@
         {
           "pillar": "cognitive_load",
           "check_id": "repo_shape.large_files",
-          "message": "5 findings \u2014 e.g. Large file: tests/test_openai_chatcompletions_stream.py (>500 lines or >50 KB).; Large file: tests/test_openai_responses_converter.py (>500 lines or >50 KB).",
+          "message": "5 findings \u2014 e.g. Large file: tests/test_agent_tracing.py (>500 lines or >50 KB).; Large file: tests/test_run_internal_items.py (>500 lines or >50 KB).",
           "severity": "warn",
           "fix_hint": "Split large files into smaller, focused modules.",
           "count": 5
@@ -2342,7 +2350,7 @@
         {
           "pillar": "cognitive_load",
           "check_id": "repo_shape.token_budget",
-          "message": "Estimated orientation cost is ~175,912 tokens \u2014 may exceed agent context window.",
+          "message": "Estimated orientation cost is ~167,188 tokens \u2014 may exceed agent context window.",
           "severity": "warn",
           "fix_hint": "Trim README or add a concise AGENTS.md that summarises the repo structure in <2k tokens.",
           "count": 1
@@ -2388,7 +2396,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:03.664377+00:00",
+      "scanned_at": "2026-05-02T07:10:32.725945+00:00",
       "rank": 29
     },
     {
@@ -2396,8 +2404,8 @@
       "name": "vllm",
       "owner": "vllm-project",
       "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
-      "stars": 78825,
-      "forks": 16345,
+      "stars": 78826,
+      "forks": 16346,
       "language": "Python",
       "url": "https://github.com/vllm-project/vllm",
       "avatar": "https://avatars.githubusercontent.com/u/136984999?v=4",
@@ -2475,7 +2483,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:35.342430+00:00",
+      "scanned_at": "2026-05-02T07:12:09.252471+00:00",
       "rank": 30
     },
     {
@@ -2483,7 +2491,7 @@
       "name": "E2B",
       "owner": "e2b-dev",
       "description": "Open-source, secure environment with real-world tools for enterprise-grade agents.",
-      "stars": 12016,
+      "stars": 12017,
       "forks": 887,
       "language": "Python",
       "url": "https://github.com/e2b-dev/E2B",
@@ -2570,7 +2578,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:46:38.030392+00:00",
+      "scanned_at": "2026-05-02T07:17:58.400489+00:00",
       "rank": 31
     },
     {
@@ -2578,7 +2586,7 @@
       "name": "graphrag",
       "owner": "microsoft",
       "description": "A modular graph-based Retrieval-Augmented Generation (RAG) system",
-      "stars": 32713,
+      "stars": 32717,
       "forks": 3465,
       "language": "Python",
       "url": "https://github.com/microsoft/graphrag",
@@ -2657,7 +2665,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:42:44.999562+00:00",
+      "scanned_at": "2026-05-02T07:14:15.618257+00:00",
       "rank": 32
     },
     {
@@ -2752,7 +2760,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:39.654385+00:00",
+      "scanned_at": "2026-05-02T07:11:15.242103+00:00",
       "rank": 33
     },
     {
@@ -2840,7 +2848,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:41.217292+00:00",
+      "scanned_at": "2026-05-02T07:12:16.333320+00:00",
       "rank": 34
     },
     {
@@ -2935,7 +2943,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:44:26.806519+00:00",
+      "scanned_at": "2026-05-02T07:15:43.038979+00:00",
       "rank": 35
     },
     {
@@ -3030,7 +3038,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:27.114430+00:00",
+      "scanned_at": "2026-05-02T07:10:02.577382+00:00",
       "rank": 36
     },
     {
@@ -3038,8 +3046,8 @@
       "name": "mistral-inference",
       "owner": "mistralai",
       "description": "Official inference library for Mistral models",
-      "stars": 10784,
-      "forks": 1041,
+      "stars": 10786,
+      "forks": 1042,
       "language": "Jupyter Notebook",
       "url": "https://github.com/mistralai/mistral-inference",
       "avatar": "https://avatars.githubusercontent.com/u/132372032?v=4",
@@ -3122,7 +3130,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:31.886555+00:00",
+      "scanned_at": "2026-05-02T07:12:04.279826+00:00",
       "rank": 37
     },
     {
@@ -3217,7 +3225,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:41:06.806283+00:00",
+      "scanned_at": "2026-05-02T07:12:36.507105+00:00",
       "rank": 38
     },
     {
@@ -3304,7 +3312,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:05.598132+00:00",
+      "scanned_at": "2026-05-02T07:09:43.995927+00:00",
       "rank": 39
     },
     {
@@ -3312,7 +3320,7 @@
       "name": "dspy",
       "owner": "stanfordnlp",
       "description": "DSPy: The framework for programming\u2014not prompting\u2014language models",
-      "stars": 34147,
+      "stars": 34151,
       "forks": 2865,
       "language": "Python",
       "url": "https://github.com/stanfordnlp/dspy",
@@ -3384,7 +3392,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:21.546091+00:00",
+      "scanned_at": "2026-05-02T07:09:59.086894+00:00",
       "rank": 40
     },
     {
@@ -3392,7 +3400,7 @@
       "name": "wandb",
       "owner": "wandb",
       "description": "The AI developer platform. Use Weights & Biases to train and fine-tune models, and manage models from experimentation to production.",
-      "stars": 11041,
+      "stars": 11042,
       "forks": 864,
       "language": "Python",
       "url": "https://github.com/wandb/wandb",
@@ -3463,7 +3471,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:47:19.808547+00:00",
+      "scanned_at": "2026-05-02T07:18:44.665340+00:00",
       "rank": 41
     },
     {
@@ -3471,8 +3479,8 @@
       "name": "ollama",
       "owner": "ollama",
       "description": "Get up and running with Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
-      "stars": 170531,
-      "forks": 15930,
+      "stars": 170535,
+      "forks": 15931,
       "language": "Go",
       "url": "https://github.com/ollama/ollama",
       "avatar": "https://avatars.githubusercontent.com/u/151674099?v=4",
@@ -3558,7 +3566,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:52.790746+00:00",
+      "scanned_at": "2026-05-02T07:11:27.120233+00:00",
       "rank": 42
     },
     {
@@ -3566,7 +3574,7 @@
       "name": "MetaGPT",
       "owner": "FoundationAgents",
       "description": "\ud83c\udf1f The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming",
-      "stars": 67612,
+      "stars": 67611,
       "forks": 8587,
       "language": "Python",
       "url": "https://github.com/FoundationAgents/MetaGPT",
@@ -3652,7 +3660,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:37:24.484031+00:00",
+      "scanned_at": "2026-05-02T07:09:04.526864+00:00",
       "rank": 43
     },
     {
@@ -3660,7 +3668,7 @@
       "name": "ray",
       "owner": "ray-project",
       "description": "Ray is an AI compute engine. Ray consists of a core distributed runtime and a set of AI Libraries for accelerating ML workloads.",
-      "stars": 42396,
+      "stars": 42397,
       "forks": 7521,
       "language": "Python",
       "url": "https://github.com/ray-project/ray",
@@ -3739,7 +3747,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:45:27.793741+00:00",
+      "scanned_at": "2026-05-02T07:16:54.668654+00:00",
       "rank": 44
     },
     {
@@ -3747,7 +3755,7 @@
       "name": "letta",
       "owner": "letta-ai",
       "description": "Letta is the platform for building stateful agents: AI with advanced memory that can learn and self-improve over time.",
-      "stars": 22403,
+      "stars": 22404,
       "forks": 2383,
       "language": "Python",
       "url": "https://github.com/letta-ai/letta",
@@ -3832,7 +3840,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:46.828303+00:00",
+      "scanned_at": "2026-05-02T07:10:21.709831+00:00",
       "rank": 45
     },
     {
@@ -3927,7 +3935,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:45:47.055414+00:00",
+      "scanned_at": "2026-05-02T07:17:18.032133+00:00",
       "rank": 46
     },
     {
@@ -3935,8 +3943,8 @@
       "name": "transformers",
       "owner": "huggingface",
       "description": "\ud83e\udd17 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. ",
-      "stars": 160163,
-      "forks": 33077,
+      "stars": 160166,
+      "forks": 33080,
       "language": "Python",
       "url": "https://github.com/huggingface/transformers",
       "avatar": "https://avatars.githubusercontent.com/u/25720743?v=4",
@@ -4022,7 +4030,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:42:13.529760+00:00",
+      "scanned_at": "2026-05-02T07:13:39.813826+00:00",
       "rank": 47
     },
     {
@@ -4030,8 +4038,8 @@
       "name": "LlamaFactory",
       "owner": "hiyouga",
       "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
-      "stars": 70830,
-      "forks": 8646,
+      "stars": 70829,
+      "forks": 8648,
       "language": "Python",
       "url": "https://github.com/hiyouga/LlamaFactory",
       "avatar": "https://avatars.githubusercontent.com/u/16256802?v=4",
@@ -4117,7 +4125,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:16.968345+00:00",
+      "scanned_at": "2026-05-02T07:11:54.007622+00:00",
       "rank": 48
     },
     {
@@ -4125,7 +4133,7 @@
       "name": "mlx",
       "owner": "ml-explore",
       "description": "MLX: An array framework for Apple silicon",
-      "stars": 25905,
+      "stars": 25907,
       "forks": 1737,
       "language": "C++",
       "url": "https://github.com/ml-explore/mlx",
@@ -4207,7 +4215,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:47:15.334311+00:00",
+      "scanned_at": "2026-05-02T07:18:35.992209+00:00",
       "rank": 49
     },
     {
@@ -4215,7 +4223,7 @@
       "name": "openai-python",
       "owner": "openai",
       "description": "The official Python library for the OpenAI API",
-      "stars": 30656,
+      "stars": 30655,
       "forks": 4758,
       "language": "Python",
       "url": "https://github.com/openai/openai-python",
@@ -4298,7 +4306,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:44.004231+00:00",
+      "scanned_at": "2026-05-02T07:12:16.963836+00:00",
       "rank": 50
     },
     {
@@ -4306,8 +4314,8 @@
       "name": "langchain",
       "owner": "langchain-ai",
       "description": "The agent engineering platform",
-      "stars": 135612,
-      "forks": 22407,
+      "stars": 135614,
+      "forks": 22408,
       "language": "Python",
       "url": "https://github.com/langchain-ai/langchain",
       "avatar": "https://avatars.githubusercontent.com/u/126733545?v=4",
@@ -4385,7 +4393,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:50.996927+00:00",
+      "scanned_at": "2026-05-02T07:10:28.342296+00:00",
       "rank": 51
     },
     {
@@ -4471,7 +4479,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:41:30.644298+00:00",
+      "scanned_at": "2026-05-02T07:13:01.784459+00:00",
       "rank": 52
     },
     {
@@ -4559,7 +4567,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:47:09.405947+00:00",
+      "scanned_at": "2026-05-02T07:18:35.642313+00:00",
       "rank": 53
     },
     {
@@ -4654,7 +4662,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:47:15.400422+00:00",
+      "scanned_at": "2026-05-02T07:18:36.973920+00:00",
       "rank": 54
     },
     {
@@ -4662,7 +4670,7 @@
       "name": "smolagents",
       "owner": "huggingface",
       "description": "\ud83e\udd17 smolagents: a barebones library for agents that think in code.",
-      "stars": 27034,
+      "stars": 27035,
       "forks": 2539,
       "language": "Python",
       "url": "https://github.com/huggingface/smolagents",
@@ -4742,7 +4750,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:34.276910+00:00",
+      "scanned_at": "2026-05-02T07:10:08.475796+00:00",
       "rank": 55
     },
     {
@@ -4837,7 +4845,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:24.129283+00:00",
+      "scanned_at": "2026-05-02T07:10:57.287573+00:00",
       "rank": 56
     },
     {
@@ -4845,7 +4853,7 @@
       "name": "typescript-sdk",
       "owner": "modelcontextprotocol",
       "description": "The official TypeScript SDK for Model Context Protocol servers and clients",
-      "stars": 12324,
+      "stars": 12325,
       "forks": 1808,
       "language": "TypeScript",
       "url": "https://github.com/modelcontextprotocol/typescript-sdk",
@@ -4925,7 +4933,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:41:07.852202+00:00",
+      "scanned_at": "2026-05-02T07:12:45.461768+00:00",
       "rank": 57
     },
     {
@@ -4933,7 +4941,7 @@
       "name": "babyagi",
       "owner": "yoheinakajima",
       "description": "",
-      "stars": 22248,
+      "stars": 22249,
       "forks": 2848,
       "language": "Python",
       "url": "https://github.com/yoheinakajima/babyagi",
@@ -5013,7 +5021,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:07.035829+00:00",
+      "scanned_at": "2026-05-02T07:10:35.706639+00:00",
       "rank": 58
     },
     {
@@ -5101,7 +5109,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:15.117763+00:00",
+      "scanned_at": "2026-05-02T07:10:47.011209+00:00",
       "rank": 59
     },
     {
@@ -5109,8 +5117,8 @@
       "name": "autogen",
       "owner": "microsoft",
       "description": "A programming framework for agentic AI",
-      "stars": 57647,
-      "forks": 8691,
+      "stars": 57651,
+      "forks": 8692,
       "language": "Python",
       "url": "https://github.com/microsoft/autogen",
       "avatar": "https://avatars.githubusercontent.com/u/6154722?v=4",
@@ -5196,8 +5204,103 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:37:37.245113+00:00",
+      "scanned_at": "2026-05-02T07:09:15.465263+00:00",
       "rank": 60
+    },
+    {
+      "repo": "langchain-ai/langgraph",
+      "name": "langgraph",
+      "owner": "langchain-ai",
+      "description": "Build resilient language agents as graphs.",
+      "stars": 31014,
+      "forks": 5291,
+      "language": "Python",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "avatar": "https://avatars.githubusercontent.com/u/126733545?v=4",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "chatgpt",
+        "deepagents",
+        "enterprise"
+      ],
+      "overall_score": 64.5,
+      "grade": "B",
+      "pillars": {
+        "cognitive_load": 87.1,
+        "feedback": 43.8,
+        "flow": 69.6,
+        "safety": 85.7
+      },
+      "top_findings": [
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "5 findings \u2014 e.g. Large file: .github/THREAT_MODEL.md (>500 lines or >50 KB).; Large file: libs/checkpoint-postgres/tests/test_async_store.py (>500 lines or >50 KB).",
+          "severity": "warn",
+          "fix_hint": "Split large files into smaller, focused modules.",
+          "count": 5
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.detected",
+          "message": "No project manifest found (pyproject.toml, package.json, etc.).",
+          "severity": "warn",
+          "fix_hint": "Add a package manifest so agents know the project's dependencies.",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "manifest.lockfile_present",
+          "message": "No lockfile found. Dependency installs may not be reproducible.",
+          "severity": "warn",
+          "fix_hint": "Run `uv lock` / `npm install` / `cargo build` to generate a lockfile.",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "lint.configured",
+          "message": "No linter configuration found.",
+          "severity": "warn",
+          "fix_hint": "Add ruff.toml (Python), .eslintrc.json (JS/TS), or .golangci.yml (Go) to give agents a consistent style target.",
+          "count": 1
+        },
+        {
+          "pillar": "feedback",
+          "check_id": "hooks.configured",
+          "message": "No git or agent hooks configured.",
+          "severity": "warn",
+          "fix_hint": "Add .pre-commit-config.yaml (pre-commit framework) or .husky/ (Husky) to run checks before commits. Add .claude/settings.json to configure Claude Code hooks.",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "env.example_parity",
+          "message": "Env var usage found in source files but no .env.example present.",
+          "severity": "warn",
+          "fix_hint": "Add .env.example listing all required env vars (with placeholder values).",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "devcontainer.present",
+          "message": "No devcontainer configuration found.",
+          "severity": "warn",
+          "fix_hint": "Add .devcontainer/devcontainer.json to define a reproducible development environment (image, extensions, post-create commands).",
+          "count": 1
+        },
+        {
+          "pillar": "flow",
+          "check_id": "templates.present",
+          "message": "Missing: CODEOWNERS.",
+          "severity": "warn",
+          "fix_hint": "Add CODEOWNERS to streamline agent-driven contributions.",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T07:09:52.103222+00:00",
+      "rank": 61
     },
     {
       "repo": "TransformerOptimus/SuperAGI",
@@ -5291,8 +5394,8 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:45.372644+00:00",
-      "rank": 61
+      "scanned_at": "2026-05-02T07:10:16.267484+00:00",
+      "rank": 62
     },
     {
       "repo": "InternLM/MindSearch",
@@ -5386,8 +5489,8 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:46:38.543204+00:00",
-      "rank": 62
+      "scanned_at": "2026-05-02T07:18:01.845034+00:00",
+      "rank": 63
     },
     {
       "repo": "Significant-Gravitas/AutoGPT",
@@ -5395,7 +5498,7 @@
       "owner": "Significant-Gravitas",
       "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "stars": 183945,
-      "forks": 46243,
+      "forks": 46242,
       "language": "Python",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "avatar": "https://avatars.githubusercontent.com/u/130738209?v=4",
@@ -5481,8 +5584,8 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:53.129996+00:00",
-      "rank": 63
+      "scanned_at": "2026-05-02T07:11:28.377531+00:00",
+      "rank": 64
     },
     {
       "repo": "neuml/txtai",
@@ -5576,16 +5679,16 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:32.581558+00:00",
-      "rank": 64
+      "scanned_at": "2026-05-02T07:10:09.508054+00:00",
+      "rank": 65
     },
     {
       "repo": "kyegomez/swarms",
       "name": "swarms",
       "owner": "kyegomez",
       "description": "The Enterprise-Grade Production-Ready Multi-Agent Orchestration Framework. Website: https://swarms.ai",
-      "stars": 6595,
-      "forks": 885,
+      "stars": 6596,
+      "forks": 886,
       "language": "Python",
       "url": "https://github.com/kyegomez/swarms",
       "avatar": "https://avatars.githubusercontent.com/u/98760976?v=4",
@@ -5671,15 +5774,15 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:16.119453+00:00",
-      "rank": 65
+      "scanned_at": "2026-05-02T07:10:54.888080+00:00",
+      "rank": 66
     },
     {
       "repo": "EleutherAI/lm-evaluation-harness",
       "name": "lm-evaluation-harness",
       "owner": "EleutherAI",
       "description": "A framework for few-shot evaluation of language models.",
-      "stars": 12400,
+      "stars": 12402,
       "forks": 3244,
       "language": "Python",
       "url": "https://github.com/EleutherAI/lm-evaluation-harness",
@@ -5763,15 +5866,15 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:46:15.943494+00:00",
-      "rank": 66
+      "scanned_at": "2026-05-02T07:17:34.468664+00:00",
+      "rank": 67
     },
     {
       "repo": "traceloop/openllmetry",
       "name": "openllmetry",
       "owner": "traceloop",
       "description": "Open-source observability for your GenAI or LLM application, based on OpenTelemetry",
-      "stars": 7059,
+      "stars": 7060,
       "forks": 947,
       "language": "Python",
       "url": "https://github.com/traceloop/openllmetry",
@@ -5858,8 +5961,8 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:45:30.320717+00:00",
-      "rank": 67
+      "scanned_at": "2026-05-02T07:16:57.810626+00:00",
+      "rank": 68
     },
     {
       "repo": "assafelovic/gpt-researcher",
@@ -5953,102 +6056,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:47.876434+00:00",
-      "rank": 68
-    },
-    {
-      "repo": "langchain-ai/langgraph",
-      "name": "langgraph",
-      "owner": "langchain-ai",
-      "description": "Build resilient language agents as graphs.",
-      "stars": 31014,
-      "forks": 5290,
-      "language": "Python",
-      "url": "https://github.com/langchain-ai/langgraph",
-      "avatar": "https://avatars.githubusercontent.com/u/126733545?v=4",
-      "topics": [
-        "agents",
-        "ai",
-        "ai-agents",
-        "chatgpt",
-        "deepagents",
-        "enterprise"
-      ],
-      "overall_score": 62.2,
-      "grade": "B",
-      "pillars": {
-        "cognitive_load": 79.4,
-        "feedback": 43.8,
-        "flow": 69.6,
-        "safety": 85.7
-      },
-      "top_findings": [
-        {
-          "pillar": "cognitive_load",
-          "check_id": "repo_shape.large_files",
-          "message": "5 findings \u2014 e.g. Large file: .github/THREAT_MODEL.md (>500 lines or >50 KB).; Large file: libs/checkpoint-postgres/tests/test_async_store.py (>500 lines or >50 KB).",
-          "severity": "warn",
-          "fix_hint": "Split large files into smaller, focused modules.",
-          "count": 5
-        },
-        {
-          "pillar": "cognitive_load",
-          "check_id": "git.churn_hotspots",
-          "message": "5 findings \u2014 e.g. Hotspot: libs/langgraph/tests/test_pregel.py changed 415 times and is >200 lines.; Hotspot: libs/langgraph/tests/test_pregel_async.py changed 357 times and is >200 lines.",
-          "severity": "warn",
-          "fix_hint": "Consider splitting this file into smaller, focused modules.",
-          "count": 5
-        },
-        {
-          "pillar": "feedback",
-          "check_id": "manifest.detected",
-          "message": "No project manifest found (pyproject.toml, package.json, etc.).",
-          "severity": "warn",
-          "fix_hint": "Add a package manifest so agents know the project's dependencies.",
-          "count": 1
-        },
-        {
-          "pillar": "feedback",
-          "check_id": "manifest.lockfile_present",
-          "message": "No lockfile found. Dependency installs may not be reproducible.",
-          "severity": "warn",
-          "fix_hint": "Run `uv lock` / `npm install` / `cargo build` to generate a lockfile.",
-          "count": 1
-        },
-        {
-          "pillar": "feedback",
-          "check_id": "lint.configured",
-          "message": "No linter configuration found.",
-          "severity": "warn",
-          "fix_hint": "Add ruff.toml (Python), .eslintrc.json (JS/TS), or .golangci.yml (Go) to give agents a consistent style target.",
-          "count": 1
-        },
-        {
-          "pillar": "feedback",
-          "check_id": "hooks.configured",
-          "message": "No git or agent hooks configured.",
-          "severity": "warn",
-          "fix_hint": "Add .pre-commit-config.yaml (pre-commit framework) or .husky/ (Husky) to run checks before commits. Add .claude/settings.json to configure Claude Code hooks.",
-          "count": 1
-        },
-        {
-          "pillar": "flow",
-          "check_id": "env.example_parity",
-          "message": "Env var usage found in source files but no .env.example present.",
-          "severity": "warn",
-          "fix_hint": "Add .env.example listing all required env vars (with placeholder values).",
-          "count": 1
-        },
-        {
-          "pillar": "flow",
-          "check_id": "devcontainer.present",
-          "message": "No devcontainer configuration found.",
-          "severity": "warn",
-          "fix_hint": "Add .devcontainer/devcontainer.json to define a reproducible development environment (image, extensions, post-create commands).",
-          "count": 1
-        }
-      ],
-      "scanned_at": "2026-05-02T05:38:12.147608+00:00",
+      "scanned_at": "2026-05-02T07:10:21.294625+00:00",
       "rank": 69
     },
     {
@@ -6056,7 +6064,7 @@
       "name": "ChatDev",
       "owner": "OpenBMB",
       "description": "ChatDev 2.0: Dev All through LLM-powered Multi-Agent Collaboration",
-      "stars": 32956,
+      "stars": 32955,
       "forks": 4079,
       "language": "Python",
       "url": "https://github.com/OpenBMB/ChatDev",
@@ -6136,7 +6144,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:34.844219+00:00",
+      "scanned_at": "2026-05-02T07:11:05.252730+00:00",
       "rank": 70
     },
     {
@@ -6224,7 +6232,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:17.309539+00:00",
+      "scanned_at": "2026-05-02T07:09:54.639371+00:00",
       "rank": 71
     },
     {
@@ -6232,8 +6240,8 @@
       "name": "sglang",
       "owner": "sgl-project",
       "description": "SGLang is a high-performance serving framework for large language models and multimodal models.",
-      "stars": 26911,
-      "forks": 5660,
+      "stars": 26917,
+      "forks": 5661,
       "language": "Python",
       "url": "https://github.com/sgl-project/sglang",
       "avatar": "https://avatars.githubusercontent.com/u/147780389?v=4",
@@ -6319,7 +6327,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:32.311340+00:00",
+      "scanned_at": "2026-05-02T07:12:01.837308+00:00",
       "rank": 72
     },
     {
@@ -6414,7 +6422,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:42:27.308219+00:00",
+      "scanned_at": "2026-05-02T07:13:58.565162+00:00",
       "rank": 73
     },
     {
@@ -6509,7 +6517,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:42:48.467071+00:00",
+      "scanned_at": "2026-05-02T07:14:13.738065+00:00",
       "rank": 74
     },
     {
@@ -6602,7 +6610,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:47:19.665561+00:00",
+      "scanned_at": "2026-05-02T07:18:42.042084+00:00",
       "rank": 75
     },
     {
@@ -6611,7 +6619,7 @@
       "owner": "QwenLM",
       "description": "Agent framework and applications built upon Qwen>=3.0, featuring Function Calling, MCP, Code Interpreter, RAG, Chrome extension, etc.",
       "stars": 16238,
-      "forks": 1595,
+      "forks": 1594,
       "language": "Python",
       "url": "https://github.com/QwenLM/Qwen-Agent",
       "avatar": "https://avatars.githubusercontent.com/u/141221163?v=4",
@@ -6690,7 +6698,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:38:14.329330+00:00",
+      "scanned_at": "2026-05-02T07:09:51.631651+00:00",
       "rank": 76
     },
     {
@@ -6698,7 +6706,7 @@
       "name": "Agent-S",
       "owner": "simular-ai",
       "description": "Agent S: an open agentic framework that uses computers like a human",
-      "stars": 11020,
+      "stars": 11021,
       "forks": 1283,
       "language": "Python",
       "url": "https://github.com/simular-ai/Agent-S",
@@ -6785,7 +6793,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:46:37.541176+00:00",
+      "scanned_at": "2026-05-02T07:18:04.784653+00:00",
       "rank": 77
     },
     {
@@ -6880,7 +6888,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:46:26.009202+00:00",
+      "scanned_at": "2026-05-02T07:17:53.389775+00:00",
       "rank": 78
     },
     {
@@ -6888,7 +6896,7 @@
       "name": "textgen",
       "owner": "oobabooga",
       "description": "The original local LLM interface. Text, vision, tool-calling, training. UI + API, 100% offline and private.",
-      "stars": 46915,
+      "stars": 46916,
       "forks": 5970,
       "language": "Python",
       "url": "https://github.com/oobabooga/textgen",
@@ -6968,7 +6976,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:28.772635+00:00",
+      "scanned_at": "2026-05-02T07:12:04.135306+00:00",
       "rank": 79
     },
     {
@@ -7063,7 +7071,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:46:41.526245+00:00",
+      "scanned_at": "2026-05-02T07:18:04.223283+00:00",
       "rank": 80
     },
     {
@@ -7071,7 +7079,7 @@
       "name": "kubeflow",
       "owner": "kubeflow",
       "description": "Machine Learning Toolkit for Kubernetes",
-      "stars": 15615,
+      "stars": 15616,
       "forks": 2646,
       "language": "",
       "url": "https://github.com/kubeflow/kubeflow",
@@ -7158,7 +7166,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:44:13.869677+00:00",
+      "scanned_at": "2026-05-02T07:15:49.435793+00:00",
       "rank": 81
     },
     {
@@ -7166,7 +7174,7 @@
       "name": "gpt4all",
       "owner": "nomic-ai",
       "description": "GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use.",
-      "stars": 77373,
+      "stars": 77372,
       "forks": 8337,
       "language": "C++",
       "url": "https://github.com/nomic-ai/gpt4all",
@@ -7249,7 +7257,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:07.602755+00:00",
+      "scanned_at": "2026-05-02T07:11:41.969990+00:00",
       "rank": 82
     },
     {
@@ -7257,8 +7265,8 @@
       "name": "crewAI",
       "owner": "crewAIInc",
       "description": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
-      "stars": 50448,
-      "forks": 6951,
+      "stars": 50452,
+      "forks": 6952,
       "language": "Python",
       "url": "https://github.com/crewAIInc/crewAI",
       "avatar": "https://avatars.githubusercontent.com/u/170677839?v=4",
@@ -7343,7 +7351,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:37:50.276590+00:00",
+      "scanned_at": "2026-05-02T07:09:28.227856+00:00",
       "rank": 83
     },
     {
@@ -7351,7 +7359,7 @@
       "name": "agno",
       "owner": "agno-agi",
       "description": "Run agents as production software.",
-      "stars": 39855,
+      "stars": 39857,
       "forks": 5323,
       "language": "Python",
       "url": "https://github.com/agno-agi/agno",
@@ -7437,7 +7445,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:39:16.155896+00:00",
+      "scanned_at": "2026-05-02T07:11:00.341823+00:00",
       "rank": 84
     },
     {
@@ -7446,7 +7454,7 @@
       "owner": "skypilot-org",
       "description": "Run, manage, and scale AI workloads on any AI infrastructure. Use one system to access & manage all AI compute (Kubernetes, Slurm, 20+ clouds, on-prem).",
       "stars": 9923,
-      "forks": 1055,
+      "forks": 1056,
       "language": "Python",
       "url": "https://github.com/skypilot-org/skypilot",
       "avatar": "https://avatars.githubusercontent.com/u/109387420?v=4",
@@ -7532,7 +7540,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:27.271730+00:00",
+      "scanned_at": "2026-05-02T07:11:58.182908+00:00",
       "rank": 85
     },
     {
@@ -7540,7 +7548,7 @@
       "name": "unsloth",
       "owner": "unslothai",
       "description": "Web UI for training and running open models like Gemma 4, Qwen3.6, DeepSeek, gpt-oss locally.",
-      "stars": 63432,
+      "stars": 63435,
       "forks": 5564,
       "language": "Python",
       "url": "https://github.com/unslothai/unsloth",
@@ -7597,7 +7605,7 @@
         {
           "pillar": "cognitive_load",
           "check_id": "repo_shape.token_budget",
-          "message": "Estimated orientation cost is ~182,209 tokens \u2014 may exceed agent context window.",
+          "message": "Estimated orientation cost is ~182,210 tokens \u2014 may exceed agent context window.",
           "severity": "warn",
           "fix_hint": "Trim README or add a concise AGENTS.md that summarises the repo structure in <2k tokens.",
           "count": 1
@@ -7627,7 +7635,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:40:32.505752+00:00",
+      "scanned_at": "2026-05-02T07:12:07.832806+00:00",
       "rank": 86
     },
     {
@@ -7722,7 +7730,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:43:14.903942+00:00",
+      "scanned_at": "2026-05-02T07:14:43.735638+00:00",
       "rank": 87
     },
     {
@@ -7730,7 +7738,7 @@
       "name": "litellm",
       "owner": "BerriAI",
       "description": "Python SDK, Proxy Server (AI Gateway) to call 100+ LLM APIs in OpenAI (or native) format, with cost tracking, guardrails, loadbalancing and logging. [Bedrock, Azure, OpenAI, VertexAI, Cohere, Anthropic, Sagemaker, HuggingFace, VLLM, NVIDIA NIM]",
-      "stars": 45446,
+      "stars": 45452,
       "forks": 7713,
       "language": "Python",
       "url": "https://github.com/BerriAI/litellm",
@@ -7779,7 +7787,7 @@
         {
           "pillar": "cognitive_load",
           "check_id": "repo_shape.token_budget",
-          "message": "Estimated orientation cost is ~242,768 tokens \u2014 may exceed agent context window.",
+          "message": "Estimated orientation cost is ~242,803 tokens \u2014 may exceed agent context window.",
           "severity": "warn",
           "fix_hint": "Trim README or add a concise AGENTS.md that summarises the repo structure in <2k tokens.",
           "count": 1
@@ -7817,7 +7825,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:43:34.028854+00:00",
+      "scanned_at": "2026-05-02T07:15:10.169290+00:00",
       "rank": 88
     },
     {
@@ -7896,7 +7904,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:44:46.844139+00:00",
+      "scanned_at": "2026-05-02T07:16:12.603969+00:00",
       "rank": 89
     },
     {
@@ -7975,7 +7983,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:44:59.716998+00:00",
+      "scanned_at": "2026-05-02T07:16:27.456658+00:00",
       "rank": 90
     },
     {
@@ -8066,8 +8074,63 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:46:58.325767+00:00",
+      "scanned_at": "2026-05-02T07:18:18.768599+00:00",
       "rank": 91
+    },
+    {
+      "repo": "n8n-io/n8n",
+      "name": "n8n",
+      "owner": "n8n-io",
+      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "stars": 186425,
+      "forks": 57284,
+      "language": "TypeScript",
+      "url": "https://github.com/n8n-io/n8n",
+      "avatar": "https://avatars.githubusercontent.com/u/45487711?v=4",
+      "topics": [
+        "ai",
+        "apis",
+        "automation",
+        "cli",
+        "data-flow",
+        "development"
+      ],
+      "overall_score": 30.0,
+      "grade": "D",
+      "pillars": {
+        "cognitive_load": 82.9,
+        "feedback": 100.0,
+        "flow": 100.0,
+        "safety": 76.2
+      },
+      "top_findings": [
+        {
+          "pillar": "safety",
+          "check_id": "secrets.basic_scan",
+          "message": "2 findings \u2014 e.g. Possible Private key PEM found.; Possible Private key PEM found.",
+          "severity": "error",
+          "fix_hint": "Rotate the secret immediately, remove it from the tracked file (rewrite history if needed), and store it via env var or secrets manager.",
+          "count": 2
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "repo_shape.large_files",
+          "message": "5 findings \u2014 e.g. Large file: .code-health-baseline.json (>500 lines or >50 KB).; Large file: CONTRIBUTING.md (>500 lines or >50 KB).",
+          "severity": "warn",
+          "fix_hint": "Split large files into smaller, focused modules.",
+          "count": 5
+        },
+        {
+          "pillar": "cognitive_load",
+          "check_id": "meta.consistency",
+          "message": "CLAUDE.md is present but appears to be a placeholder (11 bytes).",
+          "severity": "warn",
+          "fix_hint": "Expand CLAUDE.md with canonical commands, key files, and agent conventions.",
+          "count": 1
+        }
+      ],
+      "scanned_at": "2026-05-02T07:18:34.654994+00:00",
+      "rank": 92
     },
     {
       "repo": "Helicone/helicone",
@@ -8161,62 +8224,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:47:19.562693+00:00",
-      "rank": 92
-    },
-    {
-      "repo": "n8n-io/n8n",
-      "name": "n8n",
-      "owner": "n8n-io",
-      "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-      "stars": 186419,
-      "forks": 57285,
-      "language": "TypeScript",
-      "url": "https://github.com/n8n-io/n8n",
-      "avatar": "https://avatars.githubusercontent.com/u/45487711?v=4",
-      "topics": [
-        "ai",
-        "apis",
-        "automation",
-        "cli",
-        "data-flow",
-        "development"
-      ],
-      "overall_score": 30.0,
-      "grade": "D",
-      "pillars": {
-        "cognitive_load": 82.9,
-        "feedback": 100.0,
-        "flow": 100.0,
-        "safety": 76.2
-      },
-      "top_findings": [
-        {
-          "pillar": "safety",
-          "check_id": "secrets.basic_scan",
-          "message": "2 findings \u2014 e.g. Possible Private key PEM found.; Possible Private key PEM found.",
-          "severity": "error",
-          "fix_hint": "Rotate the secret immediately, remove it from the tracked file (rewrite history if needed), and store it via env var or secrets manager.",
-          "count": 2
-        },
-        {
-          "pillar": "cognitive_load",
-          "check_id": "repo_shape.large_files",
-          "message": "5 findings \u2014 e.g. Large file: .code-health-baseline.json (>500 lines or >50 KB).; Large file: CONTRIBUTING.md (>500 lines or >50 KB).",
-          "severity": "warn",
-          "fix_hint": "Split large files into smaller, focused modules.",
-          "count": 5
-        },
-        {
-          "pillar": "cognitive_load",
-          "check_id": "meta.consistency",
-          "message": "CLAUDE.md is present but appears to be a placeholder (11 bytes).",
-          "severity": "warn",
-          "fix_hint": "Expand CLAUDE.md with canonical commands, key files, and agent conventions.",
-          "count": 1
-        }
-      ],
-      "scanned_at": "2026-05-02T05:47:21.806254+00:00",
+      "scanned_at": "2026-05-02T07:18:42.629378+00:00",
       "rank": 93
     },
     {
@@ -8225,7 +8233,7 @@
       "owner": "VoltAgent",
       "description": "AI Agent Engineering Platform built on an Open Source TypeScript AI Agent Framework",
       "stars": 8574,
-      "forks": 859,
+      "forks": 860,
       "language": "TypeScript",
       "url": "https://github.com/VoltAgent/voltagent",
       "avatar": "https://avatars.githubusercontent.com/u/201282378?v=4",
@@ -8311,7 +8319,7 @@
           "count": 1
         }
       ],
-      "scanned_at": "2026-05-02T05:47:35.669371+00:00",
+      "scanned_at": "2026-05-02T07:18:54.801294+00:00",
       "rank": 94
     }
   ],

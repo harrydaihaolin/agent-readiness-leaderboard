@@ -1,688 +1,688 @@
 {
-  "last_updated": "2026-05-02T05:48:24.894570+00:00",
+  "last_updated": "2026-05-02T07:19:48.089578+00:00",
   "repos": [
     {
       "repo": "PaddlePaddle/PaddleOCR",
       "last_success_ts": null,
-      "last_failure_ts": "2026-05-02T05:48:24.894570+00:00",
-      "consecutive_failures": 1,
+      "last_failure_ts": "2026-05-02T07:19:48.089578+00:00",
+      "consecutive_failures": 2,
       "error_class": "clone_timeout"
     },
     {
       "repo": "jina-ai/serve",
       "last_success_ts": null,
-      "last_failure_ts": "2026-05-02T05:48:24.894570+00:00",
-      "consecutive_failures": 1,
+      "last_failure_ts": "2026-05-02T07:19:48.089578+00:00",
+      "consecutive_failures": 2,
       "error_class": "clone_timeout"
     },
     {
       "repo": "microsoft/ai-agents-for-beginners",
       "last_success_ts": null,
-      "last_failure_ts": "2026-05-02T05:48:24.894570+00:00",
-      "consecutive_failures": 1,
+      "last_failure_ts": "2026-05-02T07:19:48.089578+00:00",
+      "consecutive_failures": 2,
       "error_class": "clone_timeout"
     },
     {
       "repo": "1Panel-dev/1Panel",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "2noise/ChatTTS",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "666ghj/BettaFish",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "666ghj/MiroFish",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "AccumulateMore/CV",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "AstrBotDevs/AstrBot",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "BloopAI/vibe-kanban",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ChromeDevTools/chrome-devtools-mcp",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "Cinnamon/kotaemon",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ComposioHQ/awesome-claude-skills",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "CopilotKit/CopilotKit",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "D4Vinci/Scrapling",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "FlowiseAI/Flowise",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "Fosowl/agenticSeek",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "GokuMohandas/Made-With-ML",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "HKUDS/LightRAG",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "HKUDS/nanobot",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "HandsOnLLM/Hands-On-Large-Language-Models",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ItzCrazyKns/Vane",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "JuliusBrussee/caveman",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "Kong/kong",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "LC044/WeChatMsg",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "Lightning-AI/litgpt",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "MemPalace/mempalace",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "Mintplex-Labs/anything-llm",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "NirDiamant/GenAI_Agents",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "NirDiamant/RAG_Techniques",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "PDFMathTranslate/PDFMathTranslate",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "PrefectHQ/fastmcp",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "QuivrHQ/quivr",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "TabbyML/tabby",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "TauricResearch/TradingAgents",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "VectifyAI/PageIndex",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "Yeachan-Heo/oh-my-claudecode",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ZhuLinsen/daily_stock_analysis",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "aaif-goose/goose",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "aishwaryanr/awesome-generative-ai-guide",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "alibaba/arthas",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "alibaba/nacos",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ashishpatel26/500-AI-Agents-Projects",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "bentoml/OpenLLM",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "browserbase/stagehand",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "bytedance/UI-TARS-desktop",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "bytedance/deer-flow",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "charmbracelet/crush",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "chatchat-space/Langchain-Chatchat",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "code-yeongyu/oh-my-openagent",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "comet-ml/opik",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "continuedev/continue",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "dair-ai/Prompt-Engineering-Guide",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "danny-avila/LibreChat",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "datawhalechina/happy-llm",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "datawhalechina/hello-agents",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "daytonaio/daytona",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "dyad-sh/dyad",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "elder-plinius/CL4R1T4S",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "farion1231/cc-switch",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "getzep/graphiti",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "github/awesome-copilot",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "gitleaks/gitleaks",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "google/adk-python",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "hesreallyhim/awesome-claude-code",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "huggingface/agents-course",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "huginn/huginn",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "humanlayer/12-factor-agents",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "janhq/jan",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "jeecgboot/JeecgBoot",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "khoj-ai/khoj",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "langchain-ai/deepagents",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "liguodongiot/llm-action",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "lobehub/lobehub",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "meilisearch/meilisearch",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "microsoft/playwright-mcp",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "mindsdb/mindsdb",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "mlabonne/llm-course",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "netdata/netdata",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "novuhq/novu",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "patchy631/ai-engineering-hub",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "pathwaycom/llm-app",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "pingcap/tidb",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "promptfoo/promptfoo",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "qwibitai/nanoclaw",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "ruvnet/ruflo",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "safishamsi/graphify",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "sansan0/TrendRadar",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "shanraisshan/claude-code-best-practice",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "shareAI-lab/learn-claude-code",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "sickn33/antigravity-awesome-skills",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "simstudioai/sim",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "thedotmack/claude-mem",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "upstash/context7",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "volcengine/OpenViking",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "wshobson/agents",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "zeroclaw-labs/zeroclaw",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
     },
     {
       "repo": "zhayujie/CowAgent",
-      "last_success_ts": "2026-05-02T05:48:24.894570+00:00",
+      "last_success_ts": "2026-05-02T07:19:48.089578+00:00",
       "last_failure_ts": null,
       "consecutive_failures": 0,
       "error_class": null
