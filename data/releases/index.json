@@ -1,0 +1,43 @@
+{
+  "$comment": "Machine-readable index of frozen release artefacts under data/releases/. The static leaderboard page consumes this to render the 'Frozen cohorts' panel; the article CI also reads it to verify the v3 dataset / scores files exist before publishing.",
+  "schema_version": 1,
+  "releases": [
+    {
+      "tag": "v3-2026-05-01",
+      "title": "v3 — 1000 popular AI / agent repos",
+      "frozen_at": "2026-05-01",
+      "dataset": "v3_1000_2026-05-01.json",
+      "scores": "scores_v3_1000_2026-05-01.json",
+      "scores_priors": [
+        {
+          "path": "scores_v3_1000_2026-05-01.v100.json",
+          "engine": "agent-readiness 1.1.0",
+          "rules_pack": "v1.0.0",
+          "checks": 7,
+          "purpose": "preserved for the v1.0 → v1.4 diff cited in the article"
+        }
+      ],
+      "engine": "agent-readiness>=1.4.0,<2",
+      "rules_pack": "v1.4.0",
+      "checks": 37,
+      "repos": 1000,
+      "github_release": "https://github.com/harrydaihaolin/agent-readiness-leaderboard/releases/tag/v3-2026-05-01",
+      "article": "https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/scanning-1000-ai-repos-v3.draft.md"
+    },
+    {
+      "tag": "v3-prelim-30",
+      "title": "v3 prelim — deterministic 30-repo subsample",
+      "frozen_at": "2026-05-01",
+      "dataset": "v3_sample30_2026-05-01.json",
+      "scores": "scores_v3_sample30_2026-05-01.json",
+      "scan_health": "scan_health_v3_sample30.json",
+      "engine": "agent-readiness>=1.1.0,<2",
+      "rules_pack": "v1.0.0",
+      "checks": 7,
+      "repos": 30,
+      "purpose": "validated the scan path end-to-end before scaling to 1000",
+      "github_release": null,
+      "article": null
+    }
+  ]
+}
