@@ -9,6 +9,6 @@ from __future__ import annotations
 
 PILLARS: tuple[str, ...] = ('cognitive_load', 'feedback', 'flow', 'safety')
 SEVERITIES: tuple[str, ...] = ('info', 'warn', 'error')
-OSS_MATCH_TYPES: tuple[str, ...] = ('file_size', 'path_glob', 'manifest_field', 'regex_in_files', 'command_in_makefile', 'composite')
+OSS_MATCH_TYPES: tuple[str, ...] = ('file_size', 'path_glob', 'manifest_field', 'regex_in_files', 'command_in_makefile')
 
 __all__ = ["PILLARS", "SEVERITIES", "OSS_MATCH_TYPES"]
