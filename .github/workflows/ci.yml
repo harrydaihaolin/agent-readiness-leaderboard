@@ -37,6 +37,14 @@ jobs:
         run: |
           python scripts/regen_protocol_constants.py
           git diff --exit-code -- scripts/_protocol_constants.py
+      # Belt-and-braces: contributors are expected to install local
+      # pre-commit hooks; this step makes CI fail loudly the same way
+      # if they didn't, so a missed `pre-commit install` doesn't sneak
+      # ruff/yaml/etc. errors past review.
+      - name: Install pre-commit
+        run: pip install pre-commit
+      - name: Run all pre-commit hooks
+        run: pre-commit run --all-files --show-diff-on-failure
 
   self-scan:
     runs-on: ubuntu-latest
