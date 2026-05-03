@@ -39,6 +39,20 @@
       "article": "https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/scanning-1000-ai-repos-v3.md"
     },
     {
+      "tag": "v3-2026-05-02",
+      "title": "v3.2 — 1000 popular AI / agent repos, rules-pack v1.5.0",
+      "frozen_at": "2026-05-02",
+      "dataset": "v3_1000_2026-05-02.json",
+      "scores": "scores_v3_1000_2026-05-02.json",
+      "engine": "agent-readiness 1.5.0",
+      "rules_pack": "v1.5.0",
+      "checks": 38,
+      "repos": 993,
+      "github_release": null,
+      "article": "https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/rules_engine_v10_to_v20_journey.md",
+      "purpose": "Phase 0R/0B baseline for the multi-phase rules-engine improvement experiment. v2.0+ snapshot pending (post-EXP-4 dispatch)."
+    },
+    {
       "tag": "v3-prelim-30",
       "title": "v3 prelim — deterministic 30-repo subsample",
       "frozen_at": "2026-05-01",
