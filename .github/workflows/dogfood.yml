@@ -1,0 +1,60 @@
+# Phase C8 dogfood workflow: every repo runs the agent-readiness scanner
+# against itself on every PR. The scanner gates merges on a minimum score
+# (--fail-below 90), pins the single highest-priority structured fix,
+# applies it, and verifies the action's verify command passes.
+#
+# When the apply step fails verify, the workflow exits 1 and the PR is
+# blocked until the maintainer either:
+#   - lowers --fail-below for repos that legitimately can't reach 90 yet, or
+#   - merges the auto-generated fix.
+#
+# This file is templated; copies live at <repo>/.github/workflows/dogfood.yml.
+# Keep this template in sync with each copy when the contract changes.
+
+name: dogfood
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+jobs:
+  agent-readiness-self-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+
+      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Install agent-readiness
+        run: |
+          python -m pip install --upgrade pip
+          # Pin to the released wheel; bump together with Phase C releases.
+          pip install "agent-readiness>=2.3.0"
+
+      - name: Self-scan
+        # --fail-below 90: gate merges on a minimum readiness score.
+        # --apply-top-action: land the single highest-priority structured fix.
+        # --verify: run the action's verify command after applying.
+        # If verify fails, the workflow exits 1 and the PR is blocked.
+        run: |
+          agent-readiness scan . \
+            --fail-below 90 \
+            --apply-top-action \
+            --verify \
+            --no-progress
+
+      - name: Show diff (when apply changed anything)
+        if: always()
+        run: |
+          if ! git diff --quiet; then
+            echo "::group::agent-readiness applied a fix"
+            git --no-pager diff
+            echo "::endgroup::"
+          else
+            echo "agent-readiness applied no changes."
+          fi
