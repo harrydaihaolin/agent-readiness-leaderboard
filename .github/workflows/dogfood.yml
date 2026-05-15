@@ -39,14 +39,13 @@ jobs:
 
       - name: Self-scan
         # --fail-below 90: gate merges on a minimum readiness score.
-        # --apply-top-action: land the single highest-priority structured fix.
-        # --verify: run the action's verify command after applying.
-        # If verify fails, the workflow exits 1 and the PR is blocked.
+        # The apply/verify pair (--apply-top-action / --verify) is wired
+        # back in when the next agent-readiness release ships them; the
+        # 2.1.x line in PyPI doesn't expose those flags yet, and using
+        # them red-lined every PR.
         run: |
           agent-readiness scan . \
             --fail-below 90 \
-            --apply-top-action \
-            --verify \
             --no-progress
 
       - name: Show diff (when apply changed anything)
