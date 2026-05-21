@@ -1,0 +1,1266 @@
+{
+  "updated_at": "2026-05-21T16:54:25.111188+00:00",
+  "cohort_name": "jvm_skewed_v1",
+  "query": {
+    "languages": [
+      "Scala",
+      "Clojure",
+      "Kotlin",
+      "Java",
+      "Erlang",
+      "Elixir",
+      "OCaml",
+      "Julia",
+      "R",
+      "Haskell",
+      "F#",
+      "Groovy"
+    ],
+    "per_language": 12,
+    "base_qualifiers": "fork:false archived:false",
+    "star_bands": [
+      "10001..200000",
+      "2001..10000",
+      "501..2000",
+      "100..500"
+    ]
+  },
+  "max_results": 150,
+  "size": 144,
+  "by_language": {
+    "Clojure": 12,
+    "Elixir": 12,
+    "Erlang": 12,
+    "F#": 12,
+    "Groovy": 12,
+    "Haskell": 12,
+    "Java": 12,
+    "Julia": 12,
+    "Kotlin": 12,
+    "OCaml": 12,
+    "R": 12,
+    "Scala": 12
+  },
+  "repos": [
+    "tonsky/FiraCode",
+    "penpot/penpot",
+    "metabase/metabase",
+    "logseq/logseq",
+    "clojure/clojurescript",
+    "jepsen-io/jepsen",
+    "technomancy/leiningen",
+    "omcljs/om",
+    "athensresearch/athens",
+    "overtone/overtone",
+    "tonsky/datascript",
+    "day8/re-frame",
+    "anoma/anoma",
+    "elixir-lang/elixir",
+    "plausible/analytics",
+    "openai/symphony",
+    "phoenixframework/phoenix",
+    "h4cc/awesome-elixir",
+    "firezone/firezone",
+    "teslamate-org/teslamate",
+    "supabase/realtime",
+    "phoenixframework/phoenix_live_view",
+    "elixir-ecto/ecto",
+    "papercups-io/papercups",
+    "emqx/emqx",
+    "erlang/otp",
+    "ninenines/cowboy",
+    "apache/couchdb",
+    "processone/ejabberd",
+    "dgiot/dgiot",
+    "happi/theBeamBook",
+    "vernemq/vernemq",
+    "processone/tsung",
+    "lfe/lfe",
+    "atomvm/AtomVM",
+    "biokoda/actordb",
+    "dotnet/fsharp",
+    "artempyanykh/marksman",
+    "fable-compiler/Fable",
+    "giraffe-fsharp/Giraffe",
+    "darklang/dark",
+    "fsprojects/Paket",
+    "fsprojects/awesome-fsharp",
+    "yatli/fvim",
+    "SuaveIO/suave",
+    "bryanedds/Nu",
+    "fsprojects/FAKE",
+    "ChrisMarinos/FSharpKoans",
+    "gradle/gradle",
+    "bregman-arie/devops-resources",
+    "rundeck/rundeck",
+    "jenkinsci/pipeline-examples",
+    "HujiangTechnology/gradle_plugin_android_aspectjx",
+    "nextflow-io/nextflow",
+    "kezong/fat-aar-android",
+    "apache/grails-core",
+    "SmartThingsCommunity/SmartThingsPublic",
+    "jenkinsci/job-dsl-plugin",
+    "google/protobuf-gradle-plugin",
+    "sonatype/docker-nexus3",
+    "jgm/pandoc",
+    "koalaman/shellcheck",
+    "PostgREST/postgrest",
+    "hadolint/hadolint",
+    "simplex-chat/simplex-chat",
+    "purescript/purescript",
+    "elm/compiler",
+    "unisonweb/unison",
+    "carp-lang/Carp",
+    "digitallyinduced/ihp",
+    "kmonad/kmonad",
+    "simonmichael/hledger",
+    "krahets/hello-algo",
+    "GrowingGit/GitHub-Chinese-Top-Charts",
+    "iluwatar/java-design-patterns",
+    "macrozheng/mall",
+    "spring-projects/spring-boot",
+    "doocs/advanced-java",
+    "elastic/elasticsearch",
+    "MisterBooo/LeetCodeAnimation",
+    "NationalSecurityAgency/ghidra",
+    "TheAlgorithms/Java",
+    "kdn251/interviews",
+    "spring-projects/spring-framework",
+    "JuliaLang/julia",
+    "FluxML/Flux.jl",
+    "SciML/DifferentialEquations.jl",
+    "JuliaLang/IJulia.jl",
+    "mitmath/computational-thinking",
+    "MakieOrg/Makie.jl",
+    "jump-dev/JuMP.jl",
+    "GenieFramework/Genie.jl",
+    "TuringLang/Turing.jl",
+    "JuliaPlots/Plots.jl",
+    "GiovineItalia/Gadfly.jl",
+    "JuliaAI/MLJ.jl",
+    "topjohnwu/Magisk",
+    "2dust/v2rayNG",
+    "JetBrains/kotlin",
+    "square/okhttp",
+    "gedoor/legado",
+    "android/architecture-samples",
+    "bannedbook/fanqiang",
+    "gkd-kit/gkd",
+    "shadowsocks/shadowsocks-android",
+    "alibaba/p3c",
+    "square/leakcanary",
+    "signalapp/Signal-Android",
+    "facebook/infer",
+    "semgrep/semgrep",
+    "reasonml/reason",
+    "facebook/pyre-check",
+    "ocaml/ocaml",
+    "astrada/google-drive-ocamlfuse",
+    "janestreet/magic-trace",
+    "rocq-prover/rocq",
+    "bcpierce00/unison",
+    "batsh-dev-team/Batsh",
+    "mirage/mirage",
+    "comby-tools/comby",
+    "cxli233/FriendsDontLetFriends",
+    "tidyverse/ggplot2",
+    "qinwf/awesome-R",
+    "rstudio/shiny",
+    "hadley/r4ds",
+    "tidyverse/dplyr",
+    "swirldev/swirl_courses",
+    "rmcelreath/stat_rethinking_2022",
+    "briatte/awesome-network-analysis",
+    "Rdatatable/data.table",
+    "johnmyleswhite/ML_for_Hackers",
+    "rstudio/rmarkdown",
+    "twitter/the-algorithm",
+    "apache/spark",
+    "lichess-org/lila",
+    "scala/scala",
+    "akka/akka-core",
+    "playframework/playframework",
+    "rtyley/bfg-repo-cleaner",
+    "yahoo/CMAK",
+    "gitbucket/gitbucket",
+    "twitter/finagle",
+    "delta-io/delta",
+    "OpenXiangShan/XiangShan"
+  ],
+  "records": [
+    {
+      "full_name": "tonsky/FiraCode",
+      "stars": 81634,
+      "matched_topic": "Clojure",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "penpot/penpot",
+      "stars": 48039,
+      "matched_topic": "Clojure",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "metabase/metabase",
+      "stars": 47393,
+      "matched_topic": "Clojure",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "logseq/logseq",
+      "stars": 43003,
+      "matched_topic": "Clojure",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "clojure/clojurescript",
+      "stars": 9383,
+      "matched_topic": "Clojure",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "jepsen-io/jepsen",
+      "stars": 7388,
+      "matched_topic": "Clojure",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "technomancy/leiningen",
+      "stars": 7309,
+      "matched_topic": "Clojure",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "omcljs/om",
+      "stars": 6631,
+      "matched_topic": "Clojure",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "athensresearch/athens",
+      "stars": 6302,
+      "matched_topic": "Clojure",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "overtone/overtone",
+      "stars": 6185,
+      "matched_topic": "Clojure",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "tonsky/datascript",
+      "stars": 5761,
+      "matched_topic": "Clojure",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "day8/re-frame",
+      "stars": 5533,
+      "matched_topic": "Clojure",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "anoma/anoma",
+      "stars": 33842,
+      "matched_topic": "Elixir",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "elixir-lang/elixir",
+      "stars": 26418,
+      "matched_topic": "Elixir",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "plausible/analytics",
+      "stars": 26241,
+      "matched_topic": "Elixir",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "openai/symphony",
+      "stars": 24393,
+      "matched_topic": "Elixir",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "phoenixframework/phoenix",
+      "stars": 22996,
+      "matched_topic": "Elixir",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "h4cc/awesome-elixir",
+      "stars": 13139,
+      "matched_topic": "Elixir",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "firezone/firezone",
+      "stars": 8618,
+      "matched_topic": "Elixir",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "teslamate-org/teslamate",
+      "stars": 7997,
+      "matched_topic": "Elixir",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "supabase/realtime",
+      "stars": 7560,
+      "matched_topic": "Elixir",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "phoenixframework/phoenix_live_view",
+      "stars": 6761,
+      "matched_topic": "Elixir",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "elixir-ecto/ecto",
+      "stars": 6462,
+      "matched_topic": "Elixir",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "papercups-io/papercups",
+      "stars": 6035,
+      "matched_topic": "Elixir",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "emqx/emqx",
+      "stars": 16299,
+      "matched_topic": "Erlang",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "erlang/otp",
+      "stars": 12139,
+      "matched_topic": "Erlang",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "ninenines/cowboy",
+      "stars": 7498,
+      "matched_topic": "Erlang",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "apache/couchdb",
+      "stars": 6880,
+      "matched_topic": "Erlang",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "processone/ejabberd",
+      "stars": 6678,
+      "matched_topic": "Erlang",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "dgiot/dgiot",
+      "stars": 4822,
+      "matched_topic": "Erlang",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "happi/theBeamBook",
+      "stars": 4029,
+      "matched_topic": "Erlang",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "vernemq/vernemq",
+      "stars": 3585,
+      "matched_topic": "Erlang",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "processone/tsung",
+      "stars": 2624,
+      "matched_topic": "Erlang",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "lfe/lfe",
+      "stars": 2431,
+      "matched_topic": "Erlang",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "atomvm/AtomVM",
+      "stars": 2133,
+      "matched_topic": "Erlang",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "biokoda/actordb",
+      "stars": 1889,
+      "matched_topic": "Erlang",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "dotnet/fsharp",
+      "stars": 4286,
+      "matched_topic": "F#",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "artempyanykh/marksman",
+      "stars": 3187,
+      "matched_topic": "F#",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "fable-compiler/Fable",
+      "stars": 3082,
+      "matched_topic": "F#",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "giraffe-fsharp/Giraffe",
+      "stars": 2237,
+      "matched_topic": "F#",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "darklang/dark",
+      "stars": 2166,
+      "matched_topic": "F#",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "fsprojects/Paket",
+      "stars": 2087,
+      "matched_topic": "F#",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "fsprojects/awesome-fsharp",
+      "stars": 1408,
+      "matched_topic": "F#",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "yatli/fvim",
+      "stars": 1407,
+      "matched_topic": "F#",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "SuaveIO/suave",
+      "stars": 1346,
+      "matched_topic": "F#",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "bryanedds/Nu",
+      "stars": 1329,
+      "matched_topic": "F#",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "fsprojects/FAKE",
+      "stars": 1327,
+      "matched_topic": "F#",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "ChrisMarinos/FSharpKoans",
+      "stars": 1312,
+      "matched_topic": "F#",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "gradle/gradle",
+      "stars": 18577,
+      "matched_topic": "Groovy",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "bregman-arie/devops-resources",
+      "stars": 9537,
+      "matched_topic": "Groovy",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "rundeck/rundeck",
+      "stars": 6119,
+      "matched_topic": "Groovy",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "jenkinsci/pipeline-examples",
+      "stars": 4298,
+      "matched_topic": "Groovy",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "HujiangTechnology/gradle_plugin_android_aspectjx",
+      "stars": 3966,
+      "matched_topic": "Groovy",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "nextflow-io/nextflow",
+      "stars": 3391,
+      "matched_topic": "Groovy",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "kezong/fat-aar-android",
+      "stars": 3288,
+      "matched_topic": "Groovy",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "apache/grails-core",
+      "stars": 2908,
+      "matched_topic": "Groovy",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "SmartThingsCommunity/SmartThingsPublic",
+      "stars": 2652,
+      "matched_topic": "Groovy",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "jenkinsci/job-dsl-plugin",
+      "stars": 1924,
+      "matched_topic": "Groovy",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "google/protobuf-gradle-plugin",
+      "stars": 1831,
+      "matched_topic": "Groovy",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "sonatype/docker-nexus3",
+      "stars": 1628,
+      "matched_topic": "Groovy",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "jgm/pandoc",
+      "stars": 44265,
+      "matched_topic": "Haskell",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "koalaman/shellcheck",
+      "stars": 39468,
+      "matched_topic": "Haskell",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "PostgREST/postgrest",
+      "stars": 27146,
+      "matched_topic": "Haskell",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "hadolint/hadolint",
+      "stars": 12156,
+      "matched_topic": "Haskell",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "simplex-chat/simplex-chat",
+      "stars": 11136,
+      "matched_topic": "Haskell",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "purescript/purescript",
+      "stars": 8867,
+      "matched_topic": "Haskell",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "elm/compiler",
+      "stars": 7786,
+      "matched_topic": "Haskell",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "unisonweb/unison",
+      "stars": 6628,
+      "matched_topic": "Haskell",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "carp-lang/Carp",
+      "stars": 5915,
+      "matched_topic": "Haskell",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "digitallyinduced/ihp",
+      "stars": 5286,
+      "matched_topic": "Haskell",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "kmonad/kmonad",
+      "stars": 4985,
+      "matched_topic": "Haskell",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "simonmichael/hledger",
+      "stars": 4501,
+      "matched_topic": "Haskell",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "krahets/hello-algo",
+      "stars": 126294,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "GrowingGit/GitHub-Chinese-Top-Charts",
+      "stars": 108043,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "iluwatar/java-design-patterns",
+      "stars": 94025,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "macrozheng/mall",
+      "stars": 83666,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "spring-projects/spring-boot",
+      "stars": 80683,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "doocs/advanced-java",
+      "stars": 78974,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "elastic/elasticsearch",
+      "stars": 76739,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "MisterBooo/LeetCodeAnimation",
+      "stars": 76613,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "NationalSecurityAgency/ghidra",
+      "stars": 68710,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "TheAlgorithms/Java",
+      "stars": 65690,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "kdn251/interviews",
+      "stars": 64969,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "spring-projects/spring-framework",
+      "stars": 59963,
+      "matched_topic": "Java",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "JuliaLang/julia",
+      "stars": 48725,
+      "matched_topic": "Julia",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "FluxML/Flux.jl",
+      "stars": 4727,
+      "matched_topic": "Julia",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "SciML/DifferentialEquations.jl",
+      "stars": 3103,
+      "matched_topic": "Julia",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "JuliaLang/IJulia.jl",
+      "stars": 2894,
+      "matched_topic": "Julia",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "mitmath/computational-thinking",
+      "stars": 2810,
+      "matched_topic": "Julia",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "MakieOrg/Makie.jl",
+      "stars": 2761,
+      "matched_topic": "Julia",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "jump-dev/JuMP.jl",
+      "stars": 2439,
+      "matched_topic": "Julia",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "GenieFramework/Genie.jl",
+      "stars": 2408,
+      "matched_topic": "Julia",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "TuringLang/Turing.jl",
+      "stars": 2240,
+      "matched_topic": "Julia",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "JuliaPlots/Plots.jl",
+      "stars": 1945,
+      "matched_topic": "Julia",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "GiovineItalia/Gadfly.jl",
+      "stars": 1926,
+      "matched_topic": "Julia",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "JuliaAI/MLJ.jl",
+      "stars": 1919,
+      "matched_topic": "Julia",
+      "matched_star_band": "501..2000"
+    },
+    {
+      "full_name": "topjohnwu/Magisk",
+      "stars": 60548,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "2dust/v2rayNG",
+      "stars": 56537,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "JetBrains/kotlin",
+      "stars": 52756,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "square/okhttp",
+      "stars": 46978,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "gedoor/legado",
+      "stars": 46820,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "android/architecture-samples",
+      "stars": 45699,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "bannedbook/fanqiang",
+      "stars": 45602,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "gkd-kit/gkd",
+      "stars": 38763,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "shadowsocks/shadowsocks-android",
+      "stars": 36665,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "alibaba/p3c",
+      "stars": 30839,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "square/leakcanary",
+      "stars": 29922,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "signalapp/Signal-Android",
+      "stars": 28824,
+      "matched_topic": "Kotlin",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "facebook/infer",
+      "stars": 15615,
+      "matched_topic": "OCaml",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "semgrep/semgrep",
+      "stars": 15212,
+      "matched_topic": "OCaml",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "reasonml/reason",
+      "stars": 10312,
+      "matched_topic": "OCaml",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "facebook/pyre-check",
+      "stars": 7162,
+      "matched_topic": "OCaml",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "ocaml/ocaml",
+      "stars": 6345,
+      "matched_topic": "OCaml",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "astrada/google-drive-ocamlfuse",
+      "stars": 5928,
+      "matched_topic": "OCaml",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "janestreet/magic-trace",
+      "stars": 5482,
+      "matched_topic": "OCaml",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "rocq-prover/rocq",
+      "stars": 5461,
+      "matched_topic": "OCaml",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "bcpierce00/unison",
+      "stars": 5316,
+      "matched_topic": "OCaml",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "batsh-dev-team/Batsh",
+      "stars": 4351,
+      "matched_topic": "OCaml",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "mirage/mirage",
+      "stars": 2910,
+      "matched_topic": "OCaml",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "comby-tools/comby",
+      "stars": 2651,
+      "matched_topic": "OCaml",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "cxli233/FriendsDontLetFriends",
+      "stars": 7060,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "tidyverse/ggplot2",
+      "stars": 6933,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "qinwf/awesome-R",
+      "stars": 6460,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "rstudio/shiny",
+      "stars": 5651,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "hadley/r4ds",
+      "stars": 5055,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "tidyverse/dplyr",
+      "stars": 5025,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "swirldev/swirl_courses",
+      "stars": 4549,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "rmcelreath/stat_rethinking_2022",
+      "stars": 4104,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "briatte/awesome-network-analysis",
+      "stars": 4044,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "Rdatatable/data.table",
+      "stars": 3890,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "johnmyleswhite/ML_for_Hackers",
+      "stars": 3739,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "rstudio/rmarkdown",
+      "stars": 3038,
+      "matched_topic": "R",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "twitter/the-algorithm",
+      "stars": 73293,
+      "matched_topic": "Scala",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "apache/spark",
+      "stars": 43314,
+      "matched_topic": "Scala",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "lichess-org/lila",
+      "stars": 18220,
+      "matched_topic": "Scala",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "scala/scala",
+      "stars": 14452,
+      "matched_topic": "Scala",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "akka/akka-core",
+      "stars": 13277,
+      "matched_topic": "Scala",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "playframework/playframework",
+      "stars": 12620,
+      "matched_topic": "Scala",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "rtyley/bfg-repo-cleaner",
+      "stars": 12114,
+      "matched_topic": "Scala",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "yahoo/CMAK",
+      "stars": 11934,
+      "matched_topic": "Scala",
+      "matched_star_band": "10001..200000"
+    },
+    {
+      "full_name": "gitbucket/gitbucket",
+      "stars": 9370,
+      "matched_topic": "Scala",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "twitter/finagle",
+      "stars": 8864,
+      "matched_topic": "Scala",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "delta-io/delta",
+      "stars": 8818,
+      "matched_topic": "Scala",
+      "matched_star_band": "2001..10000"
+    },
+    {
+      "full_name": "OpenXiangShan/XiangShan",
+      "stars": 7029,
+      "matched_topic": "Scala",
+      "matched_star_band": "2001..10000"
+    }
+  ],
+  "search_meta": [
+    {
+      "http_status": 200,
+      "query": "language:Scala fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 8,
+      "incomplete_results": false,
+      "accepted": 8
+    },
+    {
+      "http_status": 200,
+      "query": "language:Scala fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 62,
+      "incomplete_results": false,
+      "accepted": 4
+    },
+    {
+      "http_status": 200,
+      "query": "language:Clojure fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 4,
+      "incomplete_results": false,
+      "accepted": 4
+    },
+    {
+      "http_status": 200,
+      "query": "language:Clojure fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 38,
+      "incomplete_results": false,
+      "accepted": 8
+    },
+    {
+      "http_status": 200,
+      "query": "language:Kotlin fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 55,
+      "incomplete_results": false,
+      "accepted": 12
+    },
+    {
+      "http_status": 200,
+      "query": "language:Java fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 232,
+      "incomplete_results": false,
+      "accepted": 12
+    },
+    {
+      "http_status": 200,
+      "query": "language:Erlang fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 2,
+      "incomplete_results": false,
+      "accepted": 2
+    },
+    {
+      "http_status": 200,
+      "query": "language:Erlang fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 9,
+      "incomplete_results": false,
+      "accepted": 9
+    },
+    {
+      "http_status": 200,
+      "query": "language:Erlang fork:false archived:false stars:501..2000",
+      "page": 1,
+      "total_count": 67,
+      "incomplete_results": false,
+      "accepted": 1
+    },
+    {
+      "http_status": 200,
+      "query": "language:Elixir fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 6,
+      "incomplete_results": false,
+      "accepted": 6
+    },
+    {
+      "http_status": 200,
+      "query": "language:Elixir fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 40,
+      "incomplete_results": false,
+      "accepted": 6
+    },
+    {
+      "http_status": 200,
+      "query": "language:OCaml fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 3,
+      "incomplete_results": false,
+      "accepted": 3
+    },
+    {
+      "http_status": 200,
+      "query": "language:OCaml fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 15,
+      "incomplete_results": false,
+      "accepted": 9
+    },
+    {
+      "http_status": 200,
+      "query": "language:Julia fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 1,
+      "incomplete_results": false,
+      "accepted": 1
+    },
+    {
+      "http_status": 200,
+      "query": "language:Julia fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 8,
+      "incomplete_results": false,
+      "accepted": 8
+    },
+    {
+      "http_status": 200,
+      "query": "language:Julia fork:false archived:false stars:501..2000",
+      "page": 1,
+      "total_count": 112,
+      "incomplete_results": false,
+      "accepted": 3
+    },
+    {
+      "http_status": 200,
+      "query": "language:R fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 0,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "language:R fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 26,
+      "incomplete_results": false,
+      "accepted": 12
+    },
+    {
+      "http_status": 200,
+      "query": "language:Haskell fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 5,
+      "incomplete_results": false,
+      "accepted": 5
+    },
+    {
+      "http_status": 200,
+      "query": "language:Haskell fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 37,
+      "incomplete_results": false,
+      "accepted": 7
+    },
+    {
+      "http_status": 200,
+      "query": "language:\"F#\" fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 0,
+      "incomplete_results": false,
+      "accepted": 0
+    },
+    {
+      "http_status": 200,
+      "query": "language:\"F#\" fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 6,
+      "incomplete_results": false,
+      "accepted": 6
+    },
+    {
+      "http_status": 200,
+      "query": "language:\"F#\" fork:false archived:false stars:501..2000",
+      "page": 1,
+      "total_count": 43,
+      "incomplete_results": false,
+      "accepted": 6
+    },
+    {
+      "http_status": 200,
+      "query": "language:Groovy fork:false archived:false stars:10001..200000",
+      "page": 1,
+      "total_count": 1,
+      "incomplete_results": false,
+      "accepted": 1
+    },
+    {
+      "http_status": 200,
+      "query": "language:Groovy fork:false archived:false stars:2001..10000",
+      "page": 1,
+      "total_count": 8,
+      "incomplete_results": false,
+      "accepted": 8
+    },
+    {
+      "http_status": 200,
+      "query": "language:Groovy fork:false archived:false stars:501..2000",
+      "page": 1,
+      "total_count": 52,
+      "incomplete_results": false,
+      "accepted": 3
+    }
+  ]
+}
