@@ -1,0 +1,1013 @@
+{
+  "last_updated": "2026-05-21T17:20:57.860761+00:00",
+  "repos": [
+    {
+      "repo": "JetBrains/kotlin",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "clone_timeout"
+    },
+    {
+      "repo": "MakieOrg/Makie.jl",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "clone_timeout"
+    },
+    {
+      "repo": "bannedbook/fanqiang",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "clone_timeout"
+    },
+    {
+      "repo": "elastic/elasticsearch",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "clone_timeout"
+    },
+    {
+      "repo": "erlang/otp",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "scan_timeout"
+    },
+    {
+      "repo": "facebook/infer",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "scan_timeout"
+    },
+    {
+      "repo": "gradle/gradle",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "clone_timeout"
+    },
+    {
+      "repo": "krahets/hello-algo",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "scan_timeout"
+    },
+    {
+      "repo": "metabase/metabase",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "clone_timeout"
+    },
+    {
+      "repo": "mitmath/computational-thinking",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "clone_timeout"
+    },
+    {
+      "repo": "signalapp/Signal-Android",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "clone_timeout"
+    },
+    {
+      "repo": "tidyverse/ggplot2",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "clone_timeout"
+    },
+    {
+      "repo": "twitter/the-algorithm",
+      "last_success_ts": null,
+      "last_failure_ts": "2026-05-21T17:20:57.860761+00:00",
+      "consecutive_failures": 1,
+      "error_class": "scan_timeout"
+    },
+    {
+      "repo": "2dust/v2rayNG",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "ChrisMarinos/FSharpKoans",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "FluxML/Flux.jl",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "GenieFramework/Genie.jl",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "GiovineItalia/Gadfly.jl",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "GrowingGit/GitHub-Chinese-Top-Charts",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "HujiangTechnology/gradle_plugin_android_aspectjx",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "JuliaAI/MLJ.jl",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "JuliaLang/IJulia.jl",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "JuliaLang/julia",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "JuliaPlots/Plots.jl",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "MisterBooo/LeetCodeAnimation",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "NationalSecurityAgency/ghidra",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "OpenXiangShan/XiangShan",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "PostgREST/postgrest",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "Rdatatable/data.table",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "SciML/DifferentialEquations.jl",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "SmartThingsCommunity/SmartThingsPublic",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "SuaveIO/suave",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "TheAlgorithms/Java",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "TuringLang/Turing.jl",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "akka/akka-core",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "alibaba/p3c",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "android/architecture-samples",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "anoma/anoma",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "apache/couchdb",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "apache/grails-core",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "apache/spark",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "artempyanykh/marksman",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "astrada/google-drive-ocamlfuse",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "athensresearch/athens",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "atomvm/AtomVM",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "batsh-dev-team/Batsh",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "bcpierce00/unison",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "biokoda/actordb",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "bregman-arie/devops-resources",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "briatte/awesome-network-analysis",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "bryanedds/Nu",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "carp-lang/Carp",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "clojure/clojurescript",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "comby-tools/comby",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "cxli233/FriendsDontLetFriends",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "darklang/dark",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "day8/re-frame",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "delta-io/delta",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "dgiot/dgiot",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "digitallyinduced/ihp",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "doocs/advanced-java",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "dotnet/fsharp",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "elixir-ecto/ecto",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "elixir-lang/elixir",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "elm/compiler",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "emqx/emqx",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "fable-compiler/Fable",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "facebook/pyre-check",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "firezone/firezone",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "fsprojects/FAKE",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "fsprojects/Paket",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "fsprojects/awesome-fsharp",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "gedoor/legado",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "giraffe-fsharp/Giraffe",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "gitbucket/gitbucket",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "gkd-kit/gkd",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "google/protobuf-gradle-plugin",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "h4cc/awesome-elixir",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "hadley/r4ds",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "hadolint/hadolint",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "happi/theBeamBook",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "iluwatar/java-design-patterns",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "janestreet/magic-trace",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "jenkinsci/job-dsl-plugin",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "jenkinsci/pipeline-examples",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "jepsen-io/jepsen",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "jgm/pandoc",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "johnmyleswhite/ML_for_Hackers",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "jump-dev/JuMP.jl",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "kdn251/interviews",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "kezong/fat-aar-android",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "kmonad/kmonad",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "koalaman/shellcheck",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "lfe/lfe",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "lichess-org/lila",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "logseq/logseq",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "macrozheng/mall",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "mirage/mirage",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "nextflow-io/nextflow",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "ninenines/cowboy",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "ocaml/ocaml",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "omcljs/om",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "openai/symphony",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "overtone/overtone",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "papercups-io/papercups",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "penpot/penpot",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "phoenixframework/phoenix",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "phoenixframework/phoenix_live_view",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "plausible/analytics",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "playframework/playframework",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "processone/ejabberd",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "processone/tsung",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "purescript/purescript",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "qinwf/awesome-R",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "reasonml/reason",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "rmcelreath/stat_rethinking_2022",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "rocq-prover/rocq",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "rstudio/rmarkdown",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "rstudio/shiny",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "rtyley/bfg-repo-cleaner",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "rundeck/rundeck",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "scala/scala",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "semgrep/semgrep",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "shadowsocks/shadowsocks-android",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "simonmichael/hledger",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "simplex-chat/simplex-chat",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "sonatype/docker-nexus3",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "spring-projects/spring-boot",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "spring-projects/spring-framework",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "square/leakcanary",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "square/okhttp",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "supabase/realtime",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "swirldev/swirl_courses",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "technomancy/leiningen",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "teslamate-org/teslamate",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "tidyverse/dplyr",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "tonsky/FiraCode",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "tonsky/datascript",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "topjohnwu/Magisk",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "twitter/finagle",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "unisonweb/unison",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "vernemq/vernemq",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "yahoo/CMAK",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    },
+    {
+      "repo": "yatli/fvim",
+      "last_success_ts": "2026-05-21T17:20:57.860761+00:00",
+      "last_failure_ts": null,
+      "consecutive_failures": 0,
+      "error_class": null
+    }
+  ]
+}

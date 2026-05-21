@@ -3,6 +3,22 @@
   "schema_version": 1,
   "releases": [
     {
+      "tag": "v3.3-2026-05-21",
+      "title": "v3.3 — 1000-repo cohort re-scan with agent-readiness 2.4.6 (rules pack v2.4.1)",
+      "frozen_at": "2026-05-21",
+      "dataset": "v3_1000_2026-05-02.json",
+      "scores": "scores_v3_1000_2026-05-21.json",
+      "engine": "agent-readiness==2.4.6",
+      "rules_pack": "v2.4.1",
+      "checks": 38,
+      "repos": 985,
+      "purpose": "Validation snapshot for the 2026-05-21 calibration cycle. Same v3.2 cohort, re-scanned after the safety.gitleaks_config precondition gate (engine v2.4.5) and the rules-pack vendor bump (engine v2.4.6). Paired against scores_v3_1000_2026-05-02.json: safety.gitleaks_config 64.9% -> 62.2% (-2.6 pp); gitignore.covers_junk 61.4% -> 59.7% (-1.7 pp, v2.4.4 fix intact).",
+      "github_release": null,
+      "article": "https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/aaif_evidence/2026-05-21_calibration_cycle.md",
+      "paired_against": "scores_v3_1000_2026-05-02.json",
+      "paired_diff": "data/self_improvement_2026-05-21/clearance_v3_v246.md (in agent-readiness-research)"
+    },
+    {
       "tag": "v3.2-2026-05-02",
       "title": "v3.2 — 1000 popular AI / agent repos (rules pack v1.5.0 re-scan)",
       "frozen_at": "2026-05-02",
@@ -66,6 +82,23 @@
       "purpose": "validated the scan path end-to-end before scaling to 1000",
       "github_release": null,
       "article": null
+    },
+    {
+      "tag": "jvm-skewed-v1-2026-05-21",
+      "title": "JVM-skewed v1 — 144 repos × 12 languages, baseline scan with agent-readiness 2.4.6",
+      "frozen_at": "2026-05-21",
+      "cohort_kind": "language_stratified",
+      "dataset": "../cohorts/jvm_skewed_v1.json",
+      "scores": "../cohorts/scores/jvm_skewed_v1_2.4.6.json",
+      "engine": "agent-readiness==2.4.6",
+      "rules_pack": "v2.4.1",
+      "checks": 38,
+      "repos": 131,
+      "repos_planned": 144,
+      "languages": ["Scala", "Clojure", "Kotlin", "Java", "Erlang", "Elixir", "OCaml", "Julia", "R", "Haskell", "F#", "Groovy"],
+      "purpose": "Language-stratified validation cohort built because the v3 cohort (topic-keyed: llm/agents/rag) under-represents JVM and long-tail-language ecosystems (0 Scala, 1 Clojure, 1 Julia, 6 Kotlin, 15 Java in 993 v3 repos). 12 production repos per language. First baseline scan with v2.4.6: safety.gitleaks_config aggregate 42.7% — 22.2 pp below the v3-cohort 64.9% baseline, the population-level signal the precondition gate was designed to produce. Becomes the comparison baseline for the next calibration cycle.",
+      "github_release": null,
+      "article": "https://github.com/harrydaihaolin/agent-readiness-research/blob/main/research/aaif_evidence/2026-05-21_calibration_cycle.md"
     }
   ]
 }
