@@ -52,7 +52,7 @@ jobs:
       shard_count: ${{ steps.resolve.outputs.shard_count }}
       shard_matrix: ${{ steps.resolve.outputs.shard_matrix }}
     steps:
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # pin to v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin to v5
 
       - name: Resolve frozen dataset + shard plan
         id: resolve
@@ -93,7 +93,7 @@ jobs:
       matrix:
         shard: ${{ fromJson(needs.discover.outputs.shard_matrix) }}
     steps:
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # pin to v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin to v5
         with:
           fetch-depth: 1
 
@@ -140,7 +140,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # pin to v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin to v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
